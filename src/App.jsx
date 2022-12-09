@@ -1,6 +1,6 @@
-import { Route, Switch, Redirect } from "react-router-dom";
-import "./App.css";
 import React, { Suspense } from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
+import "./App.css";
 
 import Layout from "./components/layout/Layout";
 import LoadingSpinner from "./components/UI/LoadingSpinner";
