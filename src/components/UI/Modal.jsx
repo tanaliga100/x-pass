@@ -1,8 +1,6 @@
 import React from "react";
 
 const Modal = (props) => {
-  setInterval(() => {}, 1000);
-
   return (
     <h3
       style={{
