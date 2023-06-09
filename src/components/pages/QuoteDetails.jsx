@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { useParams, Route, Link, useRouteMatch } from "react-router-dom";
+import { Link, Route, useParams, useRouteMatch } from "react-router-dom";
+import LoadingSpinner from "../UI/LoadingSpinner";
 import Comments from "../comments/Comments";
-import HighlightedQuote from "../quotes/HighlightedQuote";
 import useHttp from "../hooks/use-http";
 import { getSingleQuote } from "../lib/api";
-import LoadingSpinner from "../UI/LoadingSpinner";
+import HighlightedQuote from "../quotes/HighlightedQuote";
 
 // const DUMMY_QUOTES = [
 //   { id: "q1", author: "Jordan Tanaliga", text: "Learning React is fun !!" },
