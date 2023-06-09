@@ -1,22 +1,17 @@
-import {Link} from "react-router-dom"
-import classes from './QuoteItem.module.css';
+import { Link } from "react-router-dom";
 
 const QuoteItem = (props) => {
   return (
-    <li className={classes.item}>
+    <li>
       <figure>
         <blockquote>
-          <p>{props.text}</p>
+          <h1>{props.text}</h1>
         </blockquote>
-        
+
         <figcaption>{props.author}</figcaption>
       </figure>
-      <Link className='btn'  to={`/quotes/${props.id}`}>
-        View Fullscreen
-      </Link>
+      <Link to={`/quotes/${props.id}`}>View Fullscreen</Link>
     </li>
-
-
   );
 };
 
