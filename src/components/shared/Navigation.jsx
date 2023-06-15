@@ -25,7 +25,6 @@ const Navigation = () => {
     </Header>
   );
 };
-
 export default Navigation;
 
 const Header = styled.div`
