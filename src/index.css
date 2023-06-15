@@ -8,10 +8,21 @@
 body {
   font-family: "Poppins";
   margin: 0;
-  background-color: white;
-  color: tan;
+  background-color: transparent;
 }
-
+header {
+  background-image: white !important;
+}
+img {
+  text-align: left;
+}
+.outlet {
+}
+.navigation {
+}
+.active {
+  color: crimson;
+}
 /* .centered {
   margin: 3rem auto;
   text-align: center;

@@ -1,16 +1,22 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { styled } from "styled-components";
-import Footer from "../pages/Footer";
-import Navigation from "../shared/MainNavigation";
+import Footer from "../shared/Footer";
+import Header from "../shared/Header";
+import Navigation from "../shared/Navigation";
 const RootLayout = () => {
   return (
     <section>
       <header>
-        <Navigation />
+        <Header />
       </header>
       <MainContent>
-        <Outlet />
+        <div className="navigation">
+          <Navigation />
+        </div>
+        <div className="outlet">
+          <Outlet />
+        </div>
       </MainContent>
       <footer>
         <Footer />
@@ -23,9 +29,9 @@ export default RootLayout;
 
 const MainContent = styled.main`
   width: 100%;
+  gap: 1rem;
   min-height: 25rem;
   display: grid;
-  padding-left: 2rem;
-  padding: 2rem 0;
   grid-template-columns: 20% 80%;
+  background-color: transparent !important;
 `;
