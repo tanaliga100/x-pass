@@ -1,20 +1,21 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import logotrans from "../../logo-trans.png";
 
-const MainNavigation = () => {
+import logotrans from "../../assets/logo-trans.png";
+
+const Navigation = () => {
   return (
     <Header>
       <div>
         <Link to="/">
-          <img src={logotrans} alt="logo" width={200} height={120} />
+          <img src={logotrans} alt="logo" width={200} height={80} />
         </Link>
       </div>
       <nav>
         <ul>
           <li>
-            <NavLink to="/quotes" className="link">
+            <NavLink to="/" className="link">
               All Quotes
             </NavLink>
           </li>
@@ -30,18 +31,14 @@ const MainNavigation = () => {
   );
 };
 
-export default MainNavigation;
+export default Navigation;
 
 const Header = styled.div`
-  min-height: 4rem;
+  background-color: teal;
   display: grid;
   grid-template-columns: 20% 80%;
   align-items: center;
   justify-content: start;
-
-  div {
-    margin-left: 2rem;
-  }
 
   nav {
     ul {
@@ -54,6 +51,7 @@ const Header = styled.div`
 
     a {
       text-decoration: none;
+      color: tan;
     }
 
     li {
