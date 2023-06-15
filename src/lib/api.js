@@ -1,8 +1,8 @@
-const FIREBASE_DOMAIN =
-  "https://react-quotes-2ee2f-default-rtdb.asia-southeast1.firebasedatabase.app/";
+// const FIREBASE_DOMAIN =
+//   "https://react-quotes-2ee2f-default-rtdb.asia-southeast1.firebasedatabase.app/";
 
 export async function getAllQuotes() {
-  const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`);
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/quotes.json`);
   const data = await response.json();
 
   if (!response.ok) {
@@ -24,7 +24,9 @@ export async function getAllQuotes() {
 }
 
 export async function getSingleQuote(quoteId) {
-  const response = await fetch(`${FIREBASE_DOMAIN}/quotes/${quoteId}.json`);
+  const response = await fetch(
+    `${import.meta.env.VITE_API_URL}/quotes/${quoteId}.json`
+  );
   const data = await response.json();
 
   if (!response.ok) {
@@ -40,7 +42,7 @@ export async function getSingleQuote(quoteId) {
 }
 
 export async function addQuote(quoteData) {
-  const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/quotes.json`, {
     method: "POST",
     body: JSON.stringify(quoteData),
     headers: {
@@ -58,7 +60,7 @@ export async function addQuote(quoteData) {
 
 export async function addComment(requestData) {
   const response = await fetch(
-    `${FIREBASE_DOMAIN}/comments/${requestData.quoteId}.json`,
+    `${import.meta.env.VITE_API_URL}/comments/${requestData.quoteId}.json`,
     {
       method: "POST",
       body: JSON.stringify(requestData.commentData),
@@ -77,7 +79,9 @@ export async function addComment(requestData) {
 }
 
 export async function getAllComments(quoteId) {
-  const response = await fetch(`${FIREBASE_DOMAIN}/comments/${quoteId}.json`);
+  const response = await fetch(
+    `${import.meta.env.VITE_API_URL}/comments/${quoteId}.json`
+  );
 
   const data = await response.json();
 

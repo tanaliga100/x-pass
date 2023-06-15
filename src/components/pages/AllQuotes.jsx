@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
+import useHttp from "../../hooks/use-http";
+import { getAllQuotes } from "../../lib/api";
 import LoadingSpinner from "../UI/LoadingSpinner";
-import useHttp from "../hooks/use-http";
-import { getAllQuotes } from "../lib/api";
-import NoQuotesFound from "../quotes/NoQuotesFound";
-import QuoteList from "../quotes/QuoteList";
+import NoQuotesFound from "../views/quotes/NoQuotesFound";
+import QuoteList from "../views/quotes/QuoteList";
 
 const AllQuotes = () => {
   const {

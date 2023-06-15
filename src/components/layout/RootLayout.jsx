@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { styled } from "styled-components";
 import Footer from "../pages/Footer";
-import Navigation from "./MainNavigation";
+import Navigation from "../shared/MainNavigation";
 const RootLayout = () => {
   return (
     <section>
@@ -28,5 +28,4 @@ const MainContent = styled.main`
   padding-left: 2rem;
   padding: 2rem 0;
   grid-template-columns: 20% 80%;
-  background-color: #00808047;
 `;
