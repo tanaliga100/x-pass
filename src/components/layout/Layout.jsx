@@ -1,16 +1,17 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import { styled } from "styled-components";
 import MainNavigation from "./MainNavigation";
-const Layout = (props) => {
+const RootLayout = (props) => {
   return (
     <React.Fragment>
       <MainNavigation />
-      <MainContent>{props.children}</MainContent>
+      <Outlet />
     </React.Fragment>
   );
 };
 
-export default Layout;
+export default RootLayout;
 
 export const MainContent = styled.main`
   display: grid;

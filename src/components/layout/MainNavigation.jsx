@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom/cjs/react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import logotrans from "../../logo-trans.png";
 
