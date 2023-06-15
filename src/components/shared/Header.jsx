@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <HeaderContent>
       <Link to="/">
-        <img src={logotrans} alt="logo" width={200} height={100} />
+        <img src={logotrans} alt="logo" width={200} height={80} />
       </Link>
     </HeaderContent>
   );
@@ -19,8 +19,9 @@ const HeaderContent = styled.div`
   width: 100%;
   margin: 0 auto;
   justify-content: left;
-  min-height: 5rem;
+  min-height: 3rem;
   color: #008080;
+  background-color: #20010108;
   font-size: larger;
   font-weight: 700;
 `;

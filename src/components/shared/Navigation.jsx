@@ -12,7 +12,7 @@ const Navigation = () => {
       >
         <CgNotes size={20} />
         {"  "}
-        All Quotes
+        ALL QUOTES
       </NavLink>
       <NavLink
         to="/new-quote"
@@ -20,7 +20,7 @@ const Navigation = () => {
       >
         <BiMessageAdd size={20} />
         {"  "}
-        Add Quote
+        ADD QUOTE
       </NavLink>
     </Header>
   );
@@ -30,18 +30,19 @@ export default Navigation;
 const Header = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   min-height: 80%;
 
   a {
     text-decoration: none;
-    gap: 1rem;
+    gap: 01rem;
     display: flex;
     text-align: center;
     align-items: center;
     padding-left: 2rem;
-    font-size: large;
-    font-weight: 600;
+    letter-spacing: 0.1rem;
+    font-size: small;
+    font-weight: 500;
   }
   .nav-link {
     color: black;
