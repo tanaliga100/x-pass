@@ -16,13 +16,12 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<RootLayout />}>
-        <Route index element={<AllQuotes />} />
+        <Route index path="quotes" element={<AllQuotes />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
 }
-
 export default App;
 
 {

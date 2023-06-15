@@ -14,6 +14,7 @@ const FooterContent = styled.div`
   text-align: center;
   min-height: 5rem;
   align-items: center;
-  background-color: teal;
-  color: white;
+  color: teal;
+  font-size: larger;
+  font-weight: 700;
 `;

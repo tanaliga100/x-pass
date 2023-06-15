@@ -34,7 +34,6 @@ const Navigation = () => {
 export default Navigation;
 
 const Header = styled.div`
-  background-color: teal;
   display: grid;
   grid-template-columns: 20% 80%;
   align-items: center;
@@ -51,7 +50,9 @@ const Header = styled.div`
 
     a {
       text-decoration: none;
-      color: tan;
+      color: teal;
+      font-size: larger;
+      font-weight: 700;
     }
 
     li {

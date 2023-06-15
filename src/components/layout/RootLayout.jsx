@@ -22,6 +22,8 @@ const RootLayout = () => {
 export default RootLayout;
 
 const MainContent = styled.main`
+  width: 100%;
+  min-height: 25rem;
   display: grid;
   padding-left: 2rem;
   padding: 2rem 0;
