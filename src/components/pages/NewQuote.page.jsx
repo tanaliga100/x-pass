@@ -1,21 +1,33 @@
-import { AiOutlineAppstoreAdd } from "react-icons/ai";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
+import { addQuote } from "../../api/api";
+import useHttp from "../../hooks/use-http";
 import QuoteForm from "../views/quotes/QuoteForm";
 const NewQuotePage = () => {
+  const { sendRequest, status } = useHttp(addQuote);
+  const navigate = useNavigate();
+  React.useEffect(() => {
+    if (status === "completed") {
+      navigate("/quotes");
+    }
+  }, [status]);
+
+  // HANDLE FORM SUBMISSION || PERSISTENT
+  const addQuoteHandler = async (quoteData) => {
+    console.log("tobeSubmitted", quoteData);
+    await sendRequest(quoteData);
+  };
   return (
     <PageWrapper>
       <h1 className="title">
-        <div className="content">
-          <AiOutlineAppstoreAdd size={20} />
-          Add a New Quote
-        </div>
+        <div className="content"></div>
         {"   "}
       </h1>
-      <QuoteForm />
+      <QuoteForm onAdd={addQuoteHandler} />
     </PageWrapper>
   );
 };
-
 export default NewQuotePage;
 
 const PageWrapper = styled.main`
@@ -27,7 +39,7 @@ const PageWrapper = styled.main`
 
     .content {
       display: flex;
-      justify-content: baseline;
+      justify-content: center;
       align-items: center;
       gap: 1rem;
     }
