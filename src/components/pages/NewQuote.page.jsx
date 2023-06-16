@@ -9,14 +9,13 @@ const NewQuotePage = () => {
   const navigate = useNavigate();
   React.useEffect(() => {
     if (status === "completed") {
-      navigate("/quotes");
+      navigate("/");
     }
   }, [status]);
 
   // HANDLE FORM SUBMISSION || PERSISTENT
-  const addQuoteHandler = async (quoteData) => {
-    console.log("tobeSubmitted", quoteData);
-    await sendRequest(quoteData);
+  const addQuoteHandler = (quoteData) => {
+    sendRequest(quoteData);
   };
   return (
     <PageWrapper>

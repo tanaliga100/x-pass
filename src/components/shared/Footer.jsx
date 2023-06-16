@@ -21,15 +21,20 @@ const FooterContent = styled.div`
   width: 100%;
   display: flex;
   min-height: 4rem;
-  padding-left: 3rem;
+  padding-left: 1rem;
+
   color: black;
-  font-size: small;
-  font-weight: 700;
+
   align-items: center;
   background-image: url("");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
+
+  pre {
+    font-size: 0.5rem;
+    font-weight: 200;
+  }
 
   span {
     color: crimson;

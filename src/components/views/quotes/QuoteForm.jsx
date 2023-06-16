@@ -80,6 +80,11 @@ const FormWrapper = styled.main`
   gap: 1rem;
 
   textarea {
+    background-image: url("https://images.pexels.com/photos/372748/pexels-photo-372748.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: auto;
+    color: grey;
     width: 80%;
     text-align: center;
     margin: 0 auto;
@@ -87,6 +92,10 @@ const FormWrapper = styled.main`
     border: none;
   }
   input {
+    background-image: url("https://images.pexels.com/photos/372748/pexels-photo-372748.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-position: top;
+    color: grey;
+
     width: 80%;
     padding: 1rem;
     border: none;
@@ -96,8 +105,8 @@ const FormWrapper = styled.main`
   button {
     width: 30%;
     border: none;
-    background-color: white;
-    color: crimson;
+    background-color: crimson;
+    color: white;
     padding: 0.5rem;
     font-size: small;
     font-weight: 300;
@@ -105,7 +114,7 @@ const FormWrapper = styled.main`
     display: flex;
     gap: 0.4rem;
     &:hover {
-      background-color: crimson;
+      background-color: red;
       color: white;
       cursor: pointer;
     }

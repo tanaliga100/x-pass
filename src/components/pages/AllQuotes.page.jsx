@@ -3,6 +3,7 @@ import { BsListStars } from "react-icons/bs";
 import { styled } from "styled-components";
 import { getAllQuotes } from "../../api/api";
 import useHttp from "../../hooks/use-http";
+import SearchLyrics from "../UI/SearchLyrics";
 import { default as QuoteItem } from "../views/quotes/QuoteItem";
 
 const AllQuotesPage = () => {
@@ -20,23 +21,26 @@ const AllQuotesPage = () => {
   if (state.status === "pending") {
     return <div>Loading...</div>;
   }
-
   return (
     <PageWrapper>
       <section className="title">
         <div className="content">
           <BsListStars size={20} />
-          List of All Quotable Lyrics
+          <p>List of All Quotable Lyrics</p>
           <button className="btn">
             {state.data && state.data.length > 0 && "Sort"}
           </button>
+          <SearchLyrics />
         </div>
         {"   "}
       </section>
       {state.data && state.data.length > 0 ? (
         <QuoteItem quotes={state.data} />
       ) : (
-        <h1>Please create...</h1>
+        <Fallback>
+          <h1>No Lyrics Found..</h1>
+          <p>please create</p>
+        </Fallback>
       )}
     </PageWrapper>
   );
@@ -51,7 +55,6 @@ const PageWrapper = styled.main`
 
     .content {
       display: flex;
-      width: 100%;
       flex-direction: row;
       justify-content: baseline;
       align-items: center;
@@ -61,13 +64,14 @@ const PageWrapper = styled.main`
   section {
     display: flex;
     padding-bottom: 1rem;
-    box-shadow: 0px 5px 0px 0.1px;
+    /* box-shadow: 0px 5px 0px 0.1px; */
     .btn {
       padding: 0.3rem 1rem;
       font-size: smaller;
-      font-weight: 200;
+      font-weight: 800;
       color: teal;
-      background-color: white;
+
+      background-color: transparent;
       border: none;
       &:hover {
         color: crimson;
@@ -77,4 +81,12 @@ const PageWrapper = styled.main`
       }
     }
   }
+`;
+
+const Fallback = styled.div`
+  display: grid;
+  padding: 10rem;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
 `;

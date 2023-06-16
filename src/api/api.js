@@ -1,6 +1,8 @@
 // const FIREBASE_DOMAIN =
 //   "https://react-quotes-2ee2f-default-rtdb.asia-southeast1.firebasedatabase.app/";
 
+import { collection } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
 export async function getAllQuotes() {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/quotes.json`);
   const data = await response.json();
@@ -16,11 +18,14 @@ export async function getAllQuotes() {
       id: key,
       ...data[key],
     };
-
     transformedQuotes.push(quoteObj);
   }
 
   return transformedQuotes;
+}
+
+export async function getQuotesByQuery() {
+  const quotesCollectionRef = collection(db, "quotes");
 }
 
 export async function getSingleQuote(quoteId) {

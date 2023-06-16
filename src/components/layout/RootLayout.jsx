@@ -32,9 +32,9 @@ const MainContent = styled.main`
   width: 100%;
   padding-top: 1rem;
   gap: 1rem;
-  min-height: 25rem;
+  min-height: 30rem;
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 20% 80%;
 `;
 
 const HeaderWrapper = styled.section`

@@ -6,7 +6,6 @@ import { getSingleQuote } from "../../../api/api";
 import useHttp from "../../../hooks/use-http";
 const QuoteDetails = () => {
   const params = useParams();
-  console.log("params", params);
   const state = useHttp(getSingleQuote, true);
 
   React.useEffect(() => {
@@ -21,92 +20,77 @@ const QuoteDetails = () => {
     return <div>Error : {state.error}</div>;
   }
   return (
-    <PageWrapper>
+    <Wrapper>
       <Link to=".." relative="route">
         {" "}
         <AiOutlineRollback />
         Back to Lyrics
       </Link>
-      {state.data && (
-        <Content>
-          <h1>{state?.data.text}</h1>
-          <pre>{state?.data.author}</pre>
-        </Content>
-      )}
-      {"    "}
-      <section>
-        <Link to=".">Load Comments</Link>
-      </section>
-    </PageWrapper>
+      <PageWrapper>
+        {state.data && (
+          <Content>
+            <h1>{state?.data.text}</h1>
+            <pre>{state?.data.author}</pre>
+          </Content>
+        )}
+        {"    "}
+        <Comments>
+          <p>Great job!</p>
+          <p>Well done!</p>
+          <p>Impressive work!</p>
+          <p>Keep it up!</p>
+          {/* Condition   HERE  */}
+          <button>Add Comment</button>
+        </Comments>
+      </PageWrapper>
+    </Wrapper>
   );
 };
 
 export default QuoteDetails;
-
-const PageWrapper = styled.main`
-  .title {
-    padding-bottom: 2rem;
-    font-size: large;
-    color: crimson;
-    font-weight: 300;
-
-    .content {
-      display: flex;
-      justify-content: start;
-      align-items: start;
-      gap: 1rem;
-    }
-  }
+const Wrapper = styled.main`
   a {
     text-decoration: none;
     display: flex;
-    gap: 0.6rem;
+    flex-direction: row;
     align-items: center;
-    padding-bottom: 3rem;
-  }
-  pre {
-    color: teal;
-  }
-  section {
     text-align: center;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 2rem;
-    a {
-      text-decoration: none;
-      color: white;
-      justify-content: flex-end;
-      background-color: crimson;
-      padding: 0.5rem;
-      border-radius: 3px;
-    }
+    gap: 1rem;
   }
 `;
 
-const Content = styled.div`
+const PageWrapper = styled.main`
+  display: grid;
+  grid-template-columns: 70% 30%;
+`;
+
+const Comments = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  padding: 0.3rem;
+  margin: 0 auto;
   width: 80%;
+`;
+
+const Content = styled.div`
+  width: 100%;
+  min-height: 80%;
+  color: black;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   text-align: center;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   gap: 1rem;
-  color: black;
-  background-image: url("https://images.pexels.com/photos/1525589/pexels-photo-1525589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  /* background-image: url("https://images.pexels.com/photos/1525589/pexels-photo-1525589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   background-position: top;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   /* box-shadow: 0px 0px 0px 10px whitesmoke; */
-  padding: 4rem;
-
-  h1 {
-    color: white;
-    font-size: 5rem;
-    font-weight: 800;
-  }
+  padding: 4em;
 `;
 
 // {
