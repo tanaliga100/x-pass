@@ -3,7 +3,7 @@ import { BsListStars } from "react-icons/bs";
 import { styled } from "styled-components";
 import { getAllQuotes } from "../../api/api";
 import useHttp from "../../hooks/use-http";
-import QuoteDetails from "../views/quotes/QuoteDetails";
+import QuoteLists from "../views/quotes/QuoteList";
 
 const AllQuotesPage = () => {
   // pull the hooks for request
@@ -30,7 +30,7 @@ const AllQuotesPage = () => {
         {"   "}
       </h1>
       {state.data ? (
-        <QuoteDetails quotes={state.data} />
+        <QuoteLists quotes={state.data} />
       ) : (
         <h1>Please create...</h1>
       )}

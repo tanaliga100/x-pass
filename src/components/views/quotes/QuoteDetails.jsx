@@ -1,51 +1,54 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { BsListStars } from "react-icons/bs";
+import { useLocation } from "react-router-dom";
 import { styled } from "styled-components";
 
-const QuoteDetails = (props) => {
-  console.log({ props });
+const QuoteDetails = () => {
+  const state = useLocation();
+  console.log(state);
+
   return (
-    <Wrapper>
-      {props.quotes &&
-        props.quotes.map((quote) => (
-          <Content key={quote.id}>
-            <Link to="." className="link">
-              <h1>{quote.text.slice(0, 10)}...</h1>
-              <p>{quote.author}</p>
-            </Link>
-          </Content>
-        ))}
-    </Wrapper>
+    <PageWrapper>
+      <h1 className="title">
+        <div className="content">
+          <BsListStars size={20} />
+          Quote Details
+        </div>
+        {"   "}
+      </h1>
+      {state.quote ? (
+        <Content>
+          <small>{state?.quote?.id}</small>
+          <h1>{state?.quote?.text}</h1>
+          <pre>{state?.quote?.author}</pre>
+        </Content>
+      ) : (
+        "Loading..."
+      )}
+    </PageWrapper>
   );
 };
 
 export default QuoteDetails;
 
-const Wrapper = styled.main`
-  color: black;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+const PageWrapper = styled.main`
+  .title {
+    padding-bottom: 2rem;
+    font-size: large;
+    color: crimson;
+    font-weight: 300;
+
+    .content {
+      display: flex;
+      justify-content: baseline;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
 `;
-const Content = styled.section`
-  padding-bottom: 1rem;
-  width: 200px;
-  height: fit-content;
 
-  h1 {
-    font-size: x-large;
-  }
-  p {
-    font-size: small;
-    font-style: italic;
-    padding: 0.4rem 0;
-  }
-  .link {
-    color: black;
-  }
-
-  a {
-    text-align: left;
-    text-decoration: none;
-  }
+const Content = styled.div`
+  display: flex;
+  background-color: teal;
+  color: black;
 `;
