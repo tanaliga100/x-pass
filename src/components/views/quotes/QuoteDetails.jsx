@@ -1,7 +1,6 @@
 import React from "react";
-import { AiOutlineRollback } from "react-icons/ai";
+import { BsPencil } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
-import { styled } from "styled-components";
 import { getSingleQuote } from "../../../api/api";
 import useHttp from "../../../hooks/use-http";
 const QuoteDetails = () => {
@@ -20,87 +19,31 @@ const QuoteDetails = () => {
     return <div>Error : {state.error}</div>;
   }
   return (
-    <Wrapper>
-      <Link to=".." relative="route">
-        {" "}
-        <AiOutlineRollback />
+    <div className="py-10">
+      <Link
+        to=".."
+        relative="route"
+        className="bg-emerald-950 brightness-200 p-3 text-white "
+      >
         Back to Lyrics
       </Link>
-      <PageWrapper>
+      <main>
         {state.data && (
-          <Content>
-            <h1>{state?.data.text}</h1>
+          <div className="py-10">
+            <h1 className="text-2xl font-bold py-1">{state?.data.text}</h1>
             <pre>{state?.data.author}</pre>
-          </Content>
+          </div>
         )}
-        {"    "}
-        <Comments>
-          <p>Great job!</p>
-          <p>Well done!</p>
-          <p>Impressive work!</p>
-          <p>Keep it up!</p>
-          {/* Condition   HERE  */}
-          <button>Add Comment</button>
-        </Comments>
-      </PageWrapper>
-    </Wrapper>
+      </main>
+      <section className="flex flex-row justify-start place-items-center gap-4">
+        <h1> Want to add a comment on this ? </h1>
+        <BsPencil size={25} />
+        <button className=" font-bold text-sm" onClick={() => {}}>
+          Here...
+        </button>
+      </section>
+    </div>
   );
 };
 
 export default QuoteDetails;
-const Wrapper = styled.main`
-  a {
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-  }
-`;
-
-const PageWrapper = styled.main`
-  display: grid;
-  grid-template-columns: 70% 30%;
-`;
-
-const Comments = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-align: center;
-  padding: 0.3rem;
-  margin: 0 auto;
-  width: 80%;
-`;
-
-const Content = styled.div`
-  width: 100%;
-  min-height: 80%;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  /* background-image: url("https://images.pexels.com/photos/1525589/pexels-photo-1525589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover; */
-  /* box-shadow: 0px 0px 0px 10px whitesmoke; */
-  padding: 4em;
-`;
-
-// {
-//   state.quote ? (
-//     <Content>
-//       <small>{state?.quote?.id}</small>
-//       <h1>{state?.quote?.text}</h1>
-//       <pre>{state?.quote?.author}</pre>
-//     </Content>
-//   ) : (
-//     "Loading..."
-//   );
-// }

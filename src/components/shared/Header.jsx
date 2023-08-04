@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <section className=" bg-slate-950  p-6">
-      <main className="text-3xl font-light  text-white  ">
+    <section className="  bg-emerald-950 brightness-200 p-6">
+      <main className="text-2xl font-black text-white  ">
         <Link to="/">Quotivate</Link>
       </main>
-      <small className=" font-bold text-white/40">
+      <small className=" font-normal text-white">
         Make a notable lyrics of a song...
       </small>
     </section>

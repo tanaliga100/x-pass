@@ -6,19 +6,25 @@ import Header from "../shared/Header";
 import Hero from "../shared/Hero";
 const RootLayout = () => {
   return (
-    <section>
-      <Header />
-      <div className="grid grid-cols-2">
-        <NewQuotePage />
-        <section>
+    <div className="max-h-80">
+      <header>
+        <Header />
+      </header>
+      <main className="flex flex-row">
+        {/* LEFT */}
+        <section className="basis-1/3">
+          <NewQuotePage />
+        </section>
+        {/* RIGHT */}
+        <section className="basis-full">
           <Hero />
           <Outlet />
         </section>
-      </div>
+      </main>
       <footer>
         <Footer />
       </footer>
-    </section>
+    </div>
   );
 };
 export default RootLayout;

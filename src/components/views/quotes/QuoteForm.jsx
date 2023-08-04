@@ -1,7 +1,5 @@
 import React, { useRef, useState } from "react";
-import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { styled } from "styled-components";
 import Validator from "../../UI/Validator";
 const QuoteForm = (props) => {
   // IMPORT HOOKS
@@ -31,16 +29,18 @@ const QuoteForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSumitHandler}>
+    <form onSubmit={handleSumitHandler} className=" ">
+      {/* MODAL HERE */}
       {showModal && (
-        <Modal className="modal">
+        <main className="modal">
           <div className="modal-content">
             <Validator onClose={handleCloseModal} />
           </div>
-        </Modal>
+        </main>
       )}
-      <FormWrapper>
+      <div className="grid px-3 gap-5 border-none">
         <textarea
+          className="p-3 w-full text-lg mt-3 font-normal  border-emerald-900 brightness-90 border-lg"
           ref={quoteRef}
           name=""
           id=""
@@ -49,74 +49,22 @@ const QuoteForm = (props) => {
           placeholder="Write a notable lyrics here..."
         />
         <input
+          className=" p-3 w-full  font-normal  border-emerald-900 brightness-90 border-lg "
           ref={authorRef}
           type="text"
           name=""
           id=""
           placeholder="Artist Name..."
         />
-        <button type="submit">
-          <AiOutlineAppstoreAdd size={20} />
+        <button
+          type="submit"
+          className="font-bold text-center text-base bg-emerald-900   w-40 text-white p-2"
+        >
           Add
         </button>
-      </FormWrapper>
+      </div>
     </form>
   );
 };
 
 export default QuoteForm;
-
-const Modal = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  color: white;
-`;
-
-const FormWrapper = styled.main`
-  display: flex;
-
-  flex-direction: column;
-  gap: 1rem;
-
-  textarea {
-    background-image: url("https://images.pexels.com/photos/372748/pexels-photo-372748.jpeg?auto=compress&cs=tinysrgb&w=600");
-    background-position: top right;
-    background-repeat: no-repeat;
-    background-size: auto;
-    color: grey;
-    width: 80%;
-    text-align: center;
-    margin: 0 auto;
-    padding: 1rem;
-    border: none;
-  }
-  input {
-    background-image: url("https://images.pexels.com/photos/372748/pexels-photo-372748.jpeg?auto=compress&cs=tinysrgb&w=600");
-    background-position: top;
-    color: grey;
-
-    width: 80%;
-    padding: 1rem;
-    border: none;
-    margin: 0 auto;
-  }
-
-  button {
-    width: 30%;
-    border: none;
-    background-color: crimson;
-    color: white;
-    padding: 0.5rem;
-    font-size: small;
-    font-weight: 300;
-    margin: 0 auto;
-    display: flex;
-    gap: 0.4rem;
-    &:hover {
-      background-color: red;
-      color: white;
-      cursor: pointer;
-    }
-  }
-`;
