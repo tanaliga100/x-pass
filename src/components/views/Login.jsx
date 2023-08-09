@@ -15,7 +15,7 @@ const Login = () => {
         <input
           type="email"
           placeholder="Email"
-          className="w-full px-4 py-2 mb-3 border rounded focus:outline-none focus:ring-2focus:ring-emerald-500"
+          className="w-full px-4 py-2 mb-3 border rounded focus:outline-none focus:ring-2 focus:ring-emerald-500"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -27,17 +27,17 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button
-          className="w-full bg-emerald-900 text-white py-2 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          className="w-full bg-white text-emerald-500 border-2 border-emerald-500 py-2 rounded-lg  hover:ring-emerald-500 hover:text-white hover:bg-emerald-500  duration-150"
           onClick={handleRegister}
         >
-          Register
+          Login
         </button>
         <div className="pt-5">
           <h1>Dont have an account ?</h1>
           <button className="py-3">
             <Link
               to="/auth/register"
-              className="text-emerald-800 font-bold hover:underline"
+              className="text-emerald-500 font-bold hover:underline"
             >
               {" "}
               Register

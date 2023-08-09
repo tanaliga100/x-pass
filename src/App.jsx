@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./components/views/Login";
 import Register from "./components/views/Register";
@@ -21,8 +20,12 @@ function App() {
           element: <h1>Add Quote</h1>,
         },
         {
-          path: "users",
+          path: "followers",
           element: <h1>Users</h1>,
+        },
+        {
+          path: "profile",
+          element: <h1>Profile</h1>,
         },
         {
           path: "auth",
@@ -42,8 +45,6 @@ function App() {
     },
   ]);
 
-  const state = useSelector((state) => state);
-  console.log("STATE", state);
   return (
     <>
       <RouterProvider router={router} />

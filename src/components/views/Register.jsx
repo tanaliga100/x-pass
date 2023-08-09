@@ -28,7 +28,7 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button
-          className="w-full bg-emerald-900 text-white py-2 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          className="w-full bg-white text-emerald-500 border-2 border-emerald-500 py-2 rounded-lg  hover:ring-emerald-500 hover:text-white hover:bg-emerald-500  duration-150"
           onClick={handleRegister}
         >
           Register
@@ -38,7 +38,7 @@ const Register = () => {
           <button className="py-3">
             <Link
               to="/auth"
-              className="text-emerald-800 font-bold hover:underline"
+              className="text-emerald-500 font-bold hover:underline"
             >
               {" "}
               Login
