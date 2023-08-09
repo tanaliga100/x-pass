@@ -10,7 +10,23 @@ const Auth = () => {
     dispatch(closeModal());
   };
 
-  return <div>{isModalOpen && <Outlet />}</div>;
+  return (
+    <div>
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div
+            className="fixed inset-0 bg-gray-800 opacity-75"
+            onClick={handleCloseModal}
+          ></div>
+          <div className="z-10">
+            {" "}
+            {/* Ensure this div is above the backdrop */}
+            <Outlet /> {/* Render your form components here */}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Auth;

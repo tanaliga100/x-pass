@@ -1,4 +1,4 @@
-import {} from "react-icons";
+import { } from "react-icons";
 import { BiMessageSquareAdd } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { TbBrandFeedly } from "react-icons/tb";
