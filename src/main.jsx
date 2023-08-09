@@ -1,22 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 import App from "./App.jsx";
-
 import "./index.css";
-import {
-  addNewDocument,
-  readSingleDocument,
-  writeSpecialDay,
-} from "./lib/api.js";
+import store from "./state/store.js";
 
-console.log("Hello there firebase firestore");
+// console.log("Hello there firebase firestore");
 
-writeSpecialDay();
-addNewDocument();
-readSingleDocument();
+// writeSpecialDay();
+// addNewDocument();
+// readSingleDocument();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
