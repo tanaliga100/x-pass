@@ -6,19 +6,18 @@ import Sidebar from "../components/shared/Sidebar";
 
 const Root = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
+
   return (
     <div className="">
       <section className="">
         <Navbar />
       </section>
-
       <div className="flex flex-row h-screen">
         {isAuth && (
           <div className="basis-1/4 h-screen border-r-2  text-justify flex flex-col">
             <Sidebar />
           </div>
         )}
-
         <div className="basis-full flex-grow  ">
           <Outlet />
           {!isAuth && (

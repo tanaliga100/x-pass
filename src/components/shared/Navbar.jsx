@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import profile from "../../assets/profile.svg";
 import { demoAccount, logoutUser } from "../../state/authSlice";
 import { openModal } from "../../state/uiSlice";
 import Hero from "../shared/Hero";
@@ -46,9 +47,14 @@ shadow-lg shadow-emerald-500/5"
           {isAuth ? (
             <main className="flex flex-row gap-5 pr-10">
               <Link to="profile" onClick={() => {}}>
-                <h1 className="font-bold text-base p-2  border-2 rounded-md border-emerald-500 text-emerald-500">
-                  Profile
-                </h1>
+                {/* <h1 className="font-bold text-base p-2  border-2 rounded-md border-emerald-500 text-emerald-500"></h1> */}
+                <img
+                  width={50}
+                  height={50}
+                  src={profile}
+                  alt="profile-settings"
+                  className="rounded"
+                />
               </Link>
               <button onClick={handleLogout}>
                 <h1 className="font-bold text-base p-2  border-2 rounded-md border-emerald-500 text-emerald-500">

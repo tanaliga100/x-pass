@@ -20,7 +20,7 @@ const Sidebar = () => {
     <div className="text-center flex flex-col justify-center   ">
       {/* Sidebar RENDERING  */}
       {isAuthenticated ? (
-        <div className="justify-center flex flex-col gap-3 place-items-center align-middle">
+        <div className="justify-center flex flex-col gap-3 place-items-center align-middle pt-3">
           <img src={img} alt="dp" width={75} height={100} />
           <span className=" text-md font-bold text-emerald-950">
             {userName.charAt(0).toUpperCase() + userName.slice(1)}
@@ -35,9 +35,9 @@ const Sidebar = () => {
               {followers} followers
             </span>
           </p> */}
-          <div className="text-lg uppercase font-bold text-indigo-500  p-3 pt-4  text-center">
+          {/* <div className="text-lg uppercase font-bold text-indigo-500  p-3 pt-4  text-center">
             Make a notable lyrics of your favorite song
-          </div>
+          </div> */}
           {/* <p className=" p-3 text-xl font-thin">
             Invite others to engage, comment, and share their thoughts,
             transforming your lyrics into a hub of creative expression and
