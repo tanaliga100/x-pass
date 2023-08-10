@@ -1,47 +1,67 @@
-import React, { Suspense } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import "./App.css";
-
-import Layout from "./components/layout/Layout";
-import LoadingSpinner from "./components/UI/LoadingSpinner";
-
-const AllQuotes = React.lazy(() => import("./components/pages/AllQuotes"));
-const NewQuote = React.lazy(() => import("./components/pages/NewQuote"));
-const QuoteDetails = React.lazy(() =>
-  import("./components/pages/QuoteDetails")
-);
-const NotFound = React.lazy(() => import("./components/pages/NotFound"));
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Login from "./components/views/Login";
+import Register from "./components/views/Register";
+import Timeline from "./components/views/Timeline";
+import Users from "./components/views/Users";
+import Auth from "./layout/Auth";
+import Root from "./layout/Root";
+import Feed from "./pages/Feed";
+import Profile from "./pages/Profile";
+import Quotes from "./pages/Quotes";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Root />,
+      children: [
+        {
+          index: true,
+          element: <Feed />,
+        },
+        {
+          path: "add",
+          element: <Quotes />,
+        },
+        {
+          path: "users",
+          element: <Users />,
+        },
+        //    {
+        //      path: "followers",
+        //      element: <Followers />,
+        //    },
+        {
+          path: "timeline",
+          element: <Timeline />,
+        },
+        {
+          path: "profile",
+          element: <Profile />,
+        },
+
+        {
+          path: "auth",
+          element: <Auth />,
+          children: [
+            {
+              index: true,
+              element: <Login />,
+            },
+            {
+              path: "register",
+              element: <Register />,
+            },
+          ],
+        },
+      ],
+    },
+  ]);
+
   return (
-    <Layout>
-      <Suspense
-        fallback={
-          <div className="centered">
-            {" "}
-            <LoadingSpinner />{" "}
-          </div>
-        }
-      >
-        <Switch>
-          <Route path="/" exact>
-            <Redirect to="/quotes" />
-          </Route>
-          <Route path="/quotes" exact>
-            <AllQuotes />
-          </Route>
-          <Route path="/quotes/:quoteID">
-            <QuoteDetails />
-          </Route>
-          <Route path="/new-quote">
-            <NewQuote />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
-      </Suspense>
-    </Layout>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 

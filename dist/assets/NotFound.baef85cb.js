@@ -1,1 +1,0 @@
-import{a as e}from"./index.aa60ebbd.js";const t={fontSize:"1.4em",textAlign:center,color:grey},n=()=>e("div",{className:"centered",children:e("small",{className:t,children:"Page not Found !"})});export{n as default};

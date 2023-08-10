@@ -1,11 +1,19 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import App from "./App.jsx";
 import "./index.css";
+import store from "./state/store.js";
+// console.log("Hello there firebase firestore");
+
+// writeSpecialDay();
+// addNewDocument();
+// readSingleDocument();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <Provider store={store}>
+    <ToastContainer />
     <App />
-  </BrowserRouter>
+  </Provider>
 );
