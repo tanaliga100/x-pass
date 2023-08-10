@@ -1,8 +1,13 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./components/views/Login";
 import Register from "./components/views/Register";
+import Timeline from "./components/views/Timeline";
+import Users from "./components/views/Users";
 import Auth from "./layout/Auth";
 import Root from "./layout/Root";
+import Feed from "./pages/Feed";
+import Profile from "./pages/Profile";
+import Quotes from "./pages/Quotes";
 
 function App() {
   const router = createBrowserRouter([
@@ -12,21 +17,29 @@ function App() {
       children: [
         {
           index: true,
-          path: "quotes",
-          element: <h1>Feed</h1>,
+          element: <Feed />,
         },
         {
           path: "add",
-          element: <h1>Add Quote</h1>,
+          element: <Quotes />,
         },
         {
-          path: "followers",
-          element: <h1>Users</h1>,
+          path: "users",
+          element: <Users />,
+        },
+        //    {
+        //      path: "followers",
+        //      element: <Followers />,
+        //    },
+        {
+          path: "timeline",
+          element: <Timeline />,
         },
         {
           path: "profile",
-          element: <h1>Profile</h1>,
+          element: <Profile />,
         },
+
         {
           path: "auth",
           element: <Auth />,

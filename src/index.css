@@ -2,19 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-.bg-opacity-50 {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  max-width: 80%; /* Adjust the maximum width as needed */
-  max-height: calc(
-    100vh - 40px
-  ); /* Adjust the value to leave some padding at the top and bottom */
-  overflow-y: auto; /* Enable vertical scrolling if the content overflows */
-  margin: 0 auto; /* Center the modal horizontally */
-}
-
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -25,7 +12,7 @@
   background-color: #242424;
 
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;http://localhost:5173/auth
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;

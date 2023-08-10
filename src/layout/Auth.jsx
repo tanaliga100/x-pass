@@ -13,7 +13,7 @@ const Auth = () => {
   return (
     <div>
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className="fixed inset-1 flex items-center justify-center z-50">
           <div
             className="fixed inset-0 bg-gray-800 opacity-75"
             onClick={handleCloseModal}
