@@ -6,6 +6,8 @@ import Sidebar from "../components/shared/Sidebar";
 
 const Root = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  const state = useSelector((state) => state);
+  console.log("STATES", state);
 
   return (
     <div className="">

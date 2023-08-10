@@ -2,10 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isAuthenticated: false,
+  message: "",
+  token: null,
   currentUser: {
-    userName: "jordan100",
-    email: "jordan100@mail.com",
-    followers: 909,
+    email: "",
+    uid: "",
   },
 };
 const authSlice = createSlice({
@@ -13,15 +14,20 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     currentUser: (state, action) => {
-      state.userName = action.payload;
-      state.email = action.payload;
-      state.followers = action.payload;
+      //  const { accessToken, email, uid } = action.payload.user;
+      state.currentUser.uid = action.payload.uid;
+      state.currentUser.email = action.payload.email;
+      state.token = action.payload.accessToken;
+      state.isAuthenticated = true;
+    },
+
+    provideMessage: (state, action) => {
+      state.message = action.payload;
     },
     logoutUser: (state) => {
-      //  state.currentUser.userName = "";
-      //  state.currentUser.email = "";
-      //  state.currentUser.followers = "";
+      state.currentUser.email = "";
       state.isAuthenticated = false;
+      state.token = "";
     },
     demoAccount: (state) => {
       state.isAuthenticated = true;
@@ -29,5 +35,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { currentUser, logoutUser, demoAccount } = authSlice.actions;
+export const { currentUser, logoutUser, demoAccount, provideMessage } =
+  authSlice.actions;
 export default authSlice.reducer;

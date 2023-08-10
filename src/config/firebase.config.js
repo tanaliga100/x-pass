@@ -6,7 +6,7 @@ import { getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = initializeApp({
+const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
   authDomain: import.meta.env.VITE_DOMAIN,
   databaseURL: import.meta.env.VITE_DATABASE_URL,
@@ -14,8 +14,11 @@ const firebaseConfig = initializeApp({
   storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_MESS_SENDER,
   appId: import.meta.env.VITE_APP_ID,
-});
+};
 
 // Initialize Firebase
-export const db = getFirestore(firebaseConfig);
-export const auth = getAuth(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+
+// Initialize Services
+export const db = getFirestore(app);
+export const auth = getAuth(app);

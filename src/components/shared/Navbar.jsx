@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import profile from "../../assets/profile.svg";
-import { demoAccount, logoutUser } from "../../state/authSlice";
+import { logoutAccount } from "../../lib/auth";
+import { demoAccount } from "../../state/authSlice";
 import { openModal } from "../../state/uiSlice";
 import Hero from "../shared/Hero";
 
@@ -17,7 +18,7 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    dispatch(logoutUser());
+    logoutAccount(dispatch);
     navigate("/");
   };
 

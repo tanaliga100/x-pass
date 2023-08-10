@@ -8,7 +8,7 @@ import { demoAccount } from "../../state/authSlice";
 const Sidebar = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const { userName, email } = useSelector((state) => state.auth.currentUser);
+  const { email } = useSelector((state) => state.auth.currentUser);
   const navigate = useNavigate();
 
   const handleDemoAccount = () => {
@@ -23,7 +23,8 @@ const Sidebar = () => {
         <div className="justify-center flex flex-col gap-3 place-items-center align-middle pt-3">
           <img src={img} alt="dp" width={75} height={100} />
           <span className=" text-md font-bold text-emerald-950">
-            {userName.charAt(0).toUpperCase() + userName.slice(1)}
+            {/* {userName.charAt(0).toUpperCase() + userName.slice(1)} */}
+            {email}
           </span>
           <p className="text-lg text-emerald-950">
             <span className="text-sm px-5 font-normal border-2 border-emerald-500 text-emerald-500 p-1 rounded-md">
@@ -87,9 +88,6 @@ const Sidebar = () => {
           </button> */}
         </div>
       )}
-      <pre className=" static pt-96">
-        built by <span>jordantanaliga100</span>
-      </pre>
     </div>
   );
 };
