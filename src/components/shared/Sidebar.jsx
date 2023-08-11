@@ -7,7 +7,7 @@ const Sidebar = () => {
   const { email, uid } = useSelector((state) => state.auth.currentUser);
 
   return (
-    <div className="text-center justify-center  py-10 rounded-sm overflow-y-scroll bg-white/100 ">
+    <div className="text-center justify-center  py-10 rounded-sm overflow-y-scroll bg-white ">
       {/* Sidebar RENDERING  */}
       {isAuthenticated && (
         <div className="justify-center flex flex-col gap-3 place-items-center align-middle pt-3 ">

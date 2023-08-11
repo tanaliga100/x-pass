@@ -1,10 +1,16 @@
+import Header from "../components/shared/Header";
+
 const Quotes = () => {
   return (
-    <div className="w-full bg-white rounded-lg shadow-md overflow-y-auto">
+    <div
+      className="w-full bg-white
+ min-h-full     rounded-lg shadow-md overflow-y-auto "
+    >
+      <Header title="Add Document to the Feed" />
       <div className="p-10">
-        <h2 className="text-2xl font-semibold mb-10">
+        {/* <h2 className="text-2xl font-semibold mb-10">
           Add Document to the Feed
-        </h2>
+        </h2> */}
         <form action="">
           <div className="mb-4">
             <label
