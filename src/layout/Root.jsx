@@ -13,7 +13,7 @@ const Root = () => {
       <nav className={`sticky top-0 `}>
         <Navbar />
       </nav>
-      <section className=" overflow-y-auto flex flex-grow">
+      <section className=" overflow-y-auto flex flex-grow bg-slate-200">
         {/* LEFT PANEL */}
         {isAuth && (
           <div className="sticky top-0 basis-1/5 h-auto  text-justify flex flex-col p-2">
@@ -26,7 +26,7 @@ const Root = () => {
             <Prompt />
           </div>
         ) : (
-          <div className=" basis-full h-[95%]  text-justify flex flex-col p-2 ">
+          <div className=" basis-full h-[95%] text-justify flex flex-col p-2 ">
             <Outlet />
           </div>
         )}

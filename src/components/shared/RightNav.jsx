@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import { FiSettings } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import profile from "../../assets/profile.svg";
 import { logoutUser } from "../../features/authSlice";
@@ -22,9 +21,9 @@ const RightNav = () => {
         <main className="flex flex-row   items-center justify-around">
           <Link
             to="profile"
-            className="items-center justify-center place-items-center "
+            className="items-center justify-center bg-white p-3 rounded-full center place-items-center "
           >
-            {<FiSettings size={20} />}
+            {<AiOutlineSetting size={20} />}
           </Link>
           <Link to="timeline" onClick={() => {}}>
             {/* <h1 className="font-bold text-base p-2  border-2 rounded-md border-emerald-500 text-emerald-500"></h1> */}
@@ -37,7 +36,7 @@ const RightNav = () => {
             />
           </Link>
           <button onClick={handleLogout}>
-            <h1 className="hover:bg-emerald-900 font-bold text-base p-2 bg-emerald-500 text-white rounded-md border-emerald-500">
+            <h1 className="hover:bg-emerald-950 font-bold text-base p-2 bg-emerald-500 text-white rounded-md border-emerald-950">
               Logout
             </h1>
           </button>
@@ -55,3 +54,5 @@ const RightNav = () => {
   );
 };
 export default RightNav;
+
+import { AiOutlineSetting } from "react-icons/ai";
