@@ -1,49 +1,75 @@
+import { useState } from "react";
+
 const Timeline = () => {
+  const [selectedYear, setSelectedYear] = useState("All");
+
+  const posts = [
+    {
+      id: 1,
+      title: "Beautiful Song Title 1",
+      composer: "Composer A",
+      date: "2023-08-01",
+      comments: ["Great song!", "Love the melody."],
+    },
+    {
+      id: 2,
+      title: "Melancholy Melodies",
+      composer: "Composer B",
+      date: "2023-07-15",
+      comments: ["This song hits hard.", "Can't get enough of it."],
+    },
+    {
+      id: 3,
+      title: "Sunset Serenade",
+      composer: "Composer C",
+      date: "2023-06-22",
+      comments: ["Perfect for a relaxing evening."],
+    },
+    // ... Add more posts ...
+  ];
+
+  const years = ["All", "2023", "2022" /* Add more years... */];
+
+  const filteredPosts =
+    selectedYear === "All"
+      ? posts
+      : posts.filter((post) => post.date.startsWith(selectedYear));
+
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem,
-      fugiat. Omnis quibusdam, nihil magni quidem cumque doloribus placeat, enim
-      autem modi eius temporibus corporis dolores dolorum? Delectus consequatur
-      voluptatum autem recusandae et accusamus, quas dolorum repudiandae
-      exercitationem provident aperiam nam aut magnam natus omnis quia a nobis
-      nostrum laborum! Laborum non adipisci dolorem tempora voluptas architecto,
-      autem itaque harum quas expedita dolor ab eveniet debitis. At, commodi
-      ratione voluptates atque autem, consequuntur pariatur blanditiis culpa
-      nihil accusamus nisi eveniet! Cum eum neque odio soluta quasi aut
-      voluptatibus explicabo provident repellat repudiandae, eveniet quidem
-      aliquid debitis laudantium quos quia nesciunt, velit vero veritatis error.
-      Nulla voluptate dolores necessitatibus commodi illo consequatur rem saepe
-      iusto molestias cumque, eveniet magnam recusandae repudiandae error ipsam.
-      Incidunt quaerat quas odio quae soluta error nam deleniti consequuntur
-      magnam, doloremque est porro, id perferendis dolore rerum itaque harum
-      maiores autem totam adipisci minus delectus et. Alias error autem rem
-      obcaecati. Cumque corporis inventore autem optio eaque id, pariatur
-      temporibus repellat error voluptatibus adipisci quia aut ea fugiat
-      consectetur voluptatum blanditiis sint magnam facilis quaerat dolorum
-      obcaecati voluptates soluta commodi. Blanditiis vel sed quibusdam dolorum
-      ratione, culpa, repellat nihil itaque tempore aspernatur ullam natus
-      maxime temporibus eaque ipsa cumque excepturi saepe nostrum quis! Vitae
-      impedit quia ea animi quos totam tenetur incidunt, veniam quisquam modi
-      cupiditate quibusdam architecto corrupti laboriosam amet atque consectetur
-      quas? Error corrupti voluptate vitae alias, odit obcaecati exercitationem
-      consequuntur quis cumque ipsam distinctio. Accusantium facere nulla
-      expedita dolor, illum sint repudiandae molestiae perspiciatis culpa beatae
-      ratione quisquam corporis id. Ex consectetur autem nostrum esse harum rem
-      hic, eos aut dolores magnam repellat! Illum sit ab cum possimus eius
-      veniam quis laboriosam? Dolorem, quaerat molestias porro quod voluptate
-      consectetur ducimus eaque architecto, delectus ut modi quas veniam officia
-      aut labore! Sed nisi quibusdam officiis doloribus, voluptatem soluta omnis
-      dolores hic ut quaerat iure, magni ea iusto harum, pariatur consequatur
-      consequuntur est! Pariatur, deleniti sapiente odit eligendi fugiat
-      repellat nobis natus qui voluptate magni obcaecati laudantium ratione
-      voluptatum distinctio id doloribus. Ipsa tenetur quis sequi eveniet,
-      fugiat laudantium? Maxime sequi enim quo ipsum dolorem aperiam blanditiis
-      sapiente amet, architecto cum, pariatur in, hic est exercitationem ullam
-      eius? Mollitia eos ea fugiat ipsum corporis eveniet, qui impedit in omnis
-      accusantium quo esse, nulla eaque debitis quibusdam consectetur unde.
-      Saepe ad dignissimos unde perspiciatis enim voluptatem vel, nisi eum eos,
-      quibusdam reprehenderit nobis vero molestiae ipsum, nulla voluptate!
+    <div className="bg-gray-100 min-h-screen ">
+      <div className="max-w-full mx-auto p-4">
+        <div className="mb-6">
+          <select
+            className="p-2 border rounded-md shadow-md"
+            value={selectedYear}
+            onChange={(e) => setSelectedYear(e.target.value)}
+          >
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="grid gap-6">
+          {filteredPosts.map((post) => (
+            <div key={post.id} className="border rounded-md shadow-md p-6">
+              <h2 className="text-xl font-bold mb-2">{post.title}</h2>
+              <p className="text-gray-600 mb-1">Composer: {post.composer}</p>
+              <p className="text-gray-600 mb-1">Created: {post.date}</p>
+              <ul className="list-disc pl-6">
+                {post.comments.map((comment, index) => (
+                  <li key={index} className="text-gray-600">
+                    {comment}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
+
 export default Timeline;

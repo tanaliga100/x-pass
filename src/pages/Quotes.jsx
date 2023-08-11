@@ -1,8 +1,8 @@
 const Quotes = () => {
   return (
-    <div className="flex flex-col h-screen bg-white w-full overflow-y-auto">
-      <div className="w-full min-w-screen-md min-h-screen bg-white p-8 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold mb-4">
+    <div className="w-full bg-white rounded-lg shadow-md overflow-y-auto">
+      <div className="p-10">
+        <h2 className="text-2xl font-semibold mb-10">
           Add Document to the Feed
         </h2>
         <form action="">
