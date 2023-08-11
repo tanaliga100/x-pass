@@ -1,6 +1,19 @@
-@import "tailwindcss/base";
+/* @import "tailwindcss/base";
 @import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import "tailwindcss/utilities"; */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Poppins" sans-serif;
+  box-sizing: border-box;
+}
+.App {
+  background-color: whitesmoke;
+}
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

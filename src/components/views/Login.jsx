@@ -1,17 +1,15 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { loginAccount } from "../../lib/auth";
+import { useLogin } from "../../hooks/useLogin";
 
 const Login = () => {
-  const dispatch = useDispatch();
-
+  const { loginUser } = useLogin();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
     if (!email || email.trim().length === 0) {
@@ -35,7 +33,7 @@ const Login = () => {
     }
 
     // FIREBASE AUTH
-    loginAccount(email, password, dispatch);
+    //     await loginUser(email, password);
 
     setEmail("");
     setPassword("");
@@ -43,7 +41,7 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center h-auto bg-gray-100 rounded-3xl ">
-      <div className=" p-8 rounded shadow-md  w-[100%]">
+      <div className=" p-8 rounded shadow-md  w-[500px]">
         <form action="" onSubmit={handleRegister}>
           <h2 className="text-2xl font-bold mb-4">Login</h2>
           <input

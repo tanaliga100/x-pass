@@ -1,33 +1,3 @@
-// import { useState } from "react";
-
-// // eslint-disable-next-line react/prop-types
-// const Tweet = ({ username, text }) => {
-//   return (
-//     <div className="tweet bg-white  border-gray-300 rounded p-4 shadow-md mb-4">
-//       <div className="username font-semibold mb-1">{username}</div>
-//       <div className="text">{text}</div>
-//     </div>
-//   );
-// };
-
-// const Feed = () => {
-//   const [tweets] = useState([
-//     { username: "user1", text: "Just had a great meal! 🍔🍟" },
-//     { username: "user2", text: "Excited to start coding my new project! 💻🚀" },
-//     { username: "user3", text: "Enjoying a relaxing day at the beach. 🏖️☀️" },
-//   ]);
-
-//   return (
-//     <div className="feed p-4">
-//       {tweets.map((tweet, index) => (
-//         <Tweet key={index} username={tweet.username} text={tweet.text} />
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default Feed;
-
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -52,8 +22,10 @@ const Tweet = ({ username, text }) => {
   };
 
   return (
-    <div className="tweet bg-white  border-gray-300 rounded p-4 shadow-md mb-4">
-      <div className="username font-semibold mb-1">{username}</div>
+    <div className=" tweet bg-white border rounded p-10  shadow-md ">
+      <div className="username font-semibold mb-1 text-blue-500">
+        @{username}
+      </div>
       <div className="text mb-2">{text}</div>
       <div className="flex items-center">
         <ReactionButton text="Like" />
@@ -88,14 +60,22 @@ const Feed = () => {
     { username: "user1", text: "Just had a great meal! 🍔🍟" },
     { username: "user2", text: "Excited to start coding my new project! 💻🚀" },
     { username: "user3", text: "Enjoying a relaxing day at the beach. 🏖️☀️" },
+    { username: "user2", text: "Excited to start coding my new project! 💻🚀" },
+    { username: "user3", text: "Enjoying a relaxing day at the beach. 🏖️☀️" },
+    { username: "user2", text: "Excited to start coding my new project! 💻🚀" },
+    { username: "user3", text: "Enjoying a relaxing day at the beach. 🏖️☀️" },
+    { username: "user2", text: "Excited to start coding my new project! 💻🚀" },
+    { username: "user3", text: "Enjoying a relaxing day at the beach. 🏖️☀️" },
   ]);
 
   return (
-    <div className="feed p-4">
-      {isAuth &&
-        tweets.map((tweet, index) => (
-          <Tweet key={index} username={tweet.username} text={tweet.text} />
-        ))}
+    <div className=" overflow-y-auto ">
+      <section className=" sticky top-0 flex flex-col gap-5">
+        {isAuth &&
+          tweets.map((tweet, index) => (
+            <Tweet key={index} username={tweet.username} text={tweet.text} />
+          ))}
+      </section>
     </div>
   );
 };

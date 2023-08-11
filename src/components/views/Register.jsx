@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { registerAccount } from "../../lib/auth";
+import { useRegister } from "../../hooks/useRegister";
 
 const Register = () => {
-  const dispatch = useDispatch();
+  const { createUser } = useRegister();
   // eslint-disable-next-line no-unused-vars
 
   const [email, setEmail] = useState("");
@@ -12,7 +11,7 @@ const Register = () => {
   const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
     if (!email || email.trim().length === 0) {
@@ -36,14 +35,14 @@ const Register = () => {
     }
 
     // FIREBASE AUTH
-    registerAccount(email, password, dispatch);
+    //     await createUser(email, password);
 
     setEmail("");
     setPassword("");
   };
   return (
     <div className="flex justify-center items-center  bg-gray-100  rounded-3xl ">
-      <div className=" p-8 rounded shadow-md w-[100%]">
+      <div className=" p-8 rounded shadow-md w-[500px]">
         <form action="" onSubmit={handleRegister}>
           <h2 className="text-2xl font-bold mb-4">Register</h2>
           <input
@@ -65,7 +64,7 @@ const Register = () => {
           <button
             type="submit"
             className="w-full bg-white text-emerald-500 border-2 border-emerald-500 py-2 rounded-lg  hover:ring-emerald-500 hover:text-white hover:bg-emerald-500  duration-150"
-            onClick={() => handleRegister}
+            onClick={handleRegister}
           >
             Register
           </button>

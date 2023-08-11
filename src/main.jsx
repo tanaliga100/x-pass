@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import App from "./App.jsx";
 import "./index.css";
-import store from "./state/store.js";
+import store from "./store/store.js";
 // console.log("Hello there firebase firestore");
 
 // writeSpecialDay();
