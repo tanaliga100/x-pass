@@ -14,6 +14,7 @@ const RightNav = () => {
     dispatch(logoutUser());
     navigate("/");
   };
+  React.useEffect(() => {}, [isAuth]);
 
   return (
     <>
@@ -61,4 +62,5 @@ const RightNav = () => {
 };
 export default RightNav;
 
+import React from "react";
 import { AiOutlineSetting } from "react-icons/ai";

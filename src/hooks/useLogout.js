@@ -11,7 +11,7 @@ export const useLogout = () => {
       .then(() => {
         dispatch(logoutUser());
         navigate("/");
-        toast.succes("Successfully Logout");
+        toast.success("Successfully Logout");
       })
       .catch((err) => {
         console.log(err.message);

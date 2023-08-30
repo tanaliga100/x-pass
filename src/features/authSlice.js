@@ -4,11 +4,11 @@ import { createSlice } from "@reduxjs/toolkit";
 // const retrievedUser = JSON.parse(localStorage.getItem("currentUser"));
 
 const initialState = {
-  isAuthenticated: true,
+  isAuthenticated: localStorage.getItem("isAuth", false),
   message: "",
   currentUser: {
-    email: "jordantanaliga100",
-    uid: "adadasd12dadasd",
+    email: localStorage.getItem("currentEmail") || "",
+    uid: localStorage.getItem("currentId") || " ",
   },
 };
 
@@ -21,6 +21,9 @@ const authSlice = createSlice({
       state.currentUser.email = email;
       state.currentUser.uid = uid;
       state.isAuthenticated = true;
+      localStorage.setItem("currentEmail", state.currentUser.email);
+      localStorage.setItem("currentId", state.currentUser.uid);
+      localStorage.setItem("isAuth", true);
     },
     provideMessage: (state, action) => {
       state.message = action.payload;
@@ -28,6 +31,9 @@ const authSlice = createSlice({
     logoutUser: (state) => {
       state.isAuthenticated = false;
       state.message = "";
+      localStorage.removeItem("currentEmail");
+      localStorage.removeItem("currentId");
+      localStorage.removeItem("isAuth");
     },
   },
 });
