@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { addDoc, collection } from "firebase/firestore";
 import { useDispatch } from "react-redux";
-import { auth } from "../config/firebase.config";
+import { auth, db } from "../config/firebase.config";
 import { currentUser, provideMessage } from "../features/authSlice";
 import { closeModal } from "../features/uiSlice";
 import { checkEmail } from "../utils/checkEmail";
@@ -18,9 +19,16 @@ export const useRegister = () => {
           email,
           password
         );
-        console.log("PAYLOAD", newUser);
+        //   DISPATCH THE CURRENT USER
         dispatch(currentUser(newUser.user));
         dispatch(closeModal());
+
+        // ADD THE USER TO THE COLLECTION
+        const userCollection = collection(db, "users");
+        await addDoc(userCollection, {
+          uid: newUser.user.uid,
+          email: newUser.user.email,
+        });
       }
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {

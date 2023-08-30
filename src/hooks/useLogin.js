@@ -9,8 +9,13 @@ export const useLogin = () => {
 
   const loginUser = async (email, password) => {
     try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
-      dispatch(currentUser(user.user));
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      dispatch(currentUser(user));
       dispatch(closeModal());
       dispatch(provideMessage("Successfully Login"));
     } catch (error) {

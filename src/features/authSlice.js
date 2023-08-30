@@ -7,8 +7,15 @@ const initialState = {
   isAuthenticated: localStorage.getItem("isAuth", false),
   message: "",
   currentUser: {
-    email: localStorage.getItem("currentEmail") || "",
     uid: localStorage.getItem("currentId") || " ",
+    email: localStorage.getItem("currentEmail") || "",
+    // extra props
+    profilePic: null,
+    address: "sample Adress",
+    gender: "Male",
+    occupation: "Dev",
+    fullName: "John Doe",
+    userName: "@sample.com",
   },
 };
 
@@ -17,6 +24,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     currentUser: (state, action) => {
+      console.log("THIS IS CURRENT USER", action.payload);
       const { email, uid } = action.payload;
       state.currentUser.email = email;
       state.currentUser.uid = uid;
@@ -26,6 +34,7 @@ const authSlice = createSlice({
       localStorage.setItem("isAuth", true);
     },
     provideMessage: (state, action) => {
+      console.log("message", action.payload);
       state.message = action.payload;
     },
     logoutUser: (state) => {

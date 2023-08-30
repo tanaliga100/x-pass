@@ -23,6 +23,7 @@ const Auth = () => {
     dispatch(closeModal());
   };
   React.useEffect(() => {}, [isModalOpen]);
+  console.log("toast", authState.message);
   return (
     <div>
       {isModalOpen && (
