@@ -19,7 +19,7 @@ const Navbar = () => {
           </section>
           {/* RIGHT */}
           <section className="basis-1/5 w-full ">
-            {isAuth && <RightNav />}
+            <RightNav />
           </section>
         </div>
       </div>

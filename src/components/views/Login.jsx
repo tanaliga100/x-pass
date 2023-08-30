@@ -33,7 +33,7 @@ const Login = () => {
     }
 
     // FIREBASE AUTH
-    //     await loginUser(email, password);
+    await loginUser(email, password);
 
     setEmail("");
     setPassword("");

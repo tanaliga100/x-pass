@@ -1,4 +1,5 @@
 import imgFront from "../../assets/front.svg";
+import Auth from "../../layout/Auth";
 
 const Prompt = () => {
   return (
@@ -24,6 +25,7 @@ const Prompt = () => {
           will turn your lyrics into a thriving hub of creativity and meaningful
           connections.
         </p>
+        <Auth />
       </main>
     </div>
   );

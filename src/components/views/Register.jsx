@@ -35,7 +35,7 @@ const Register = () => {
     }
 
     // FIREBASE AUTH
-    //     await createUser(email, password);
+    await createUser(email, password);
 
     setEmail("");
     setPassword("");

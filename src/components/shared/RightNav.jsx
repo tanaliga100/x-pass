@@ -14,6 +14,7 @@ const RightNav = () => {
     dispatch(logoutUser());
     navigate("/");
   };
+  React.useEffect(() => {}, [isAuth]);
 
   return (
     <>
@@ -43,9 +44,15 @@ const RightNav = () => {
         </main>
       ) : (
         <section className="flex flex-row pr-10 ">
-          <Link to="auth" onClick={() => dispatch(openModal())}>
-            <h1 className="font-bold text-base p-2 border-2  rounded-md border-emerald-500 text-emerald-500">
-              Auth
+          <Link
+            to="auth"
+            onClick={() => {
+              dispatch(openModal());
+              console.log("opening the modal...");
+            }}
+          >
+            <h1 className="font-bold text-base p-2 border-2  rounded-md border-emerald-500 hover:bg-emerald-800 hover:text-white hover:border-collapse text-emerald-500">
+              Register / Login
             </h1>
           </Link>
         </section>
@@ -55,4 +62,5 @@ const RightNav = () => {
 };
 export default RightNav;
 
+import React from "react";
 import { AiOutlineSetting } from "react-icons/ai";
