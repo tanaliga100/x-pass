@@ -32,9 +32,9 @@ const Auth = () => {
             onClick={handleCloseModal}
           />
           <div className="z-10 ">
+            <Outlet />
             {/* Ensure this div is above the backdrop */}
             {/* Render your form components here */}
-            <Outlet />
           </div>
         </div>
       )}
