@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -22,7 +22,7 @@ const Auth = () => {
   const handleCloseModal = () => {
     dispatch(closeModal());
   };
-
+  React.useEffect(() => {}, [isModalOpen]);
   return (
     <div>
       {isModalOpen && (
@@ -31,15 +31,30 @@ const Auth = () => {
             className="fixed inset-0 bg-gray-800 opacity-75"
             onClick={handleCloseModal}
           />
-
           <div className="z-10 ">
-            {" "}
             {/* Ensure this div is above the backdrop */}
-            <Outlet /> {/* Render your form components here */}
+            {/* Render your form components here */}
+            <Outlet />
           </div>
         </div>
       )}
     </div>
+    //     <div>
+    //       {isModalOpen && (
+    //         <div className="fixed inset-0 flex items-center justify-center z-50">
+    //           <div
+    //             className="fixed inset-0 bg-gray-800 opacity-75"
+    //             onClick={handleCloseModal}
+    //           />
+    //           <div className="z-10">
+    //             <div className="w-96 p-6 bg-white rounded-lg shadow-xl">
+    //               {/* Your modal content here */}
+    //               <Outlet />
+    //             </div>
+    //           </div>
+    //         </div>
+    //       )}
+    //     </div>
   );
 };
 

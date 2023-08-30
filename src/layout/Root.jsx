@@ -1,12 +1,20 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Navbar from "../components/shared/Navbar";
 import Prompt from "../components/shared/Prompt";
 import Sidebar from "../components/shared/Sidebar";
 const Root = () => {
+  const navigate = useNavigate();
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const state = useSelector((state) => state);
   console.log("STATES", state);
+
+  useEffect(() => {
+    if (isAuth) {
+      navigate("/");
+    }
+  }, [isAuth, navigate]);
 
   return (
     <main className="w-screen h-screen mx-auto flex flex-col">
