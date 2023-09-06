@@ -16,18 +16,17 @@ const Sidebar = () => {
           <img src={img} alt="dp" width={75} height={100} />
           <span className=" text-md font-normal  bg-emerald-500 text-white px-5 p-1 rounded-md">
             {/* {userName.charAt(0).toUpperCase() + userName.slice(1)} */}
-
-            {userName}
+            {userName || "@juandelacruz"}
           </span>
           <section className="bg-black w-3/4">
             <span className="flex flex-row  items-center align-middle bg-white justify-center">
               <p className="pb-3 items-center font-sans text-base  font-extrabold align-middle text-emerald-700 ">
-                {fullName || "N/A"}
+                {fullName || "Juan Dela Cruz"}
               </p>
             </span>
             <span className="flex flex-w  items-center align-middle bg-white justify-center">
               <p className="items-center font-mono text-sm font-extrabold align-middle">
-                {gender}
+                {gender || "Male"}
               </p>
             </span>
           </section>
@@ -35,24 +34,24 @@ const Sidebar = () => {
           <section className="flex flex-col border-gray-500 p-5 gap-4 rounded-2xl bg-white">
             <span className="flex flex-row  items-center align-middle bg-white justify-center">
               <p className="items-center font-mono text-sm font-extrabold align-middle">
-                {address}
+                {address || "Manila, Philippines"}
               </p>
             </span>
             <span className="flex flex-row  items-center align-middle bg-white justify-center">
               <p className="items-center font-mono text-sm font-extrabold align-middle  text-white bg-emerald-500 px-3 py-1 rounded-md">
-                {occupation}
+                {occupation || "Dev"}
               </p>
             </span>
             <span className="flex flex-row  items-center align-middle bg-white justify-center">
               <p className="items-center font-mono text-sm font-extrabold align-middle">
-                {email}
+                {email || "sample@email.com"}
               </p>
             </span>
           </section>
           {/* CONDITIONS AND CONDITIONS */}
           <Link
             to="profile"
-            className=" text-emerald-600 p-2 border-2 border-emerald-500 rounded-md hover:bg-emerald-700"
+            className=" text-emerald-600 p-2 border-2 border-emerald-500 rounded-md hover:bg-emerald-700 hover:text-white"
           >
             Edit Profile
           </Link>

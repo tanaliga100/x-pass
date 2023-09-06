@@ -4,12 +4,14 @@ import Register from "./components/views/Register";
 import Timeline from "./components/views/Timeline";
 import UserDetails from "./components/views/UserDetails";
 import Users from "./components/views/Users";
+import { useTheme } from "./context/themeContext";
 import Auth from "./layout/Auth";
 import Root from "./layout/Root";
 import Feed from "./pages/Feed";
 import Profile from "./pages/Profile";
 import Quotes from "./pages/Quotes";
 function App() {
+  const { theme } = useTheme();
   const router = createBrowserRouter([
     {
       path: "/",
@@ -78,7 +80,7 @@ function App() {
   ]);
 
   return (
-    <div className="App">
+    <div className={`app ${theme}`}>
       <RouterProvider router={router} />
     </div>
   );

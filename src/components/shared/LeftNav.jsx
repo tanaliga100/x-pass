@@ -2,11 +2,10 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { TbBrandFeedly } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
-import Search from "./Search";
 
 const LeftNav = () => {
   return (
-    <section className="flex flex-row gap-5 justify-start  font-bold">
+    <section className="flex flex-row gap-5 justify-start  font-bold ">
       {links.map((link) => (
         <NavLink
           end
@@ -18,13 +17,12 @@ const LeftNav = () => {
               : "items-center    text-emerald-500 text-lg px-5  flex flex-row rounded-md "
           }
         >
-          <section className="flex flex-row gap-3 items-center justify-center">
+          <section className="flex flex-row gap-3 items-center justify-center py-4">
             <div>{link.icon}</div>
             <h1>{link.text}</h1>
           </section>
         </NavLink>
       ))}
-      <Search placeholder="Search Account..." />
     </section>
   );
 };

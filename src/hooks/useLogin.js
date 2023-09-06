@@ -24,12 +24,14 @@ export const useLogin = () => {
 
       if (!querySnap.empty) {
         const documentId = querySnap.docs[0].id;
-        console.log("RETRIEVED USER", querySnap.docs[0].id);
+        console.log("RETRIEVED USER", querySnap.docs[0].data());
         dispatch(userDocId(documentId));
       }
 
       const user = userCredential.user;
-      dispatch(currentUser(user));
+
+      console.log("current user dispatch", user);
+      dispatch(currentUser({ ...user }));
       dispatch(closeModal());
       dispatch(provideMessage("Successfully Login"));
     } catch (error) {

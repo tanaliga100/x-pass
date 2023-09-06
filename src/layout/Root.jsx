@@ -4,7 +4,10 @@ import { Outlet, useNavigate } from "react-router-dom";
 import Navbar from "../components/shared/Navbar";
 import Prompt from "../components/shared/Prompt";
 import Sidebar from "../components/shared/Sidebar";
+import { useTheme } from "../context/themeContext";
 const Root = () => {
+  const theme = useTheme();
+
   const navigate = useNavigate();
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
@@ -16,7 +19,7 @@ const Root = () => {
 
   return (
     <main className="w-screen h-screen mx-auto flex flex-col">
-      <nav className={`sticky top-0 `}>
+      <nav className={`sticky top-0  `}>
         <Navbar />
       </nav>
       <section className=" overflow-y-auto flex flex-grow bg-slate-100">

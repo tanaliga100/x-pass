@@ -5,7 +5,7 @@ const Search = (props) => {
   };
   return (
     <input
-      className="border-2 border-emerald-500 focus:border-emerald-500 focus:ring-0  p-3 rounded-lg text-emerald-500"
+      className="border-2 border-emerald-500w-3/4 text-left focus:ring-0  p-3 rounded-lg text-emerald-500 w-full my-3"
       onChange={handleChange}
       // eslint-disable-next-line react/prop-types
       placeholder={props.placeholder}
