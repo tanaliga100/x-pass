@@ -1,7 +1,8 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { useDispatch } from "react-redux";
-import { auth } from "../config/firebase.config";
-import { currentUser, provideMessage } from "../features/authSlice";
+import { auth, db } from "../config/firebase.config";
+import { currentUser, provideMessage, userDocId } from "../features/authSlice";
 import { closeModal } from "../features/uiSlice";
 
 export const useLogin = () => {
@@ -14,6 +15,19 @@ export const useLogin = () => {
         email,
         password
       );
+
+      //  // find the document id based on the user's email
+      const userCollection = collection(db, "users");
+      const queryDoc = query(userCollection, where("email", "==", email));
+
+      const querySnap = await getDocs(queryDoc);
+
+      if (!querySnap.empty) {
+        const documentId = querySnap.docs[0].id;
+        console.log("RETRIEVED USER", querySnap.docs[0].id);
+        dispatch(userDocId(documentId));
+      }
+
       const user = userCredential.user;
       dispatch(currentUser(user));
       dispatch(closeModal());

@@ -27,19 +27,19 @@ const Auth = () => {
   return (
     <div>
       {isModalOpen && (
-        <div className="fixed inset-1 flex items-center justify-center z-50">
+        <div className="fixed inset-0 flex items-center justify-center z-50">
           <div
-            className="fixed inset-0 bg-gray-800 opacity-75"
+            className="fixed inset-0 bg-emerald-950 opacity-50"
             onClick={handleCloseModal}
           />
-          <div className="z-10 ">
-            <Outlet />
-            {/* Ensure this div is above the backdrop */}
-            {/* Render your form components here */}
+          <div className="z-50 w-1/4 ">
+            {/* Your modal content here */}
+            <Outlet />{" "}
           </div>
         </div>
       )}
     </div>
+
     //     <div>
     //       {isModalOpen && (
     //         <div className="fixed inset-0 flex items-center justify-center z-50">

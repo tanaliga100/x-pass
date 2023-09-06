@@ -7,8 +7,6 @@ import Sidebar from "../components/shared/Sidebar";
 const Root = () => {
   const navigate = useNavigate();
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
-  const state = useSelector((state) => state);
-  console.log("STATES", state);
 
   useEffect(() => {
     if (isAuth) {
@@ -42,7 +40,7 @@ const Root = () => {
           <div className=" flex-grow">
             <Prompt />
           </div>
-        ) : (
+   ) : (app
           <div className="flex-grow p-2">
             <Outlet />
           </div>

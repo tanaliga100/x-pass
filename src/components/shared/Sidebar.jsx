@@ -14,49 +14,45 @@ const Sidebar = () => {
       {isAuthenticated && (
         <div className="justify-center flex flex-col gap-3 place-items-center align-middle pt-3 ">
           <img src={img} alt="dp" width={75} height={100} />
-          <span className=" text-md font-bold  bg-emerald-500 text-white px-3 p-1 rounded-lg">
+          <span className=" text-md font-normal  bg-emerald-500 text-white px-5 p-1 rounded-md">
             {/* {userName.charAt(0).toUpperCase() + userName.slice(1)} */}
 
-            {userName || "N/A"}
+            {userName}
           </span>
-          <section className="bg-black w-full">
+          <section className="bg-black w-3/4">
             <span className="flex flex-row  items-center align-middle bg-white justify-center">
-              <p className="items-center font-mono text-sm font-extrabold align-middle">
-                {address || "N/A"}
-              </p>
-            </span>
-            <hr />
-            <span className="flex flex-w  items-center align-middle bg-white justify-center">
-              <p className="items-center font-mono text-sm font-extrabold align-middle">
-                {gender || "N/A"}
-              </p>
-            </span>
-          </section>
-          <hr /> {/* Box */}
-          <section className="border-gray-500 p-5 rounded-2xl bg-white">
-            <span className="flex flex-row  items-center align-middle bg-white justify-center">
-              <p className="items-center font-mono text-sm font-extrabold align-middle">
+              <p className="pb-3 items-center font-sans text-base  font-extrabold align-middle text-emerald-700 ">
                 {fullName || "N/A"}
               </p>
             </span>
-            <hr />{" "}
-            <span className="flex flex-row  items-center align-middle bg-white justify-center">
+            <span className="flex flex-w  items-center align-middle bg-white justify-center">
               <p className="items-center font-mono text-sm font-extrabold align-middle">
-                {occupation || "N/A"}
+                {gender}
               </p>
             </span>
-            <hr />{" "}
+          </section>
+          <hr className="h-3" /> {/* Box */}
+          <section className="flex flex-col border-gray-500 p-5 gap-4 rounded-2xl bg-white">
             <span className="flex flex-row  items-center align-middle bg-white justify-center">
               <p className="items-center font-mono text-sm font-extrabold align-middle">
-                {email || "N/A"}
+                {address}
               </p>
             </span>
-            <hr />
+            <span className="flex flex-row  items-center align-middle bg-white justify-center">
+              <p className="items-center font-mono text-sm font-extrabold align-middle  text-white bg-emerald-500 px-3 py-1 rounded-md">
+                {occupation}
+              </p>
+            </span>
+            <span className="flex flex-row  items-center align-middle bg-white justify-center">
+              <p className="items-center font-mono text-sm font-extrabold align-middle">
+                {email}
+              </p>
+            </span>
           </section>
           {/* CONDITIONS AND CONDITIONS */}
           <Link
             to="profile"
-            className="bg-emerald-600 text-white p-2 border-2 rounded-md hover:bg-emerald-700"
+            className=" text-emerald-600 p-2 border-2 border-emerald-500 rounded-md hover:bg-emerald-700"
           >
             Edit Profile
           </Link>

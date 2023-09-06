@@ -6,17 +6,22 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isAuthenticated: localStorage.getItem("isAuth", false),
   message: "",
+  currentUserDocId: localStorage.getItem("currUserId") || null,
   currentUser: {
     uid: localStorage.getItem("currentId") || " ",
     email: localStorage.getItem("currentEmail") || "",
     // extra props
     profilePic: null,
-    address: "sample Adress",
-    gender: "Male",
-    occupation: "Dev",
-    fullName: "John Doe",
-    userName: "@sample.com",
+    label: "",
+    address: "",
+    gender: "",
+    occupation: "",
+    userName: "",
+    displayName: "",
+    photoURL: "",
+    isAnonymous: false,
   },
+  accessToken: localStorage.getItem("accessToken") || null,
 };
 
 const authSlice = createSlice({
@@ -24,14 +29,20 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     currentUser: (state, action) => {
-      console.log("THIS IS CURRENT USER", action.payload);
-      const { email, uid } = action.payload;
+      const { email, uid, displayName, isAnonymous, photoURL, accessToken } =
+        action.payload;
+      // STORAGE PERSIST
+      localStorage.setItem("isAuth", true);
+      localStorage.setItem("currentEmail", state.currentUser.email);
+      localStorage.setItem("currentId", state.currentUser.uid);
+      localStorage.setItem("accessToken", accessToken);
+
       state.currentUser.email = email;
       state.currentUser.uid = uid;
       state.isAuthenticated = true;
-      localStorage.setItem("currentEmail", state.currentUser.email);
-      localStorage.setItem("currentId", state.currentUser.uid);
-      localStorage.setItem("isAuth", true);
+      state.currentUser.displayName = displayName;
+      state.currentUser.photoURL = photoURL;
+      state.currentUser.isAnonymous = isAnonymous;
     },
     provideMessage: (state, action) => {
       console.log("message", action.payload);
@@ -43,11 +54,18 @@ const authSlice = createSlice({
       localStorage.removeItem("currentEmail");
       localStorage.removeItem("currentId");
       localStorage.removeItem("isAuth");
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("currUserId");
+    },
+    userDocId: (state, action) => {
+      state.currentUserDocId = action.payload;
+      localStorage.setItem("currUserId", action.payload);
     },
   },
 });
 
-export const { currentUser, logoutUser, provideMessage } = authSlice.actions;
+export const { currentUser, logoutUser, userDocId, provideMessage } =
+  authSlice.actions;
 export default authSlice.reducer;
 
 // const savedToken = localStorage.setItem(

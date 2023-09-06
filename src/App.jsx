@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { default as Login } from "./components/views/Login";
 import Register from "./components/views/Register";
 import Timeline from "./components/views/Timeline";
+import UserDetails from "./components/views/UserDetails";
 import Users from "./components/views/Users";
 import Auth from "./layout/Auth";
 import Root from "./layout/Root";
@@ -26,6 +27,11 @@ function App() {
           path: "users",
           element: <Users />,
         },
+        {
+          path: "users/:id",
+          element: <UserDetails />,
+        },
+
         //    {
         //      path: "followers",
         //      element: <Followers />,

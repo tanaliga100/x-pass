@@ -1,30 +1,34 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Header from "../components/shared/Header";
-import { updateUserProfile } from "../utils/updateProfile";
+import { useUpdateProfile } from "../utils/updateProfile";
 
 const Profile = () => {
-  //   const [name, setName] = useState("John Doe");
-  //   const [username, setUsername] = useState("johndoe");
-  //   const [email, setEmail] = useState("john@example.com");
-  //   const [gender, setGender] = useState("");
-  //   const [address, setAddress] = useState("Manila, Philippines");
-  //   const [occupation, setOccupation] = useState("Dev");
-  //   const [photo, setPhoto] = useState(null);
-
+  const { updateProfile } = useUpdateProfile();
   // retrieved the currentUser
   const currentUser = useSelector((state) => state.auth.currentUser);
-  //   const [photo, setPhoto] = useState([]);
+  //   const userId = useSelector((state) => state.user.users);
+  const documentId = useSelector((state) => state.auth.currentUserDocId);
+
+  React.useEffect(() => {
+    console.log("DOC_ID", documentId);
+  }, []);
   const [profileData, setProfileData] = useState({
     uid: currentUser.uid,
     profilePic: null,
     address: currentUser.address,
     occupation: currentUser.occupation,
-    fullName: currentUser.fullName,
     userName: currentUser.userName,
     gender: currentUser.gender,
+    label: currentUser.label,
+    displayName: currentUser.displayName,
   });
+  const [photo, setPhoto] = useState(null);
 
+  const handlePhotoChange = (e) => {
+    const selectedPhoto = e.target.files[0];
+    setPhoto(selectedPhoto);
+  };
   // HOOKS
 
   const handleInputChange = (e) => {
@@ -32,21 +36,18 @@ const Profile = () => {
     setProfileData((prevData) => ({
       ...prevData,
       [name]: value,
+      profilePic: photo,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission or API call here
-    //     await updateUserProfile(name, username, email, address, occupation, photo);
-    await updateUserProfile(profileData.uid, profileData);
+    await updateProfile(documentId, profileData);
     console.log("FORM SUBMISSION", profileData);
+    //     setProfileData((prev) => prev === "");
+    //     setPhoto("");
   };
-
-  //   const handlePhotoChange = (e) => {
-  //     const selectedPhoto = e.target.files[0];
-  //     setPhoto(selectedPhoto);
-  //   };
 
   return (
     <div className="bg-white rounded-lg shadow-md w-full overflow-y-auto  min-h-full  ">
@@ -54,7 +55,7 @@ const Profile = () => {
       <div className="p-10 ">
         {/* Added container */}
         <form onSubmit={handleSubmit}>
-          {/* <div className="mb-4">
+          <div className="mb-4">
             <label
               htmlFor="photo"
               className="block text-sm font-medium text-gray-700"
@@ -79,19 +80,20 @@ const Profile = () => {
               onChange={handlePhotoChange}
               className="mt-2 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
-          </div> */}
+          </div>
           <div className="mb-4">
             <label
               htmlFor="name"
               className="block text-sm font-medium text-gray-700"
             >
-              Full Name
+              Display Name
             </label>
             <input
               type="text"
+              placeholder="Juan Dela Cruz"
               id="name"
-              name="fullName"
-              value={profileData.fullName}
+              name="displayName"
+              value={profileData.displayName || ""}
               onChange={handleInputChange}
               className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
@@ -105,57 +107,73 @@ const Profile = () => {
             </label>
             <input
               type="text"
+              placeholder="@juandelacruz"
               id="username"
               name="userName"
-              value={profileData.userName}
+              value={profileData.userName || ""}
               onChange={handleInputChange}
               className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
           </div>
           <div className="mb-4">
-            <label
-              htmlFor="username"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label className="block text-sm font-medium text-gray-700">
               Gender
             </label>
-            <input
-              type="text"
-              id="gender"
-              name="gender"
-              value={profileData.gender}
-              onChange={handleInputChange}
-              className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
-            />
+            <div className="mt-1 space-x-4">
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  checked={profileData.gender === "Male"}
+                  onChange={handleInputChange}
+                  className="form-radio text-blue-500 h-4 w-4"
+                />
+                <span className="ml-2">Male</span>
+              </label>
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  checked={profileData.gender === "Female"}
+                  onChange={handleInputChange}
+                  className="form-radio text-blue-500 h-4 w-4"
+                />
+                <span className="ml-2">Female</span>
+              </label>
+            </div>
           </div>
           <div className="mb-4">
             <label
-              htmlFor="username"
+              htmlFor="address"
               className="block text-sm font-medium text-gray-700"
             >
               Address
             </label>
             <input
               type="text"
-              id="username"
+              placeholder="Manila, Philippines"
+              id="address"
               name="address"
-              value={profileData.address}
+              value={profileData.address || ""}
               onChange={handleInputChange}
               className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
           </div>
           <div className="mb-4">
             <label
-              htmlFor="username"
+              htmlFor="occupation"
               className="block text-sm font-medium text-gray-700"
             >
               Occupation
             </label>
             <input
               type="text"
-              id="username"
+              placeholder="Developer"
+              id="occupation"
               name="occupation"
-              value={profileData.occupation}
+              value={profileData.occupation || ""}
               onChange={handleInputChange}
               className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
@@ -169,9 +187,10 @@ const Profile = () => {
             </label>
             <input
               type="email"
+              placeholder="juandelacruz@mail.com"
               id="email"
               name="email"
-              value={profileData.email}
+              value={profileData.email || ""}
               onChange={handleInputChange}
               className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
@@ -189,3 +208,11 @@ const Profile = () => {
 };
 
 export default Profile;
+
+//   const [name, setName] = useState("John Doe");
+//   const [username, setUsername] = useState("johndoe");
+//   const [email, setEmail] = useState("john@example.com");
+//   const [gender, setGender] = useState("");
+//   const [address, setAddress] = useState("Manila, Philippines");
+//   const [occupation, setOccupation] = useState("Dev");
+//   const [photo, setPhoto] = useState(null);
