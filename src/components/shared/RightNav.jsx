@@ -2,27 +2,26 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import profile from "../../assets/profile.svg";
-import { logoutUser } from "../../features/authSlice";
 import { openModal } from "../../features/uiSlice";
 const RightNav = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
-
   const navigate = useNavigate();
+  const { logoutUserHandler } = useLogout();
 
-  const handleLogout = () => {
-    dispatch(logoutUser());
+  const handleLogout = async () => {
+    await logoutUserHandler();
     navigate("/");
   };
-  React.useEffect(() => {}, [isAuth]);
 
   return (
     <>
       {isAuth ? (
         <main className="flex flex-row   items-center justify-around">
+          {" "}
           <Link
             to="profile"
-            className="items-center justify-center bg-white p-3 rounded-full center place-items-center "
+            className="items-center justify-center bg-white p-3 rouendd-full center place-items-center "
           >
             {<AiOutlineSetting size={20} />}
           </Link>
@@ -48,7 +47,6 @@ const RightNav = () => {
             to="auth"
             onClick={() => {
               dispatch(openModal());
-              console.log("opening the modal...");
             }}
           >
             <h1 className="font-bold text-base p-2 border-2  rounded-md border-emerald-500 hover:bg-emerald-800 hover:text-white hover:border-collapse text-emerald-500">
@@ -62,6 +60,5 @@ const RightNav = () => {
 };
 export default RightNav;
 
-import React from "react";
 import { AiOutlineSetting } from "react-icons/ai";
-
+import { useLogout } from "../../hooks/useLogout";

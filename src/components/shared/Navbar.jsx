@@ -1,12 +1,9 @@
 import { useSelector } from "react-redux";
-import { useTheme } from "../../context/themeContext";
 import { default as LeftNav } from "./LeftNav";
 import Logo from "./Logo";
 import RightNav from "./RightNav";
 const Navbar = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
-
-  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="flex flex-row items-center  bg-white py-5">
@@ -20,7 +17,6 @@ const Navbar = () => {
             {isAuth && <LeftNav />}
           </section>
           {/* RIGHT */}
-
           <section className="basis-1/5 w-full ">
             <RightNav />
           </section>
@@ -29,6 +25,7 @@ const Navbar = () => {
     </div>
   );
 };
+
 export default Navbar;
 
 // const links = [

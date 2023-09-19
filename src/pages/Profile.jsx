@@ -44,7 +44,6 @@ const Profile = () => {
     e.preventDefault();
     // Handle form submission or API call here
     await updateProfile(documentId, profileData);
-    console.log("FORM SUBMISSION", profileData);
     //     setProfileData((prev) => prev === "");
     //     setPhoto("");
   };

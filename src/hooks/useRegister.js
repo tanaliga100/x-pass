@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { auth, db } from "../config/firebase.config";
-import { currentUser, provideMessage, userDocId } from "../features/authSlice";
+import { setCurrentUser } from "../features/authSlice";
 import { closeModal } from "../features/uiSlice";
 import { emailExists } from "../utils/checkEmail";
 
@@ -13,6 +13,7 @@ export const useRegister = () => {
     try {
       // check email if it exists
       const emailAlreadyExitst = await emailExists(email);
+
       // if false, then register the user
       console.log("does email exists ?", emailAlreadyExitst);
       if (!emailAlreadyExitst) {
@@ -21,20 +22,24 @@ export const useRegister = () => {
           email,
           password
         );
+        // ADD TO THE USERS COLLECTION
         const userCollection = collection(db, "users");
         const userDoCRef = await addDoc(userCollection, {
           email: newUser.user.email,
           fielID: newUser.user.uid,
         });
 
-        console.log("NEW USER ", userDoCRef.id);
-
         //   DISPATCH THE CURRENT USER
-        dispatch(currentUser(newUser.user));
+        //    dispatch(currentUser(newUser.user));
+        dispatch(
+          setCurrentUser({
+            email: newUser.user.email,
+            userId: userDoCRef.id,
+            messag: "User Registered",
+          })
+        );
         dispatch(closeModal());
         // attached the documentId retrieved from firebase
-        dispatch(userDocId(userDoCRef.id));
-        dispatch(provideMessage("User Registered"));
 
         // ADD THE USER TO THE COLLECTION
       } else {

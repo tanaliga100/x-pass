@@ -1,12 +1,9 @@
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import img from "../../assets/profile.svg";
 /* eslint-disable react/prop-types */
 
 const Sidebar = () => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const { email, address, gender, occupation, fullName, userName } =
-    useSelector((state) => state.auth.currentUser);
+  //   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  //   const { email, address, gender, occupation, fullName, userName } =
+  //     useSelector((state) => state.auth.currentUser);
 
   return (
     <div className="text-center justify-center  py-10 rounded-sm overflow-y-scroll bg-white ">
