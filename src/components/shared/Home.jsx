@@ -1,7 +1,6 @@
 import imgFront from "../../assets/front.svg";
-import Auth from "../../layout/Auth";
 
-const Prompt = () => {
+const Home = () => {
   return (
     <div className="basis-full flex-grow  ">
       <main className="  w-full flex flex-col items-center justify-center text-center pt-3 ">
@@ -25,9 +24,8 @@ const Prompt = () => {
           will turn your lyrics into a thriving hub of creativity and meaningful
           connections.
         </p>
-        <Auth />
       </main>
     </div>
   );
 };
-export default Prompt;
+export default Home;

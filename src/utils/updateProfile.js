@@ -1,6 +1,6 @@
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../config/firebase.config";
-import { provideMessage } from "../features/authSlice";
+import { provideMessage } from "../store/features/authSlice";
 
 export const useUpdateProfile = () => {
   const updateProfile = async (documentId, profileData) => {

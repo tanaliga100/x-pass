@@ -2,8 +2,8 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { auth, db } from "../config/firebase.config";
-import { provideMessage, setCurrentUser } from "../features/authSlice";
-import { closeModal } from "../features/uiSlice";
+import { provideMessage, setCurrentUser } from "../store/features/authSlice";
+import { closeModal } from "../store/features/uiSlice";
 
 export const useLogin = () => {
   const dispatch = useDispatch();

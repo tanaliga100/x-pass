@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { provideMessage, removeUser } from "../features/authSlice";
+import { provideMessage, removeUser } from "../store/features/authSlice";
 
 export const useLogout = () => {
   const navigate = useNavigate();

@@ -2,8 +2,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { auth, db } from "../config/firebase.config";
-import { setCurrentUser } from "../features/authSlice";
-import { closeModal } from "../features/uiSlice";
+import { provideMessage, setCurrentUser } from "../store/features/authSlice";
+import { closeModal } from "../store/features/uiSlice";
 import { emailExists } from "../utils/checkEmail";
 
 export const useRegister = () => {

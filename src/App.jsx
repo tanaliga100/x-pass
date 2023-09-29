@@ -81,8 +81,8 @@ import Timeline from "./components/views/Timeline";
 import UserDetails from "./components/views/UserDetails";
 import Users from "./components/views/Users";
 import { useTheme } from "./context/themeContext";
-import Auth from "./layout/Auth";
-import Root from "./layout/Root";
+import { default as AuthLayout } from "./layout/AuthLayout";
+import { default as RootLayout } from "./layout/RootLayout";
 import Feed from "./pages/Feed";
 import Profile from "./pages/Profile";
 import Quotes from "./pages/Quotes";
@@ -91,16 +91,17 @@ function App() {
   const { theme } = useTheme();
 
   // Define your routes using createRoutesFromElements
+
   const routes = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Root />}>
+      <Route path="/" element={<RootLayout />}>
         <Route index element={<Feed />} />
         <Route path="add" element={<Quotes />} />
         <Route path="users" element={<Users />} />
         <Route path="users/:id" element={<UserDetails />} />
         <Route path="timeline" element={<Timeline />} />
         <Route path="profile" element={<Profile />} />
-        <Route path="auth" element={<Auth />}>
+        <Route path="auth" element={<AuthLayout />}>
           <Route index element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>

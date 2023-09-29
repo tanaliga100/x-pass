@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "../../features/userSlice";
+import { fetchUsers } from "../../store/features/userSlice";
 import Header from "../shared/Header";
 import User from "./User";
 

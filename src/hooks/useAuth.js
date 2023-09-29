@@ -2,7 +2,10 @@ import { onAuthStateChanged } from "firebase/auth";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { auth } from "../config/firebase.config";
-import { setCurrentUser, setIsAuthenticated } from "../features/authSlice";
+import {
+  setCurrentUser,
+  setIsAuthenticated,
+} from "../store/features/authSlice";
 
 export const useAuth = () => {
   const dispatch = useDispatch();
