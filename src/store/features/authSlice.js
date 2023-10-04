@@ -73,7 +73,6 @@ const authSlice = createSlice({
       state.user.email = null;
       state.user.userId = null;
       state.isLoading = false;
-
       //  localStorage.removeItem("currentEmail");
       //  localStorage.removeItem("currentId");
       //  localStorage.removeItem("isAuth");

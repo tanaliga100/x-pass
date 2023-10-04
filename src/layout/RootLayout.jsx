@@ -1,8 +1,6 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/shared/Navbar";
 // import Sidebar from "../components/shared/Sidebar";
-
 const RootLayout = () => {
   //   const theme = useTheme();
   //   const isAuth = useSelector((state) => state.auth.isAuthenticated);
@@ -16,8 +14,8 @@ const RootLayout = () => {
     </section>
   );
 };
-
 export default RootLayout;
+
 //  <section className=" overflow-y-auto flex flex-grow bg-slate-100">
 //    {/* LEFT PANEL */}
 //    <div className="sticky top-0 basis-1/5 h-auto  text-justify flex flex-col p-2">
