@@ -9,6 +9,7 @@ const RootLayout = () => {
       <nav className={`sticky top-0  `}>
         <Navbar />
       </nav>
+
       <section>{<Outlet />}</section>
       {/* <main>{!isAuth ? <Home /> : <Outlet />}</main> */}
     </section>

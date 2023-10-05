@@ -69,7 +69,6 @@
 
 // export default App;
 
-import { useSelector } from "react-redux";
 import {
   Route,
   RouterProvider,
@@ -91,7 +90,7 @@ import Quotes from "./pages/Quotes";
 function App() {
   const { theme } = useTheme();
   // Define your routes using createRoutesFromElements
-  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  //   const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
   const routes = createBrowserRouter(
     createRoutesFromElements(
