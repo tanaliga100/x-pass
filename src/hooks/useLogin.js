@@ -15,7 +15,6 @@ export const useLogin = () => {
         email,
         password
       );
-
       //  // find the document id based on the user's email
       const userCollection = collection(db, "users");
       const queryDoc = query(userCollection, where("email", "==", email));

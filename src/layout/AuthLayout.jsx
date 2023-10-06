@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Home from "../components/shared/Home";
 import { closeModal } from "../store/features/uiSlice";
 
@@ -8,16 +8,24 @@ const AuthLayout = () => {
   const isModalOpen = useSelector((state) => state.modal.isModalOpen);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <div>
       <Home />
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50"
+          // onClick={(e) => {
+          //   e.stopPropagation();
+          // }}
+        >
           <div
             className="fixed inset-0 bg-emerald-950 opacity-50"
             onClick={() => {
               dispatch(closeModal());
+              navigate("/");
+
               console.log("triggered");
             }}
           />
