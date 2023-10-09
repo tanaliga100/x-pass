@@ -69,6 +69,7 @@
 
 // export default App;
 
+import { Suspense, lazy } from "react";
 import {
   Route,
   RouterProvider,
@@ -82,7 +83,7 @@ import UserDetails from "./components/views/UserDetails";
 import Users from "./components/views/Users";
 import { useTheme } from "./context/themeContext";
 import { default as AuthLayout } from "./layout/AuthLayout";
-import { default as RootLayout } from "./layout/RootLayout";
+import LoadingLayout from "./layout/LoadingLayout";
 import Feed from "./pages/Feed";
 import Profile from "./pages/Profile";
 import Quotes from "./pages/Quotes";
@@ -91,6 +92,8 @@ function App() {
   const { theme } = useTheme();
   // Define your routes using createRoutesFromElements
   //   const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  // IMPORTS OF LAZY LOADING
+  const RootLayout = lazy(() => import("./layout/RootLayout"));
 
   const routes = createBrowserRouter(
     createRoutesFromElements(
@@ -111,7 +114,9 @@ function App() {
 
   return (
     <div className={`app ${theme}`}>
-      <RouterProvider router={routes} />
+      <Suspense fallback={<LoadingLayout />}>
+        <RouterProvider router={routes} />
+      </Suspense>
     </div>
   );
 }

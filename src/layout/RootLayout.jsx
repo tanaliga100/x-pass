@@ -1,17 +1,30 @@
+import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/shared/Navbar";
+import Sidebar from "../components/shared/Sidebar";
 // import Sidebar from "../components/shared/Sidebar";
 const RootLayout = () => {
   //   const theme = useTheme();
-  //   const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  const isAuth = useSelector((state) => state.auth.isAuthenticated);
   return (
     <section className="w-screen h-screen mx-auto flex flex-col">
       <nav className={`sticky top-0  `}>
         <Navbar />
       </nav>
-
-      <section>{<Outlet />}</section>
-      {/* <main>{!isAuth ? <Home /> : <Outlet />}</main> */}
+      {/* <section>{<Outlet />}</section> */}
+      <section>
+        <main className="flex flex-grow-1">
+          {isAuth && (
+            <section className="w-1/4 lg:w-1/5">
+              {/* Display sidebar when logged in */}
+              <Sidebar />
+            </section>
+          )}
+          <section className={isAuth ? "w-5/6" : "w-full"}>
+            <Outlet />
+          </section>
+        </main>
+      </section>
     </section>
   );
 };
