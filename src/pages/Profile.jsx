@@ -20,6 +20,7 @@ const Profile = () => {
     occupation: currentUser.occupation,
     userName: currentUser.userName,
     gender: currentUser.gender,
+
     label: currentUser.label,
     displayName: currentUser.displayName,
   });

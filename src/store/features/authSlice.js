@@ -26,6 +26,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // };
 
 const initialState = {
+  //   isAuthenticated: localStorage.getItem("isAuth") || false,
   isAuthenticated: true,
   user: {
     email: "",
@@ -73,9 +74,9 @@ const authSlice = createSlice({
       state.user.email = null;
       state.user.userId = null;
       state.isLoading = false;
-      //  localStorage.removeItem("currentEmail");
+      localStorage.removeItem("isAuth");
+      //   localStorage.removeItem("currentEmail");
       //  localStorage.removeItem("currentId");
-      //  localStorage.removeItem("isAuth");
       //  localStorage.removeItem("accessToken");
       //  localStorage.removeItem("currUserId");
     },
