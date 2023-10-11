@@ -1,22 +1,23 @@
 import { signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { auth } from "../config/firebase.config";
+import { provideMessage, removeUser } from "../store/features/authSlice";
 
 export const useLogout = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const logoutUser = () => {
-    signOut()
+  const logoutUserHandler = async () => {
+    await signOut(auth)
       .then(() => {
-        dispatch(logoutUser());
+        dispatch(removeUser());
         navigate("/");
-        toast.success("Successfully Logout");
+        dispatch(provideMessage("Logs out"));
       })
       .catch((err) => {
         console.log(err.message);
       });
   };
 
-  return { logoutUser };
+  return { logoutUserHandler };
 };

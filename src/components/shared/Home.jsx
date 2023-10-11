@@ -1,7 +1,6 @@
 import imgFront from "../../assets/front.svg";
-import Auth from "../../layout/Auth";
 
-const Prompt = () => {
+const Home = () => {
   return (
     <div className="basis-full flex-grow  ">
       <main className="  w-full flex flex-col items-center justify-center text-center pt-3 ">
@@ -15,9 +14,9 @@ const Prompt = () => {
         <div className="leading-10 uppercase tracking-wide text-4xl  font-bold text-emerald-600 p-3 py-10  text-center ">
           Make a quotable lyrics of your{" "}
           <span className="bg-emerald-400 text-white p-1 px-2 rounded-lg">
-            favorite
+            eloquent
           </span>{" "}
-          song
+          sights
         </div>
         <p className=" p-1 text-lg font-bold w-1/3">
           Encourage a wider audience to join in, sparking discussions, comments,
@@ -25,9 +24,8 @@ const Prompt = () => {
           will turn your lyrics into a thriving hub of creativity and meaningful
           connections.
         </p>
-        <Auth />
       </main>
     </div>
   );
 };
-export default Prompt;
+export default Home;

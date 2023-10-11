@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "../features/authSlice";
-import modalReducer from "../features/uiSlice";
-import userReducer from "../features/userSlice";
+import authReducer from "./features/authSlice";
+import modalReducer from "./features/uiSlice";
+import userReducer from "./features/userSlice";
 
 const store = configureStore({
   reducer: {
@@ -9,5 +9,7 @@ const store = configureStore({
     auth: authReducer,
     user: userReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }),
 });
 export default store;

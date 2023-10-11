@@ -1,24 +1,52 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Header from "../components/shared/Header";
+import { useUpdateProfile } from "../utils/updateProfile";
 
 const Profile = () => {
-  const [name, setName] = useState("John Doe");
-  const [username, setUsername] = useState("johndoe");
-  const [email, setEmail] = useState("john@example.com");
-  const [address, setAddress] = useState("Manila, Philippines");
-  const [occupation, setOccupation] = useState("Dev");
+  const { updateProfile } = useUpdateProfile();
+  // retrieved the currentUser
+  const currentUser = useSelector((state) => state.auth.currentUser);
+  //   const userId = useSelector((state) => state.user.users);
+  const documentId = useSelector((state) => state.auth.currentUserDocId);
 
+  React.useEffect(() => {
+    console.log("DOC_ID", documentId);
+  }, []);
+  const [profileData, setProfileData] = useState({
+    uid: currentUser.uid,
+    profilePic: null,
+    address: currentUser.address,
+    occupation: currentUser.occupation,
+    userName: currentUser.userName,
+    gender: currentUser.gender,
+
+    label: currentUser.label,
+    displayName: currentUser.displayName,
+  });
   const [photo, setPhoto] = useState(null);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission or API call here
-    console.log("Form submitted:", { name, username, email });
-  };
 
   const handlePhotoChange = (e) => {
     const selectedPhoto = e.target.files[0];
     setPhoto(selectedPhoto);
+  };
+  // HOOKS
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setProfileData((prevData) => ({
+      ...prevData,
+      [name]: value,
+      profilePic: photo,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // Handle form submission or API call here
+    await updateProfile(documentId, profileData);
+    //     setProfileData((prev) => prev === "");
+    //     setPhoto("");
   };
 
   return (
@@ -58,13 +86,15 @@ const Profile = () => {
               htmlFor="name"
               className="block text-sm font-medium text-gray-700"
             >
-              Full Name
+              Display Name
             </label>
             <input
               type="text"
+              placeholder="Juan Dela Cruz"
               id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              name="displayName"
+              value={profileData.displayName || ""}
+              onChange={handleInputChange}
               className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
           </div>
@@ -77,39 +107,74 @@ const Profile = () => {
             </label>
             <input
               type="text"
+              placeholder="@juandelacruz"
               id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              name="userName"
+              value={profileData.userName || ""}
+              onChange={handleInputChange}
               className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
           </div>
           <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700">
+              Gender
+            </label>
+            <div className="mt-1 space-x-4">
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  checked={profileData.gender === "Male"}
+                  onChange={handleInputChange}
+                  className="form-radio text-blue-500 h-4 w-4"
+                />
+                <span className="ml-2">Male</span>
+              </label>
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  checked={profileData.gender === "Female"}
+                  onChange={handleInputChange}
+                  className="form-radio text-blue-500 h-4 w-4"
+                />
+                <span className="ml-2">Female</span>
+              </label>
+            </div>
+          </div>
+          <div className="mb-4">
             <label
-              htmlFor="username"
+              htmlFor="address"
               className="block text-sm font-medium text-gray-700"
             >
               Address
             </label>
             <input
               type="text"
-              id="username"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Manila, Philippines"
+              id="address"
+              name="address"
+              value={profileData.address || ""}
+              onChange={handleInputChange}
               className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
           </div>
           <div className="mb-4">
             <label
-              htmlFor="username"
+              htmlFor="occupation"
               className="block text-sm font-medium text-gray-700"
             >
               Occupation
             </label>
             <input
               type="text"
-              id="username"
-              value={occupation}
-              onChange={(e) => setOccupation(e.target.value)}
+              placeholder="Developer"
+              id="occupation"
+              name="occupation"
+              value={profileData.occupation || ""}
+              onChange={handleInputChange}
               className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
           </div>
@@ -122,9 +187,11 @@ const Profile = () => {
             </label>
             <input
               type="email"
+              placeholder="juandelacruz@mail.com"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              value={profileData.email || ""}
+              onChange={handleInputChange}
               className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
           </div>
@@ -141,3 +208,11 @@ const Profile = () => {
 };
 
 export default Profile;
+
+//   const [name, setName] = useState("John Doe");
+//   const [username, setUsername] = useState("johndoe");
+//   const [email, setEmail] = useState("john@example.com");
+//   const [gender, setGender] = useState("");
+//   const [address, setAddress] = useState("Manila, Philippines");
+//   const [occupation, setOccupation] = useState("Dev");
+//   const [photo, setPhoto] = useState(null);

@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import App from "./App.jsx";
+import { ThemeProvider } from "./context/themeContext.jsx";
 import "./index.css";
 import store from "./store/store.js";
 // console.log("Hello there firebase firestore");
@@ -13,7 +14,9 @@ import store from "./store/store.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <ToastContainer />
-    <App />
+    <ThemeProvider>
+      <ToastContainer />
+      <App />
+    </ThemeProvider>
   </Provider>
 );

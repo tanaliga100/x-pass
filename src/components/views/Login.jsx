@@ -31,6 +31,7 @@ const Login = () => {
     } else {
       setPasswordError(""); // Clear the error if password is provided
     }
+    console.log("LOGIN : EMAIL AND PASSWORD", email, password);
 
     // FIREBASE AUTH
     await loginUser(email, password);

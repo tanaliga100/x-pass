@@ -38,7 +38,7 @@ const Timeline = () => {
 
   return (
     <div className="bg-gray-100 min-h-full overflow-y-auto ">
-      <Header title="Your timeline" />
+      <Header title="Your Collections" />
       <div className="flex flex-row justify-end  sticky top-0 z-10">
         <select
           className="p-2 border rounded-md shadow-md w-[20%]  "

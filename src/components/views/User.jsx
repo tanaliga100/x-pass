@@ -16,12 +16,12 @@ const User = (props) => {
         />
         <div className="text-lg font-medium">{props.user.name}</div>
         <div className="text-sm font-base   bg-indigo-500 text-white p-1 rounded-md ">
-          {props.user.users || 909} Users
+          {props.user.email}
         </div>
       </div>
       <section className="flex flex-col gap-1 p-3 text-center">
-        <div className="text-blue-500">@{props.user.username}</div>
-        <div className="text-gray-500">{props.user.email}</div>
+        {/* <div className="text-blue-500">@{props.user.username}</div> */}
+        {/* <div className="text-gray-500">{props.user.email}</div> */}
       </section>
     </Link>
   );
