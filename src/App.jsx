@@ -113,11 +113,13 @@ function App() {
   );
 
   return (
-    <div className={`app ${theme}`}>
-      <Suspense fallback={<LoadingLayout />}>
-        <RouterProvider router={routes} />
-      </Suspense>
-    </div>
+    <>
+      <div className={`app ${theme}`}>
+        <Suspense fallback={<LoadingLayout />}>
+          <RouterProvider router={routes} />
+        </Suspense>
+      </div>
+    </>
   );
 }
 
