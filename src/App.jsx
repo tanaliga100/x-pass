@@ -111,7 +111,6 @@ function App() {
       </Route>
     )
   );
-
   return (
     <>
       <div className={`app ${theme}`}>

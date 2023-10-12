@@ -14,9 +14,9 @@ const Home = () => {
         <div className="leading-10 uppercase tracking-wide text-4xl  font-bold text-emerald-600 p-3 py-10  text-center ">
           Make a quotable lyrics of your{" "}
           <span className="bg-emerald-400 text-white p-1 px-2 rounded-lg">
-            eloquent
+            favorite
           </span>{" "}
-          sights
+          songs
         </div>
         <p className=" p-1 text-lg font-bold w-1/3">
           Encourage a wider audience to join in, sparking discussions, comments,
