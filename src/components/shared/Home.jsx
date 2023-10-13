@@ -24,6 +24,7 @@ const Home = () => {
           will turn your lyrics into a thriving hub of creativity and meaningful
           connections.
         </p>
+        <pre>this is the last modif</pre>
       </main>
     </div>
   );
