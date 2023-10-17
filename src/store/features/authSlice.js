@@ -75,10 +75,10 @@ const authSlice = createSlice({
       state.user.userId = null;
       state.isLoading = false;
       localStorage.removeItem("isAuth");
-      //   localStorage.removeItem("currentEmail");
-      //  localStorage.removeItem("currentId");
-      //  localStorage.removeItem("accessToken");
-      //  localStorage.removeItem("currUserId");
+      localStorage.removeItem("currentEmail");
+      localStorage.removeItem("currentId");
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("currUserId");
     },
     provideMessage: (state, action) => {
       console.log("PROVIDE MESSAGE", action.payload);
