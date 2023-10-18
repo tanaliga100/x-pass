@@ -1,6 +1,7 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { auth } from "../config/firebase.config";
 import { setIsAuthenticated } from "../store/features/authSlice";
 
@@ -12,10 +13,11 @@ export const useAuth = () => {
       if (user) {
         //    console.log("FROM USE AUTH", user);
         //  const { } = user;
+        console.log("STATE_CHANGED", user);
         //    dispatch(setCurrentUser(user));
         dispatch(setIsAuthenticated(true));
       } else {
-        console.log("No User");
+        toast.info("NO User");
 
         //  dispatch(setCurrentUser(null));
         // Clear user data if not authenticated

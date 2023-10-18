@@ -26,12 +26,12 @@ import { createSlice } from "@reduxjs/toolkit";
 // };
 
 const initialState = {
-  //   isAuthenticated: localStorage.getItem("isAuth") || false,
-  isAuthenticated: true,
+  isAuthenticated: localStorage.getItem("isAuth") || false,
+  //   isAuthenticated: true,
   user: {
-    displayName: "",
-    email: "",
-    userId: "",
+    displayName: localStorage.getItem("displayName") || "",
+    email: localStorage.getItem("email") || "",
+    userId: localStorage.getItem("userID") || "",
   },
   isLoading: true,
   message: "",
@@ -62,6 +62,7 @@ const authSlice = createSlice({
     //  state.currentUser.photoURL = photoURL;
     //  state.currentUser.isAnonymous = isAnonymous;
     //     },
+
     setCurrentUser: (state, action) => {
       console.log("SET_CURRENT USER PAYLOAD", action.payload);
       // PAYLOAD
@@ -85,6 +86,7 @@ const authSlice = createSlice({
     },
     provideMessage: (state, action) => {
       console.log("PROVIDE MESSAGE", action.payload);
+      //  state.message = action.payload;
     },
   },
 });
