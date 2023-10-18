@@ -13,7 +13,7 @@ const firebaseConfig = {
   databaseURL: import.meta.env.VITE_DATABASE_URL,
   projectId: import.meta.env.VITE_PROJECT_ID,
   storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESS_SENDER,
+  messagingSenderId: import.meta.env.VITE_sMESS_SENDER,
   appId: import.meta.env.VITE_APP_ID,
 };
 

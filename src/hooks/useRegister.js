@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { auth, db } from "../config/firebase.config";
 import { provideMessage, setCurrentUser } from "../store/features/authSlice";
 import { closeModal } from "../store/features/uiSlice";
@@ -8,6 +9,7 @@ import { emailExists } from "../utils/checkEmail";
 
 export const useRegister = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const createUser = async (email, password) => {
     try {
@@ -26,18 +28,18 @@ export const useRegister = () => {
         const userCollection = collection(db, "users");
         const userDoCRef = await addDoc(userCollection, {
           email: newUser.user.email,
-          fielID: newUser.user.uid,
+          colId: newUser.user.uid,
         });
 
         //   DISPATCH THE CURRENT USER
-        //    dispatch(currentUser(newUser.user));
         dispatch(
           setCurrentUser({
             email: newUser.user.email,
             userId: userDoCRef.id,
-            messag: "User Registered",
+            message: "User Registered",
           })
         );
+        navigate("/");
         dispatch(closeModal());
         // attached the documentId retrieved from firebase
 

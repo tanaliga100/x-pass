@@ -69,7 +69,7 @@
 
 // export default App;
 
-import { Suspense, lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import {
   Route,
   RouterProvider,
@@ -82,6 +82,7 @@ import Timeline from "./components/views/Timeline";
 import UserDetails from "./components/views/UserDetails";
 import Users from "./components/views/Users";
 import { useTheme } from "./context/themeContext";
+import { useAuth } from "./hooks/useAuth";
 import { default as AuthLayout } from "./layout/AuthLayout";
 import LoadingLayout from "./layout/LoadingLayout";
 import Feed from "./pages/Feed";
@@ -90,6 +91,8 @@ import Quotes from "./pages/Quotes";
 
 function App() {
   const { theme } = useTheme();
+
+  React.useEffect(() => {}, []);
   // Define your routes using createRoutesFromElements
   //   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   // IMPORTS OF LAZY LOADING
@@ -111,7 +114,7 @@ function App() {
       </Route>
     )
   );
-
+  useAuth();
   return (
     <>
       <div className={`app ${theme}`}>
