@@ -29,6 +29,7 @@ const initialState = {
   //   isAuthenticated: localStorage.getItem("isAuth") || false,
   isAuthenticated: true,
   user: {
+    displayName: "",
     email: "",
     userId: "",
   },
@@ -41,6 +42,8 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setIsAuthenticated: (state, action) => {
+      console.log("isAuthenticated ", action.payload);
+      localStorage.setItem("isAuth", action.payload);
       state.isAuthenticated = action.payload;
     },
     //     currentUser: () => {
@@ -60,13 +63,13 @@ const authSlice = createSlice({
     //  state.currentUser.isAnonymous = isAnonymous;
     //     },
     setCurrentUser: (state, action) => {
-      console.log("CURRENT USER PAYLOAD", action.payload);
+      console.log("SET_CURRENT USER PAYLOAD", action.payload);
       // PAYLOAD
-      state.user.userId = action.payload.userId;
-      state.user.email = action.payload.email;
-      // STATES
-      state.isLoading = false;
-      state.message = action.payload.message;
+      //  state.user.userId = action.payload.userId;
+      //  state.user.email = action.payload.email;
+      //  // STATES
+      //  state.isLoading = false;
+      //  state.message = action.payload.message;
     },
 
     removeUser: (state) => {
@@ -75,17 +78,16 @@ const authSlice = createSlice({
       state.user.userId = null;
       state.isLoading = false;
       localStorage.removeItem("isAuth");
-      localStorage.removeItem("currentEmail");
-      localStorage.removeItem("currentId");
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("currUserId");
+      //  localStorage.removeItem("currentEmail");
+      //  localStorage.removeItem("currentId");
+      //  localStorage.removeItem("accessToken");
+      //  localStorage.removeItem("currUserId");
     },
     provideMessage: (state, action) => {
       console.log("PROVIDE MESSAGE", action.payload);
     },
   },
 });
-
 export const {
   setCurrentUser,
   removeUser,
