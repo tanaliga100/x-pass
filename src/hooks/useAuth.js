@@ -10,12 +10,12 @@ export const useAuth = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-     //    console.log("FROM USE AUTH", user);
+        //    console.log("FROM USE AUTH", user);
         //  const { } = user;
         //    dispatch(setCurrentUser(user));
         dispatch(setIsAuthenticated(true));
       } else {
-        console.log("FROM USE AUTH", "No User");
+        console.log("No User");
 
         //  dispatch(setCurrentUser(null));
         // Clear user data if not authenticated
