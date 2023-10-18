@@ -6,6 +6,7 @@ import Sidebar from "../components/shared/Sidebar";
 const RootLayout = () => {
   //   const theme = useTheme();
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
+
   return (
     <section className="w-screen h-screen mx-auto flex flex-col">
       <nav className={`sticky top-0  `}>

@@ -15,7 +15,14 @@ import store from "./store/store.js";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <ThemeProvider>
-      <ToastContainer />
+      <ToastContainer
+        className=" text-black text-base font-extrabold"
+        position="bottom-left"
+        autoClose={200}
+        hideProgressBar={true}
+        closeOnClick
+        theme="dark"
+      />
       <App />
     </ThemeProvider>
   </Provider>

@@ -2,8 +2,9 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { auth, db } from "../config/firebase.config";
-import { provideMessage, setCurrentUser } from "../store/features/authSlice";
+import { setCurrentUser } from "../store/features/authSlice";
 import { closeModal } from "../store/features/uiSlice";
 import { emailExists } from "../utils/checkEmail";
 
@@ -28,31 +29,35 @@ export const useRegister = () => {
         const userCollection = collection(db, "users");
         const userDoCRef = await addDoc(userCollection, {
           email: newUser.user.email,
-          colId: newUser.user.uid,
+          userId: newUser.user.uid,
         });
 
         //   DISPATCH THE CURRENT USER
+        // attached the documentId retrieved from firebase
         dispatch(
           setCurrentUser({
             email: newUser.user.email,
-            userId: userDoCRef.id,
+            colId: userDoCRef.id,
             message: "User Registered",
           })
         );
+
         navigate("/");
         dispatch(closeModal());
-        // attached the documentId retrieved from firebase
 
+        const atIndex = newUser.user.email.indexOf("@");
+        const userName = newUser.user.email.slice(0, atIndex);
+        toast.success(`Welcome ${userName.toUpperCase(0)}`);
         // ADD THE USER TO THE COLLECTION
       } else {
-        dispatch(provideMessage("Email already exists. Please login instead"));
+        toast.warning("Email already exists. Please login instead");
       }
     } catch (error) {
       console.log("FOR REGISTER", error.message || error.code);
       if (error.code === "auth/email-already-in-use") {
-        dispatch(provideMessage("Email already exists"));
+        toast.error("Email already exists");
       } else {
-        dispatch(provideMessage("Wrong email or password"));
+        toast.error("Wrong email or password");
       }
     }
   };
