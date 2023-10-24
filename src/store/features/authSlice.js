@@ -26,7 +26,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // };
 
 const initialState = {
-  isAuthenticated: localStorage.getItem("isAuth") || false,
+  isAuthenticated: localStorage.getItem("isAuth") || true,
   //   isAuthenticated: true,
   user: {
     displayName: localStorage.getItem("displayName") || "",
@@ -42,9 +42,8 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setIsAuthenticated: (state, action) => {
-      console.log("isAuthenticated ", action.payload);
-      localStorage.setItem("isAuth", action.payload);
       state.isAuthenticated = action.payload;
+      localStorage.setItem("isAuth", action.payload);
     },
     //     currentUser: () => {
     //  console.log("CURRENT USER PAYLOAD", action.payload);
@@ -62,7 +61,6 @@ const authSlice = createSlice({
     //  state.currentUser.photoURL = photoURL;
     //  state.currentUser.isAnonymous = isAnonymous;
     //     },
-
     setCurrentUser: (state, action) => {
       console.log("SET_CURRENT USER PAYLOAD", action.payload);
       // PAYLOAD
@@ -72,7 +70,6 @@ const authSlice = createSlice({
       //  state.isLoading = false;
       //  state.message = action.payload.message;
     },
-
     removeUser: (state) => {
       state.isAuthenticated = false;
       state.user.email = null;
@@ -84,10 +81,10 @@ const authSlice = createSlice({
       //  localStorage.removeItem("accessToken");
       //  localStorage.removeItem("currUserId");
     },
-    provideMessage: (state, action) => {
-      console.log("PROVIDE MESSAGE", action.payload);
-      //  state.message = action.payload;
-    },
+    //     provideMessage: (state, action) => {
+    //       console.log("PROVIDE MESSAGE", action.payload);
+    //       //  state.message = action.payload;
+    //     },
   },
 });
 export const {

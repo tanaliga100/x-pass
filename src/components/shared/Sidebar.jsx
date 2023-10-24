@@ -60,10 +60,8 @@ const Sidebar = () => {
       <p className="font-thin text-sm">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque nisi
         quidem pariatur laboriosam magnam beatae vitae eveniet ipsum ullam
-        aliquid excepturi assumenda facere quibusdam culpa id architecto
-        perspiciatis sed placeat, deserunt qui? Porro natus nulla perferendis
-        quibusdam inventore ipsum nihil, sed quo minima et commodi eligendi?
-        Nostrum iusto sapiente maiores!
+        laborum quia facilis magnam nihil aliquam consectetur enim impedit,
+        alias minus voluptatem iste ab!
       </p>
     </div>
   );

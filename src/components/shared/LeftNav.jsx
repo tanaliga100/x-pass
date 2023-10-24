@@ -17,7 +17,7 @@ const LeftNav = () => {
               : "items-center    text-emerald-500 text-lg px-5  flex flex-row rounded-md "
           }
         >
-          <section className="flex flex-row gap-3 items-center justify-center py-4">
+          <section className="flex flex-row gap-3 items-center justify-center ">
             <div>{link.icon}</div>
             <h1>{link.text}</h1>
           </section>
@@ -29,7 +29,7 @@ const LeftNav = () => {
 export default LeftNav;
 
 const links = [
-  { id: 1, text: "Feed", path: "/", icon: <TbBrandFeedly /> },
-  { id: 2, text: "Lyrics", path: "add", icon: <BiMessageSquareAdd /> },
-  { id: 3, text: "Quotysers", path: "users", icon: <FiUsers /> },
+  { id: 1, text: "Schedule", path: "/", icon: <TbBrandFeedly /> },
+  { id: 2, text: "Appointment", path: "add", icon: <BiMessageSquareAdd /> },
+  { id: 3, text: "Patients", path: "users", icon: <FiUsers /> },
 ];

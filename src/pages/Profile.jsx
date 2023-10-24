@@ -1,28 +1,25 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import styled from "styled-components";
 import Header from "../components/shared/Header";
-import { useUpdateProfile } from "../utils/updateProfile";
 
 const Profile = () => {
-  const { updateProfile } = useUpdateProfile();
+  //   const { updateProfile } = useUpdateProfile();
   // retrieved the currentUser
-  const currentUser = useSelector((state) => state.auth.currentUser);
+  //   const currentUser = useSelector((state) => state.auth.currentUser);
   //   const userId = useSelector((state) => state.user.users);
-  const documentId = useSelector((state) => state.auth.currentUserDocId);
+  //   const documentId = useSelector((state) => state.auth.currentUserDocId);
 
-  React.useEffect(() => {
-    console.log("DOC_ID", documentId);
-  }, []);
+  React.useEffect(() => {}, []);
   const [profileData, setProfileData] = useState({
-    uid: currentUser.uid,
-    profilePic: null,
-    address: currentUser.address,
-    occupation: currentUser.occupation,
-    userName: currentUser.userName,
-    gender: currentUser.gender,
-
-    label: currentUser.label,
-    displayName: currentUser.displayName,
+    uid: "test123",
+    profilePic: "",
+    address: "Silang, Cavite, Philippines",
+    occupation: "RMT",
+    userName: "Iza Tejoso",
+    gender: "Female",
+    label: "Hindi napo available. Mine napo yan..",
+    displayName: "iza100",
+    email: "izatejozo100@mail.com",
   });
   const [photo, setPhoto] = useState(null);
 
@@ -31,7 +28,6 @@ const Profile = () => {
     setPhoto(selectedPhoto);
   };
   // HOOKS
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setProfileData((prevData) => ({
@@ -44,7 +40,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission or API call here
-    await updateProfile(documentId, profileData);
+    //     await updateProfile(documentId, profileData);
     //     setProfileData((prev) => prev === "");
     //     setPhoto("");
   };
@@ -81,132 +77,162 @@ const Profile = () => {
               className="mt-2 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
           </div>
-          <div className="mb-4">
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Display Name
-            </label>
-            <input
-              type="text"
-              placeholder="Juan Dela Cruz"
-              id="name"
-              name="displayName"
-              value={profileData.displayName || ""}
-              onChange={handleInputChange}
-              className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="username"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Username
-            </label>
-            <input
-              type="text"
-              placeholder="@juandelacruz"
-              id="username"
-              name="userName"
-              value={profileData.userName || ""}
-              onChange={handleInputChange}
-              className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Gender
-            </label>
-            <div className="mt-1 space-x-4">
-              <label className="inline-flex items-center">
-                <input
-                  type="radio"
-                  name="gender"
-                  value="Male"
-                  checked={profileData.gender === "Male"}
-                  onChange={handleInputChange}
-                  className="form-radio text-blue-500 h-4 w-4"
-                />
-                <span className="ml-2">Male</span>
+          <First>
+            <div className="mb-4">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Display Name | Nickname
               </label>
-              <label className="inline-flex items-center">
-                <input
-                  type="radio"
-                  name="gender"
-                  value="Female"
-                  checked={profileData.gender === "Female"}
-                  onChange={handleInputChange}
-                  className="form-radio text-blue-500 h-4 w-4"
-                />
-                <span className="ml-2">Female</span>
-              </label>
+              <input
+                type="text"
+                placeholder="Juan Dela Cruz"
+                id="name"
+                name="displayName"
+                value={profileData.displayName || ""}
+                onChange={handleInputChange}
+                className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+              />
             </div>
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="address"
-              className="block text-sm font-medium text-gray-700"
+            <div className="mb-4">
+              <label
+                htmlFor="username"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Full Name
+              </label>
+              <input
+                type="text"
+                placeholder="@juandelacruz"
+                id="username"
+                name="userName"
+                value={profileData.userName || ""}
+                onChange={handleInputChange}
+                className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                Gender
+              </label>
+              <div className="mt-1 space-x-4">
+                <label className="inline-flex items-center">
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="Male"
+                    checked={profileData.gender === "Male"}
+                    onChange={handleInputChange}
+                    className="form-radio text-blue-500 h-4 w-4"
+                  />
+                  <span className="ml-2">Male</span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="Female"
+                    checked={profileData.gender === "Female"}
+                    onChange={handleInputChange}
+                    className="form-radio text-blue-500 h-4 w-4"
+                  />
+                  <span className="ml-2">Female</span>
+                </label>
+              </div>
+            </div>
+          </First>
+          <Second>
+            <div className="mb-4">
+              <label
+                htmlFor="address"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Address
+              </label>
+              <input
+                type="text"
+                placeholder="Manila, Philippines"
+                id="address"
+                name="address"
+                value={profileData.address || ""}
+                onChange={handleInputChange}
+                className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="label"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Availability
+              </label>
+              <input
+                type="text"
+                placeholder="Label"
+                id="label"
+                name="label"
+                value={profileData.label || ""}
+                onChange={handleInputChange}
+                className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+              />
+            </div>
+          </Second>
+          <Second>
+            <div className="mb-4">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                placeholder="juandelacruz@mail.com"
+                id="email"
+                name="email"
+                value={profileData.email || ""}
+                onChange={handleInputChange}
+                className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="occupation"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Occupation
+              </label>
+              <input
+                type="text"
+                placeholder="Developer"
+                id="occupation"
+                name="occupation"
+                value={profileData.occupation || ""}
+                onChange={handleInputChange}
+                className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+              />
+            </div>
+          </Second>
+          <Actions>
+            <button
+              type="submit"
+              className="bg-emerald-900 hover:bg-emerald-500 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
             >
-              Address
-            </label>
-            <input
-              type="text"
-              placeholder="Manila, Philippines"
-              id="address"
-              name="address"
-              value={profileData.address || ""}
-              onChange={handleInputChange}
-              className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="occupation"
-              className="block text-sm font-medium text-gray-700"
+              Clear
+            </button>
+            <button
+              type="submit"
+              className="bg-emerald-500 hover:bg-emerald-900 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
             >
-              Occupation
-            </label>
-            <input
-              type="text"
-              placeholder="Developer"
-              id="occupation"
-              name="occupation"
-              value={profileData.occupation || ""}
-              onChange={handleInputChange}
-              className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              placeholder="juandelacruz@mail.com"
-              id="email"
-              name="email"
-              value={profileData.email || ""}
-              onChange={handleInputChange}
-              className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
-            />
-          </div>
-          <button
-            type="submit"
-            className="bg-emerald-500 hover:bg-emerald-900 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
-          >
-            Save Changes
-          </button>
+              Save Changes
+            </button>
+          </Actions>
         </form>
       </div>
     </div>
   );
 };
-
 export default Profile;
 
 //   const [name, setName] = useState("John Doe");
@@ -216,3 +242,20 @@ export default Profile;
 //   const [address, setAddress] = useState("Manila, Philippines");
 //   const [occupation, setOccupation] = useState("Dev");
 //   const [photo, setPhoto] = useState(null);
+
+const First = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  width: 100%;
+`;
+const Second = styled.div`
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 30% 70%;
+`;
+
+const Actions = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
