@@ -1,12 +1,12 @@
-import LoadingImage from "../assets/loading.svg";
+import Spinner from "../assets/Spinner.svg";
 const LoadingLayout = () => {
   return (
     <div className="container mx-auto ">
       <img
-        src={LoadingImage}
+        src={Spinner}
         alt=""
-        width={500}
-        height={500}
+        //    width={100}
+        //    height={100}
         className="mx-auto pt-20"
       />
       ;

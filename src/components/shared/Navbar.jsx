@@ -4,38 +4,40 @@ import { openModal } from "../../store/features/uiSlice";
 import RightNav from "../shared/RightNav";
 import { default as LeftNav } from "./LeftNav";
 import Logo from "./Logo";
+
 const Navbar = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   return (
-    <div className="flex flex-row items-center  bg-white py-5">
-      <div className="basis-1/4 flex justify-center">
+    <div className="flex flex-row items-center p-5   ">
+      <div className="basis-1/4 justify-center">
         <Logo />
       </div>
-      <div className="basis-3/4 ">
+      <div className="basis-3/4">
         <div className="flex flex-row items-center  ">
           {/* LEFT */}
-          <section className="basis-4/5 w-full  ">
+          <section className={`${!isAuth ? "basis-1/4" : " w-full "} `}>
             {isAuth && <LeftNav />}
           </section>
           {/* RIGHT */}
-          <section className="basis-1/4 w-full ">
+          <section className={`${!isAuth ? "basis-3/4" : " w-full "}`}>
             {!isAuth ? (
-              <section className="flex flex-row pr-10 ">
+              <section className="flex flex-row justify-end pr-10">
                 <Link
                   to="auth"
                   onClick={() => {
                     dispatch(openModal());
-                    console.log("opening modal triggered here...");
                   }}
                 >
-                  <h1 className="font-bold text-base p-2 border-2  rounded-md border-emerald-500 hover:bg-emerald-800 hover:text-white hover:border-collapse text-emerald-500">
+                  <h1 className="font-bold text-base  border-2   rounded-md border-emerald-500 hover:bg-emerald-800 hover:text-white hover:border-collapse text-emerald-500 ">
                     Register / Login
                   </h1>
                 </Link>
               </section>
             ) : (
-              <RightNav />
+              <section className="">
+                <RightNav />
+              </section>
             )}
           </section>
         </div>
@@ -43,7 +45,6 @@ const Navbar = () => {
     </div>
   );
 };
-
 export default Navbar;
 
 // const links = [

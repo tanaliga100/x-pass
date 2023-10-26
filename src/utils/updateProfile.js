@@ -1,6 +1,6 @@
 import { doc, updateDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 import { db } from "../config/firebase.config";
-import { provideMessage } from "../store/features/authSlice";
 
 export const useUpdateProfile = () => {
   const updateProfile = async (documentId, profileData) => {
@@ -22,7 +22,7 @@ export const useUpdateProfile = () => {
         },
         { merge: true }
       );
-      provideMessage("Profile Updated");
+      toast.succes("Profile Updated");
     } catch (error) {
       console.error("Error Updating the Profile", error);
     }

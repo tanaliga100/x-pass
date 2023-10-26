@@ -21,15 +21,13 @@ const AuthLayout = () => {
           // }}
         >
           <div
-            className="fixed inset-0 bg-emerald-950 opacity-50"
+            className="parent fixed inset-0 bg-emerald-950 opacity-50"
             onClick={() => {
               dispatch(closeModal());
               navigate("/");
-
-              console.log("triggered");
             }}
           />
-          <div className="z-50 w-1/4 ">
+          <div className="children z-50 w-1/4 ">
             {/* Your modal content here */}
             <Outlet />
           </div>
@@ -38,7 +36,6 @@ const AuthLayout = () => {
     </div>
   );
 };
-
 export default AuthLayout;
 
 //     <div>

@@ -13,11 +13,15 @@ export const useAuth = () => {
       if (user) {
         //    console.log("FROM USE AUTH", user);
         //  const { } = user;
-        console.log("STATE_CHANGED", user);
         //    dispatch(setCurrentUser(user));
         dispatch(setIsAuthenticated(true));
       } else {
-        toast.info("NO User");
+        toast.info("Please Login or Create an Account", {
+          position: "top-center",
+          autoClose: 500,
+          theme: "light",
+          type: "default",
+        });
 
         //  dispatch(setCurrentUser(null));
         // Clear user data if not authenticated

@@ -55,17 +55,14 @@ const Sidebar = () => {
     //         </div>
     //       )}
     //     </div>
-    <div className="p-4">
+    <div className="p-4 flex flex-col items-center">
       <h1 className="p-2 text-center font-bold">THE SIDEBAR</h1>
-      <p className="font-thin text-sm">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque nisi
-        quidem pariatur laboriosam magnam beatae vitae eveniet ipsum ullam
-        aliquid excepturi assumenda facere quibusdam culpa id architecto
-        perspiciatis sed placeat, deserunt qui? Porro natus nulla perferendis
-        quibusdam inventore ipsum nihil, sed quo minima et commodi eligendi?
-        Nostrum iusto sapiente maiores!
-      </p>
+      <pre className="font-thin text-sm ">
+        <img src={logo} alt="" width={60} height={60} />
+      </pre>
     </div>
   );
 };
 export default Sidebar;
+
+import logo from "../../assets/profile.svg";
