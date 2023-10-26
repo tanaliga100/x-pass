@@ -55,10 +55,14 @@ const Sidebar = () => {
     //         </div>
     //       )}
     //     </div>
-    <div className="p-4">
+    <div className="p-4 flex flex-col items-center">
       <h1 className="p-2 text-center font-bold">THE SIDEBAR</h1>
-      <pre className="font-thin text-sm"></pre>
+      <pre className="font-thin text-sm ">
+        <img src={logo} alt="" width={60} height={60} />
+      </pre>
     </div>
   );
 };
 export default Sidebar;
+
+import logo from "../../assets/profile.svg";
