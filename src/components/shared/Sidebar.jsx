@@ -57,12 +57,7 @@ const Sidebar = () => {
     //     </div>
     <div className="p-4">
       <h1 className="p-2 text-center font-bold">THE SIDEBAR</h1>
-      <p className="font-thin text-sm">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque nisi
-        quidem pariatur laboriosam magnam beatae vitae eveniet ipsum ullam
-        laborum quia facilis magnam nihil aliquam consectetur enim impedit,
-        alias minus voluptatem iste ab!
-      </p>
+      <pre className="font-thin text-sm"></pre>
     </div>
   );
 };
