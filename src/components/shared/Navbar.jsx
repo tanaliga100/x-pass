@@ -9,7 +9,7 @@ const Navbar = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   return (
-    <div className="flex flex-row items-center  ">
+    <div className="flex flex-row items-center p-5   ">
       <div className="basis-1/4 justify-center">
         <Logo />
       </div>

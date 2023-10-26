@@ -26,7 +26,7 @@ const RootLayout = () => {
           isScrolled
             ? "fixed top-0 bg-opacity-5 backdrop-blur-3xl border-b-black "
             : "sticky top-0"
-        } w-full bg-slate-300 z-50 box-border p-10`}
+        } w-full bg-slate-300 z-50  `}
       >
         <Navbar />
       </nav>

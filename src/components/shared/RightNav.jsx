@@ -18,22 +18,22 @@ const RightNav = () => {
         <RightPanel>
           <Link
             to="profile"
-            className="items-center justify-center bg-white  rounded-full my-auto"
+            className="items-center justify-center bg-white  rounded-full my-auto p-1"
           >
             {<AiOutlineSetting size={20} className="rounded-full" />}
           </Link>
           <Link to="timeline" onClick={() => {}}>
             {/* <h1 className="font-bold text-base p-2  border-2 rounded-md border-emerald-500 text-emerald-500"></h1> */}
             <img
-              width={20}
-              height={20}
+              width={30}
+              height={30}
               src={profile}
               alt="profile-settings"
-              className="rounded"
+              className="rounded  "
             />
           </Link>
           <button onClick={handleLogout}>
-            <h1 className="hover:bg-emerald-950 font-bold text-base bg-emerald-500 text-white rounded-md border-emerald-950">
+            <h1 className="hover:bg-emerald-950 font-bold text-base bg-emerald-500 text-white rounded-md border-emerald-950 p-3">
               Logout
             </h1>
           </button>
@@ -75,6 +75,7 @@ const LeftPanel = styled.div`
 const RightPanel = styled.div`
   display: flex;
   margin: 0 auto;
+  align-items: center;
   justify-content: space-between;
   min-width: 2rem;
   gap: 1rem;
