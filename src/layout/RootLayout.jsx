@@ -26,21 +26,19 @@ const RootLayout = () => {
           isScrolled
             ? "fixed top-0 bg-opacity-5 backdrop-blur-3xl border-b-black "
             : "sticky top-0"
-        } w-full bg-slate-300 z-50  `}
+        } w-full  z-50  bg-slate-100`}
       >
         <Navbar />
       </nav>
       <section>
         <main className="flex flex-grow-1">
           {isAuth && (
-            <section className="w-1/4 lg:w-1/5 max-h-screen bg-slate-100 ">
+            <section className="w-1/4 lg:w-1/5 max-h-screen  ">
               {/* Display sidebar when logged in */}
               <Sidebar />
             </section>
           )}
-          <section
-            className={`${isAuth ? "w-5/6" : "w-full"} p-10 z-10 bg-slate-50`}
-          >
+          <section className={`${isAuth ? "w-5/6" : "w-full"} p-10 z-10 `}>
             <Outlet />
           </section>
         </main>

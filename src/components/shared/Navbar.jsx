@@ -1,51 +1,72 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import { openModal } from "../../store/features/uiSlice";
 import RightNav from "../shared/RightNav";
 import { default as LeftNav } from "./LeftNav";
 import Logo from "./Logo";
+import Search from "./Search";
 
 const Navbar = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
+
   return (
     <div className="flex flex-row items-center p-5   ">
-      <div className="basis-1/4 justify-center">
+      <div className="basis-1/4 justify-center items-center ">
         <Logo />
       </div>
-      <div className="basis-3/4">
-        <div className="flex flex-row items-center  ">
-          {/* LEFT */}
-          <section className={`${!isAuth ? "basis-1/4" : " w-full "} `}>
-            {isAuth && <LeftNav />}
-          </section>
-          {/* RIGHT */}
-          <section className={`${!isAuth ? "basis-3/4" : " w-full "}`}>
-            {!isAuth ? (
-              <section className="flex flex-row justify-end pr-10">
-                <Link
-                  to="auth"
-                  onClick={() => {
-                    dispatch(openModal());
-                  }}
-                >
-                  <h1 className="font-bold text-base  border-2   rounded-md border-emerald-500 hover:bg-emerald-800 hover:text-white hover:border-collapse text-emerald-500 ">
-                    Register / Login
-                  </h1>
-                </Link>
-              </section>
-            ) : (
-              <section className="">
-                <RightNav />
-              </section>
-            )}
-          </section>
-        </div>
+      <div
+        className={`${
+          isAuth ? "" : ""
+        } basis-full  flex flex-row items-center justify-around `}
+      >
+        {/* <div className="flex flex-row items-center gap-10 justify-between "> */}
+        {/* FIRST BAR */}
+        <section className={`${isAuth ? "" : ""}`}>
+          {isAuth && <Search placeholder={"Search a document..."} />}
+        </section>
+        {/* SECOND BAR */}
+        <section className={`${!isAuth ? "" : " "}  `}>
+          {isAuth && <LeftNav />}
+        </section>
+        {/* THIRD BAR */}
+        <section className={`${!isAuth ? "" : "flex flex-row items-center"} `}>
+          {!isAuth ? (
+            <section className="flex flex-row justify-end pr-10">
+              <Link
+                to="auth"
+                onClick={() => {
+                  dispatch(openModal());
+                }}
+              >
+                <h1 className="font-bold text-base  border-2   rounded-md border-emerald-500 hover:bg-emerald-800 hover:text-white hover:border-collapse text-emerald-500 ">
+                  Register / Login
+                </h1>
+              </Link>
+            </section>
+          ) : (
+            <RightNav />
+          )}
+        </section>
       </div>
     </div>
   );
 };
+
 export default Navbar;
+
+const LeftPanel = styled.div`
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
+
+  a {
+    padding: 0.5rem;
+  }
+`;
 
 // const links = [
 //   { id: 1, text: "Feed", path: "/", icon: <TbBrandFeedly /> },

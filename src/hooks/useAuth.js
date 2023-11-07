@@ -11,7 +11,6 @@ export const useAuth = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        //    console.log("FROM USE AUTH", user);
         //  const { } = user;
         //    dispatch(setCurrentUser(user));
         dispatch(setIsAuthenticated(true));

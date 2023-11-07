@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { auth } from "../config/firebase.config";
+import { setCurrentUser } from "../store/features/authSlice";
 import { closeModal } from "../store/features/uiSlice";
 
 export const useLogin = () => {
@@ -15,7 +16,13 @@ export const useLogin = () => {
         email,
         password
       );
-      console.log("CREDS", userCredential.user);
+      // console.log("CREDS", userCredential.user);
+
+      dispatch(
+        setCurrentUser({
+          email: userCredential.user.email,
+        })
+      );
 
       const atIndex = userCredential.user.email.indexOf("@");
       const userName = userCredential.user.email.slice(0, atIndex);

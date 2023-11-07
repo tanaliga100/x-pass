@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const LeftNav = () => {
   return (
-    <section className="flex flex-row gap-5 justify-start  font-bold ">
+    <section className="flex flex-row items-center  font-bold ">
       {links.map((link) => (
         <NavLink
           end
@@ -29,7 +29,7 @@ const LeftNav = () => {
 export default LeftNav;
 
 const links = [
-  { id: 1, text: "Schedule", path: "/", icon: <TbBrandFeedly /> },
+  { id: 1, text: "Feed", path: "/", icon: <TbBrandFeedly /> },
   { id: 2, text: "Appointment", path: "add", icon: <BiMessageSquareAdd /> },
   { id: 3, text: "Patients", path: "users", icon: <FiUsers /> },
 ];

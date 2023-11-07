@@ -26,12 +26,12 @@ import { createSlice } from "@reduxjs/toolkit";
 // };
 
 const initialState = {
-  isAuthenticated: localStorage.getItem("isAuth") || true,
+  isAuthenticated: localStorage.getItem("isAuth") || false,
   //   isAuthenticated: true,
   user: {
     displayName: localStorage.getItem("displayName") || "",
     email: localStorage.getItem("email") || "",
-    userId: localStorage.getItem("userID") || "",
+    userId: localStorage.getItem("docId") || "",
   },
   isLoading: true,
   message: "",
@@ -63,13 +63,16 @@ const authSlice = createSlice({
     //     },
     setCurrentUser: (state, action) => {
       console.log("SET_CURRENT USER PAYLOAD", action.payload);
-      // PAYLOAD
+      localStorage.setItem("docID", action.payload.colId);
+      localStorage.setItem("email", action.payload.email);
+
       //  state.user.userId = action.payload.userId;
       //  state.user.email = action.payload.email;
       //  // STATES
       //  state.isLoading = false;
       //  state.message = action.payload.message;
     },
+
     removeUser: (state) => {
       state.isAuthenticated = false;
       state.user.email = null;
