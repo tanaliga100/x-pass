@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const LeftNav = () => {
   return (
-    <section className="flex flex-row items-center  font-bold ">
+    <section className="flex flex-row gap-10 justtify-between font-bold ">
       {links.map((link) => (
         <NavLink
           end
@@ -14,7 +14,7 @@ const LeftNav = () => {
           className={({ isActive }) =>
             isActive
               ? "items-center   text-white bg-emerald-500 text-lg rounded-md px-5 flex flex-row  "
-              : "items-center    text-emerald-500 text-lg px-5  flex flex-row rounded-md "
+              : "items-center    text-emerald-500 text-lg px-5  flex flex-row rounded-md  p-2"
           }
         >
           <section className="flex flex-row gap-3 items-center justify-center ">

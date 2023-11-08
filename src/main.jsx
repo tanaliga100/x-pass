@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         className=" text-black text-center text-xl w-[25%] font-extrabold"
         autoClose={300}
         hideProgressBar={true}
-        theme="dark"
+        theme="light"
       />
       <App />
     </ThemeProvider>

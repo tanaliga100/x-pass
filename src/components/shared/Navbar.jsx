@@ -16,22 +16,33 @@ const Navbar = () => {
       <div className="basis-1/4 justify-center items-center ">
         <Logo />
       </div>
+
       <div
         className={`${
           isAuth ? "" : ""
-        } basis-full  flex flex-row items-center justify-around `}
+        } basis-full  flex flex-row items-center justify-between `}
       >
         {/* <div className="flex flex-row items-center gap-10 justify-between "> */}
         {/* FIRST BAR */}
-        <section className={`${isAuth ? "" : ""}`}>
-          {isAuth && <Search placeholder={"Search a document..."} />}
+        <section className={`${isAuth ? "basis-1/4" : ""}`}>
+          {isAuth && <Search placeholder={"Search..."} />}
         </section>
         {/* SECOND BAR */}
-        <section className={`${!isAuth ? "" : " "}  `}>
+        <sectio
+          className={`${
+            !isAuth ? "" : "basis-1/3 flex flex-row justify-between gap-10"
+          }  `}
+        >
           {isAuth && <LeftNav />}
-        </section>
+        </sectio>
         {/* THIRD BAR */}
-        <section className={`${!isAuth ? "" : "flex flex-row items-center"} `}>
+        <section
+          className={`${
+            !isAuth
+              ? ""
+              : "basis-1/6 flex flex-row gap-3 items-center justify-evenly"
+          } `}
+        >
           {!isAuth ? (
             <section className="flex flex-row justify-end pr-10">
               <Link
@@ -40,7 +51,7 @@ const Navbar = () => {
                   dispatch(openModal());
                 }}
               >
-                <h1 className="font-bold text-base  border-2   rounded-md border-emerald-500 hover:bg-emerald-800 hover:text-white hover:border-collapse text-emerald-500 ">
+                <h1 className="font-bold text-base  border-2   rounded-md border-emerald-500 hover:bg-emerald-800 hover:text-white hover:border-collapse text-emerald-500 p-2">
                   Register / Login
                 </h1>
               </Link>
