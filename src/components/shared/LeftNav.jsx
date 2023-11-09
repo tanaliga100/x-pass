@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const LeftNav = () => {
   return (
-    <section className="flex flex-row gap-5 justify-start  font-bold ">
+    <section className="flex flex-row  justify-start  font-bold ">
       {links.map((link) => (
         <NavLink
           end
