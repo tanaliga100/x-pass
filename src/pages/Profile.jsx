@@ -15,11 +15,11 @@ const Profile = () => {
     profilePic: "",
     address: "Silang, Cavite, Philippines",
     occupation: "RMT",
-    userName: "Iza Tejoso",
+    userName: "Iza Manila",
     gender: "Female",
-    label: "Hindi napo available. Mine napo yan..",
+    label: "3 days in a week..",
     displayName: "iza100",
-    email: "izatejozo100@mail.com",
+    email: "izamanila100@mail.com",
   });
   const [photo, setPhoto] = useState(null);
 
@@ -39,6 +39,7 @@ const Profile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // handle form submission or API cal her a
     // Handle form submission or API call here
     //     await updateProfile(documentId, profileData);
     //     setProfileData((prev) => prev === "");
