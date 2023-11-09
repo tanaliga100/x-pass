@@ -33,7 +33,6 @@ const Register = () => {
     } else {
       setPasswordError(""); // Clear the error if password is provided
     }
-    console.log("REGISTER : EMAIL AND PASSWORD", email, password);
 
     // FIREBASE AUTH
     await createUser(email, password);

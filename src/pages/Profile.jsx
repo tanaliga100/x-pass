@@ -13,13 +13,13 @@ const Profile = () => {
   const [profileData, setProfileData] = useState({
     uid: "test123",
     profilePic: "",
-    address: "Silang, Cavite, Philippines",
+    address: "Dasma, Cavite, Philippines",
     occupation: "RMT",
     userName: "Iza Manila",
     gender: "Female",
-    label: "3 days in a week..",
+    label: "in dayss",
     displayName: "iza100",
-    email: "izamanila100@mail.com",
+    email: "izaManila100@mail.com",
   });
   const [photo, setPhoto] = useState(null);
 

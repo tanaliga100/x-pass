@@ -25,7 +25,8 @@ export const useRegister = () => {
           email,
           password
         );
-        // ADD TO THE USERS COLLECTION
+        console.log("NEW_REGISTERED_USER", newUser);
+        // ADD THE USER TO THE COLLECTION
         const userCollection = collection(db, "users");
         const userDoCRef = await addDoc(userCollection, {
           email: newUser.user.email,
@@ -48,7 +49,6 @@ export const useRegister = () => {
         const atIndex = newUser.user.email.indexOf("@");
         const userName = newUser.user.email.slice(0, atIndex);
         toast.success(`Welcome ${userName.toUpperCase(0)}`);
-        // ADD THE USER TO THE COLLECTION
       } else {
         toast.warning("Email already exists. Please login instead");
       }

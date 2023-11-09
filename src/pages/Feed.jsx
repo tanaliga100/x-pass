@@ -11,7 +11,7 @@ const Feed = () => {
     <>
       {isAuth ? (
         <div className="bg-transparent  min-h-full  ">
-          <Search placeholder="Search Post..." />
+          <Search placeholder="Search Document..." />
           <hr className="py-3 bg-emerald-100 my-5" />
         </div>
       ) : (
