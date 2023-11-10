@@ -13,12 +13,18 @@ const LeftNav = () => {
           key={link.id}
           className={({ isActive }) =>
             isActive
-              ? "items-center   text-white bg-emerald-500 text-lg rounded-md px-5 flex flex-row  "
-              : "items-center    text-emerald-500 text-lg px-5  flex flex-row rounded-md "
+              ? "items-center  px-5 flex flex-row text-lg text-emerald-500"
+              : "items-center  text-slate-800 text-lg px-5  flex flex-row rounded-md "
           }
         >
           <section className="flex flex-row gap-3 items-center justify-center ">
-            <div>{link.icon}</div>
+            <div
+              className={({ isActive }) =>
+                isActive ? "text-white border-b-2" : "text-red-900"
+              }
+            >
+              {link.icon}
+            </div>
             <h1>{link.text}</h1>
           </section>
         </NavLink>

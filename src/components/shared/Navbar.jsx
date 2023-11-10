@@ -10,13 +10,13 @@ const Navbar = () => {
   const dispatch = useDispatch();
   return (
     <div className="flex flex-row items-center p-5   ">
-      <div className="basis-1/5 justify-center">
+      <div className="basis-1/5 ">
         <Logo />
       </div>
-      <div className="basis-full justify-between">
+      <div className="basis-full justify-between ">
         <div className="flex flex-row items-center  ">
           {/* LEFT */}
-          <section className={`${!isAuth ? "" : " w-full "} `}>
+          <section className={`${!isAuth ? "" : " w-full"} `}>
             {isAuth && <LeftNav />}
           </section>
           {/* RIGHT */}
