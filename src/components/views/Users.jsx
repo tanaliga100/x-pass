@@ -21,7 +21,7 @@ const Users = () => {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-md overflow-y-auto min-h-full  ">
+    <div className="w-full p-3 bg-white rounded-lg shadow-md overflow-y-auto min-h-full  ">
       <Header title="List of Registered Accounts" />
       <ul className="px-10 flex flex-row flex-wrap gap-10">
         {users.map((user) => (

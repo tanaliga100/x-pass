@@ -4,7 +4,7 @@ const Quotes = () => {
   return (
     <div
       className="w-full bg-white
- min-h-full     rounded-lg shadow-md overflow-y-auto "
+ min-h-full    p-3 rounded-lg shadow-md overflow-y-auto "
     >
       <Header title="Add Document to the Feed" />
       <div className="p-10">

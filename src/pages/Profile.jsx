@@ -13,13 +13,13 @@ const Profile = () => {
   const [profileData, setProfileData] = useState({
     uid: "test123",
     profilePic: "",
-    address: "Silang, Cavite, Philippines",
+    address: "Makati City, Philippines",
     occupation: "RMT",
-    userName: "Iza Tejoso",
+    userName: "Xpass ",
     gender: "Female",
-    label: "Hindi napo available. Mine napo yan..",
-    displayName: "iza100",
-    email: "izatejozo100@mail.com",
+    label: "",
+    displayName: "xpass100",
+    email: "xpass@mail.com",
   });
   const [photo, setPhoto] = useState(null);
 
@@ -46,7 +46,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md w-full overflow-y-auto  min-h-full  ">
+    <div className="bg-white p-3 shadow-md w-full overflow-y-auto  min-h-full  ">
       <Header title="Edit Profile" />
       <div className="p-10 ">
         {/* Added container */}

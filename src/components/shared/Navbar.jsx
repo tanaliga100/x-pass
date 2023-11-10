@@ -20,16 +20,16 @@ const Navbar = () => {
             {isAuth && <LeftNav />}
           </section>
           {/* RIGHT */}
-          <section className={`${!isAuth ? "" : " w-full "}`}>
+          <section className={`${!isAuth ? "" : " w-full "} `}>
             {!isAuth ? (
-              <section className="flex flex-row justify-end pr-10">
+              <section className="w-full flex  flex-row pr-10 items-center justify-end">
                 <Link
                   to="auth"
                   onClick={() => {
                     dispatch(openModal());
                   }}
                 >
-                  <h1 className="font-bold text-base  border-2   rounded-md border-emerald-500 hover:bg-emerald-800 hover:text-white hover:border-collapse text-emerald-500 ">
+                  <h1 className="font-bold text-base border-emerald-500 hover:bg-emerald-800 hover:text-white hover:border-collapse text-emerald-500 ">
                     Register / Login
                   </h1>
                 </Link>

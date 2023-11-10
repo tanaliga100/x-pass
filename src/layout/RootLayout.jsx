@@ -22,23 +22,21 @@ const RootLayout = () => {
     <section className="w-full h-full mx-auto flex flex-col ">
       <nav
         className={`${
-          isScrolled
-            ? "fixed top-0  border-b-8 border-black/30 "
-            : "sticky top-0"
-        } w-full bg-slate-50 z-50  `}
+          isScrolled ? "fixed top-0  border-black/30 " : "sticky top-0"
+        } w-full bg-slate-200 z-50 h-[10%] `}
       >
         <Navbar />
       </nav>
       <section>
         <main className="flex flex-grow-1">
           {isAuth && (
-            <section className="w-3/12 lg:w-1/5 h-full bg-slate-50 ">
+            <section className="w-3/12 lg:w-1/5 h-full ">
               {/* Display sidebar when logged in */}
               <Sidebar />
             </section>
           )}
           <section
-            className={`${isAuth ? "w-full" : "w-full"}  z-10  bg-slate-50`}
+            className={`${isAuth ? "w-full" : "w-full"}  z-10  bg-slate-50 `}
           >
             <Outlet />
           </section>

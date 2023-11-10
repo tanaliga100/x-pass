@@ -37,7 +37,7 @@ const Timeline = () => {
       : posts.filter((post) => post.date.startsWith(selectedYear));
 
   return (
-    <div className="bg-gray-100 min-h-full overflow-y-auto ">
+    <div className="bg-gray-100 min-h-full p-3 overflow-y-auto ">
       <Header title="Your Collections" />
       <div className="flex flex-row justify-end  sticky top-0 z-10">
         <select
