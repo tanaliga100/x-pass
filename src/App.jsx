@@ -94,8 +94,8 @@ function App() {
   const Profile = lazy(() => import("./pages/Profile"));
   const Login = lazy(() => import("./components/views/Login"));
   const Register = lazy(() => import("./components/views/Register"));
-  const Users = lazy(() => import("./components/views/Users"));
-  const UserDetails = lazy(() => import("./components/views/UserDetails"));
+  // const Users = lazy(() => import("./components/views/Users"));
+  // const UserDetails = lazy(() => import("./components/views/UserDetails"));
   const Timeline = lazy(() => import("./components/views/Timeline"));
 
   const routes = createBrowserRouter(
@@ -107,8 +107,8 @@ function App() {
         </Route>
         <Route index element={<Feed />} />
         <Route path="add" element={<Quotes />} />
-        <Route path="users" element={<Users />} />
-        <Route path="users/:id" element={<UserDetails />} />
+        {/* <Route path="users" element={<Users />} />
+        <Route path="users/:id" element={<UserDetails />} /> */}
         <Route path="timeline" element={<Timeline />} />
         <Route path="profile" element={<Profile />} />
       </Route>

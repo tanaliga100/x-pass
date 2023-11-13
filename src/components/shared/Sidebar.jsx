@@ -60,18 +60,12 @@ const Sidebar = () => {
       <pre className="font-thin text-sm ">
         <img src={logo} alt="" width={60} height={60} />
       </pre>
-      <p>
+      <p className="text-center pt-3">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Non deleniti
         laboriosam tempore vel? Veniam, ratione culpa. Est quod doloribus quidem
         accusamus consectetur nemo modi id nisi! Sit eius cupiditate quae
         voluptatem rem fuga, quaerat necessitatibus, rerum doloribus repellendus
-        illum aspernatur illo dolores odit, nulla non nihil pariatur quia
-        dolore! Molestiae dignissimos officia, sint doloremque quidem eligendi
-        quas! Laboriosam vel libero a, corporis rerum totam maxime labore
-        numquam saepe eaque, consectetur possimus voluptate ea nostrum quae
-        nulla eos deleniti voluptatem in tempora praesentium quas eum eveniet.
-        Sequi error, voluptatem unde fuga, ratione fugiat molestiae repudiandae
-        in perspiciatis vel, suscipit alias et!
+        illum aspernatur illo dolores odit, nulla non nihil
       </p>
     </div>
   );

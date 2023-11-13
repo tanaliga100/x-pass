@@ -1,9 +1,11 @@
 import { BiMessageSquareAdd } from "react-icons/bi";
-import { FiUsers } from "react-icons/fi";
-import { TbBrandFeedly } from "react-icons/tb";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { openAddPost } from "../../store/features/uiSlice";
 
 const LeftNav = () => {
+  const dispatch = useDispatch();
+
   return (
     <section className="flex flex-row  justify-start  font-bold ">
       {links.map((link) => (
@@ -11,6 +13,9 @@ const LeftNav = () => {
           end
           to={link.path}
           key={link.id}
+          onClick={() => {
+            dispatch(openAddPost());
+          }}
           className={({ isActive }) =>
             isActive
               ? "items-center  px-5 flex flex-row text-lg text-emerald-500"
@@ -35,7 +40,7 @@ const LeftNav = () => {
 export default LeftNav;
 
 const links = [
-  { id: 1, text: "Schedule", path: "/", icon: <TbBrandFeedly /> },
-  { id: 2, text: "Appointment", path: "add", icon: <BiMessageSquareAdd /> },
-  { id: 3, text: "Patients", path: "users", icon: <FiUsers /> },
+  // { id: 1, text: "Feed", path: "/", icon: <TbBrandFeedly /> },
+  { id: 2, text: "Add", path: "", icon: <BiMessageSquareAdd /> },
+  // { id: 3, text: "Patients", path: "users", icon: <FiUsers /> },
 ];

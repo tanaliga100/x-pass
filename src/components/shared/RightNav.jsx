@@ -11,11 +11,7 @@ const RightNav = () => {
   };
   return (
     <>
-      <main className="flex flex-row flex-grow  items-center w-full">
-        <LeftPanel>
-          <Search placeholder={"Search a document..."} />
-        </LeftPanel>
-        <RightPanel>
+      <main className="flex flex-row flex-grow  items-center w-full justify-around">
           <Link
             to="profile"
             className="items-center justify-center bg-white  rounded-full my-auto p-1"
@@ -37,7 +33,6 @@ const RightNav = () => {
               Logout
             </h1>
           </button>
-        </RightPanel>
       </main>
     </>
   );
@@ -58,27 +53,13 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { TbBrandFeedly } from "react-icons/tb";
 import styled from "styled-components";
-import Search from "./Search";
-
-const LeftPanel = styled.div`
-  display: flex;
-  min-width: 2rem;
-  gap: 1rem;
-  justify-content: space-between;
-  flex-direction: row;
-
-  a {
-    padding: 0.5rem;
-  }
-`;
 
 const RightPanel = styled.div`
   display: flex;
   margin: 0 auto;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   min-width: 2rem;
   gap: 1rem;
-  justify-content: space-between;
   flex-direction: row;
 `;

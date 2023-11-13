@@ -24,5 +24,6 @@
 
 .app {
   font-family: Arial, sans-serif;
+  line-height: 1rem;
   transition: background-color 0.9s, color 0.9s;
 }

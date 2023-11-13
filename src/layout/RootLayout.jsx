@@ -5,6 +5,8 @@ import Navbar from "../components/shared/Navbar";
 import Sidebar from "../components/shared/Sidebar";
 const RootLayout = () => {
   //   const theme = useTheme();
+  const isReadyToAddPost = useSelector((state) => state.modal.isAddPost);
+  console.log("isreadtoPost", isReadyToAddPost);
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,12 +20,16 @@ const RootLayout = () => {
   React.useEffect(() => {
     window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // const location = useLocation();
+  // const dontShowNav = location.pathname == "/timeline";
+
   return (
-    <section className="w-full h-full mx-auto flex flex-col ">
+    <section className="w-full  mx-auto flex flex-col ">
       <nav
         className={`${
           isScrolled ? "fixed top-0  border-black/30 " : "sticky top-0"
-        } w-full bg-slate-200 z-50 h-[10%] `}
+        } w-full bg-slate-50 z-50 h-[20%] `}
       >
         <Navbar />
       </nav>
@@ -36,7 +42,9 @@ const RootLayout = () => {
             </section>
           )}
           <section
-            className={`${isAuth ? "w-full" : "w-full"}  z-10  bg-slate-50 `}
+            className={`${
+              isAuth ? "w-full" : "w-full"
+            }  z-20 inset-3  h-full p-10  `}
           >
             <Outlet />
           </section>
@@ -45,7 +53,6 @@ const RootLayout = () => {
     </section>
   );
 };
-
 export default RootLayout;
 
 //  <section className=" overflow-y-auto flex flex-grow bg-slate-100">

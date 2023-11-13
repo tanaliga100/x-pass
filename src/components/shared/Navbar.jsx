@@ -1,35 +1,42 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import { openModal } from "../../store/features/uiSlice";
+import LeftNav from "../shared/LeftNav";
 import RightNav from "../shared/RightNav";
-import { default as LeftNav } from "./LeftNav";
 import Logo from "./Logo";
+import Search from "./Search";
 
 const Navbar = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   return (
-    <div className="flex flex-row items-center p-5   ">
+    <div className="flex flex-row items-center p-3 bg-slate-100  ">
       <div className="basis-1/5 ">
         <Logo />
       </div>
       <div className="basis-full justify-between ">
         <div className="flex flex-row items-center  ">
           {/* LEFT */}
-          <section className={`${!isAuth ? "" : " w-full"} `}>
-            {isAuth && <LeftNav />}
+          <section className={`${!isAuth ? "" : " w-full"} flex flex-row `}>
+            {isAuth && (
+              <>
+                <Search placeholder={"Search a document..."} />
+                <LeftNav />
+              </>
+            )}
           </section>
           {/* RIGHT */}
           <section className={`${!isAuth ? "" : " w-full "} `}>
             {!isAuth ? (
-              <section className="w-full flex  flex-row pr-10 items-center justify-end">
+              <section className="w-full flex h-auto flex-row basis-full items-center">
                 <Link
                   to="auth"
                   onClick={() => {
                     dispatch(openModal());
                   }}
                 >
-                  <h1 className="font-bold text-base border-emerald-500 hover:bg-emerald-800 hover:text-white hover:border-collapse text-emerald-500 ">
+                  <h1 className=" bg-emerald-400 p-3 font-bold text-white rounded-md hover:bg-emerald-800 transition-all">
                     Register / Login
                   </h1>
                 </Link>
@@ -83,3 +90,15 @@ export default Navbar;
 //       </section>
 //     );
 //   }
+
+const LeftPanel = styled.div`
+  display: flex;
+  min-width: 2rem;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-direction: row;
+
+  a {
+    padding: 0.5rem;
+  }
+`;

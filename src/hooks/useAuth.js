@@ -31,5 +31,5 @@ export const useAuth = () => {
 
     // Cleanup the subscription when the component unmounts
     return () => unsubscribe();
-  }, []);
+  });
 };

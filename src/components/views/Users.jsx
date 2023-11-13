@@ -12,7 +12,7 @@ const Users = () => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  // EARLY RETURN
+  // EARLY RETURN~
   if (loading) {
     return <h1> Loading...</h1>;
   }
