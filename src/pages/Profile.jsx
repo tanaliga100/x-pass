@@ -21,8 +21,8 @@ const Profile = () => {
     displayName: "xpass100",
     email: "xpass@mail.com",
   });
-  const [photo, setPhoto] = useState(null);
 
+  const [photo, setPhoto] = useState(null);
   const handlePhotoChange = (e) => {
     const selectedPhoto = e.target.files[0];
     setPhoto(selectedPhoto);
@@ -46,7 +46,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="bg-white p-3 shadow-md w-full overflow-y-auto  min-h-full  ">
+    <div className=" p-3 shadow-md w-full overflow-y-auto  min-h-full  ">
       <Header title="Edit Profile" />
       <div className="p-10 ">
         {/* Added container */}

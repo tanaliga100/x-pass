@@ -44,7 +44,9 @@ const Login = () => {
     <div className="flex justify-center items-center h-auto bg-gray-100 rounded-3xl ">
       <div className=" p-8 rounded shadow-md  w-[500px]">
         <form action="" onSubmit={handleRegister}>
-          <h2 className="text-2xl font-bold mb-4">Login</h2>
+          <h2 className="text-xl  text-emerald-500 mb-4 font-extrabold">
+            Login
+          </h2>
           <input
             type="email"
             placeholder="Email"

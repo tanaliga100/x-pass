@@ -25,26 +25,27 @@ const RootLayout = () => {
   // const dontShowNav = location.pathname == "/timeline";
 
   return (
-    <section className="w-full  mx-auto flex flex-col ">
+    <section className="w-full h-screen mx-auto flex flex-col bg-teal-50 ">
       <nav
         className={`${
-          isScrolled ? "fixed top-0  border-black/30 " : "sticky top-0"
-        } w-full bg-slate-50 z-50 h-[20%] `}
+          isScrolled
+            ? "fixed top-0 border-b-6 border-black/30 "
+            : "sticky top-0"
+        } w-full  z-50 h-[20%] `}
       >
         <Navbar />
       </nav>
       <section>
-        <main className="flex flex-grow-1">
+        <main className="flex flex-row flex-grow">
           {isAuth && (
-            <section className="w-3/12 lg:w-1/5 h-full ">
+            <section className="w-3/12 lg:w-1/5 h-screen ">
               {/* Display sidebar when logged in */}
+
               <Sidebar />
             </section>
           )}
           <section
-            className={`${
-              isAuth ? "w-full" : "w-full"
-            }  z-20 inset-3  h-full p-10  `}
+            className={`${isAuth ? "w-full" : "w-full"}  z-20 inset-1  h-full `}
           >
             <Outlet />
           </section>

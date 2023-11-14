@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { openModal } from "../../store/features/uiSlice";
-import LeftNav from "../shared/LeftNav";
 import RightNav from "../shared/RightNav";
 import Logo from "./Logo";
 import Search from "./Search";
@@ -11,8 +10,8 @@ const Navbar = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   return (
-    <div className="flex flex-row items-center p-3 bg-slate-100  ">
-      <div className="basis-1/5 ">
+    <div className="flex flex-row items-center p-3 bg-emerald-200  ">
+      <div className="basis-3/12">
         <Logo />
       </div>
       <div className="basis-full justify-between ">
@@ -22,7 +21,6 @@ const Navbar = () => {
             {isAuth && (
               <>
                 <Search placeholder={"Search a document..."} />
-                <LeftNav />
               </>
             )}
           </section>
@@ -36,7 +34,11 @@ const Navbar = () => {
                     dispatch(openModal());
                   }}
                 >
-                  <h1 className=" bg-emerald-400 p-3 font-bold text-white rounded-md hover:bg-emerald-800 transition-all">
+                  <h1
+                    className="
+                         bg-emerald-100 p-3 font-bold text-emerald-500 rounded-md hover:bg-emerald-800 hover:text-white transition-all 
+                     "
+                  >
                     Register / Login
                   </h1>
                 </Link>

@@ -6,7 +6,6 @@ import { closeModal } from "../store/features/uiSlice";
 const AuthLayout = () => {
   //   const isAuth = useAuth();
   const isModalOpen = useSelector((state) => state.modal.isModalOpen);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,13 +20,13 @@ const AuthLayout = () => {
           // }}
         >
           <div
-            className="parent fixed inset-0 bg-emerald-950 opacity-50"
+            className="parent fixed inset-0 bg-emerald-800 opacity-50"
             onClick={() => {
               dispatch(closeModal());
               navigate("/");
             }}
           />
-          <div className="children z-50 w-1/4 ">
+          <div className="children z-50 w-3/12 absolute top-32 left-20 ">
             {/* Your modal content here */}
             <Outlet />
           </div>

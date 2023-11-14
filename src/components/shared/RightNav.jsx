@@ -1,3 +1,4 @@
+import { MdOutlineLightMode } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 
 import profile from "../../assets/profile.svg";
@@ -9,30 +10,32 @@ const RightNav = () => {
     await logoutUserHandler();
     navigate("/");
   };
+
   return (
     <>
-      <main className="flex flex-row flex-grow  items-center w-full justify-around">
-          <Link
-            to="profile"
-            className="items-center justify-center bg-white  rounded-full my-auto p-1"
-          >
-            {<AiOutlineSetting size={20} className="rounded-full" />}
-          </Link>
-          <Link to="timeline" onClick={() => {}}>
-            {/* <h1 className="font-bold text-base p-2  border-2 rounded-md border-emerald-500 text-emerald-500"></h1> */}
-            <img
-              width={30}
-              height={30}
-              src={profile}
-              alt="profile-settings"
-              className="rounded  "
-            />
-          </Link>
-          <button onClick={handleLogout}>
-            <h1 className="hover:bg-emerald-950 font-bold text-base bg-emerald-500 text-white rounded-md border-emerald-950 p-3">
-              Logout
-            </h1>
-          </button>
+      <main className="flex flex-row flex-grow  items-center w-full gap-x-12 justify-end">
+        <MdOutlineLightMode size={20} />
+        <Link
+          to="profile"
+          className="items-center justify-center bg-white  rounded-full my-auto p-1"
+        >
+          {<AiOutlineSetting size={20} className="" />}
+        </Link>
+        <Link to="timeline" onClick={() => {}}>
+          {/* <h1 className="font-bold text-base p-2  border-2 rounded-md border-emerald-500 text-emerald-500"></h1> */}
+          <img
+            width={30}
+            height={30}
+            src={profile}
+            alt="profile-settings"
+            className="rounded  "
+          />
+        </Link>
+        <button onClick={handleLogout}>
+          <h1 className="hover:bg-emerald-950 font-bold text-base bg-emerald-500 text-white rounded-md border-emerald-950 p-3">
+            Logout
+          </h1>
+        </button>
       </main>
     </>
   );
