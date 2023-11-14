@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
+import styled from "styled-components";
 import Navbar from "../components/shared/Navbar";
 import Sidebar from "../components/shared/Sidebar";
+import Users from "../components/views/Users";
 const RootLayout = () => {
   //   const theme = useTheme();
   const isReadyToAddPost = useSelector((state) => state.modal.isAddPost);
@@ -25,45 +27,78 @@ const RootLayout = () => {
   // const dontShowNav = location.pathname == "/timeline";
 
   return (
-    <section className="w-full h-screen mx-auto flex flex-col bg-teal-50 ">
+    <Main>
       <nav
         className={`${
           isScrolled
             ? "fixed top-0 border-b-6 border-black/30 "
             : "sticky top-0"
-        } w-full  z-50 h-[20%] `}
+        }   z-100 max-h-[10%] w-full overflow-auto `}
       >
         <Navbar />
       </nav>
-      <section>
-        <main className="flex flex-row flex-grow">
-          {isAuth && (
-            <section className="w-3/12 lg:w-1/5 h-screen ">
-              {/* Display sidebar when logged in */}
-
-              <Sidebar />
-            </section>
-          )}
-          <section
-            className={`${isAuth ? "w-full" : "w-full"}  z-20 inset-1  h-full `}
-          >
-            <Outlet />
-          </section>
-        </main>
-      </section>
-    </section>
+      <Layout>
+        {isAuth && (
+          <SidebarOutlet>
+            <Sidebar />
+          </SidebarOutlet>
+        )}
+        <MainOutlet
+          className={`${
+            isAuth ? "mx-auto text-center items-center" : "w-full"
+          } overflow-auto scroll-smooth 
+         bg-slate-50`}
+        >
+          <Outlet />
+        </MainOutlet>
+        {isAuth && (
+          <UsersLayout>
+            <Users />
+          </UsersLayout>
+        )}
+      </Layout>
+    </Main>
   );
 };
+
 export default RootLayout;
 
-//  <section className=" overflow-y-auto flex flex-grow bg-slate-100">
-//    {/* LEFT PANEL */}
-//    <div className="sticky top-0 basis-1/5 h-auto  text-justify flex flex-col p-2">
-//      {/* <Sidebar /> */}
-//    </div>
-//    {/* RIGHT PANEL */}
-//    <div className="sticky top-0 basis-full h-auto  text-justify flex flex-col p-2">
-//      {/* <Prompt /> */}
-//    </div>
-//    <div className=" basis-full h-[95%] text-justify flex flex-col p-2 "></div>
-//  </section>;
+const Main = styled.main`
+  background-color: transparent;
+  z-index: 100;
+  height: 100dvh;
+  width: 100dvw;
+`;
+
+const Layout = styled.section`
+  margin: 5px auto;
+  width: 86dvw;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+`;
+const SidebarOutlet = styled.section`
+  flex-grow: 1;
+
+  max-width: 15%;
+  max-height: 50vh;
+  padding: 2rem;
+  background-color: #e9f1f15c;
+`;
+const MainOutlet = styled.section`
+  height: 85dvh;
+  flex-grow: 3;
+  max-width: 65%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+  align-items: center;
+`;
+
+const UsersLayout = styled.div`
+  max-width: 20%;
+  flex-grow: 1;
+  background-color: #e9f1f15c;
+  max-height: 30vh;
+  border-radius: 10px;
+`;

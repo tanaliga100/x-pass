@@ -46,7 +46,7 @@ const Profile = () => {
   };
 
   return (
-    <div className=" p-3 shadow-md w-full overflow-y-auto  min-h-full  ">
+    <div className=" p-3 shadow-lg w-full overflow-y-auto  min-h-full  ">
       <Header title="Edit Profile" />
       <div className="p-10 ">
         {/* Added container */}

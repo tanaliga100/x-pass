@@ -55,7 +55,7 @@ const Sidebar = () => {
     //         </div>
     //       )}
     //     </div>
-    <div className="p-4 flex flex-col  items-center justify-start  ">
+    <div className=" rounder-md  flex flex-col  items-center justify-start min-h-[70dvh]">
       <h1 className="p-2 text-center font-bold">THE SIDEBAR</h1>
       <pre className="font-thin text-sm ">
         <img src={logo} alt="" width={60} height={60} />
@@ -63,9 +63,6 @@ const Sidebar = () => {
       <p className="text-center pt-3">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Non deleniti
         laboriosam tempore vel? Veniam, ratione culpa. Est quod doloribus quidem
-        accusamus consectetur nemo modi id nisi! Sit eius cupiditate quae
-        voluptatem rem fuga, quaerat necessitatibus, rerum doloribus repellendus
-        illum aspernatur illo dolores odit, nulla non nihil
       </p>
     </div>
   );

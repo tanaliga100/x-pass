@@ -10,7 +10,7 @@ const Navbar = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   return (
-    <div className="flex flex-row items-center p-3 bg-emerald-200  ">
+    <div className="flex flex-row items-center p-3 w-[90%]  mx-auto">
       <div className="basis-3/12">
         <Logo />
       </div>
@@ -36,8 +36,8 @@ const Navbar = () => {
                 >
                   <h1
                     className="
-                         bg-emerald-100 p-3 font-bold text-emerald-500 rounded-md hover:bg-emerald-800 hover:text-white transition-all 
-                     "
+                         bg-emerald-400 p-3 font-bold text-white rounded-md hover:bg-emerald-950 hover:text-white   ease-in-out transition-colors
+                         "
                   >
                     Register / Login
                   </h1>

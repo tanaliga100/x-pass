@@ -22,9 +22,9 @@
   color: white;
 }
 
-.app {
+#root {
   font-family: Arial, sans-serif;
-  line-height: 1rem;
   transition: background-color 0.9s, color 0.9s;
-  background-color: aliceblue;
+  width: 100dvw;
+  height: 100dvh;
 }

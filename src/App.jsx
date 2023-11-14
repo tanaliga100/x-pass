@@ -76,6 +76,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+import styled from "styled-components";
 import { useTheme } from "./context/themeContext";
 import { useAuth } from "./hooks/useAuth";
 import { default as AuthLayout } from "./layout/AuthLayout";
@@ -117,13 +118,15 @@ function App() {
   useAuth(); // MANAGE AUTHENTICATION
   return (
     <>
-      <div className={`app ${theme}`}>
+      <Main className={`root ${theme}`}>
         <Suspense fallback={<LoadingLayout />}>
           <RouterProvider router={routes} />
         </Suspense>
-      </div>
+      </Main>
     </>
   );
 }
 
 export default App;
+
+const Main = styled.main``;

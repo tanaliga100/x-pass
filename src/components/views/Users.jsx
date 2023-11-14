@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import { fetchUsers } from "../../store/features/userSlice";
-import Header from "../shared/Header";
 import User from "./User";
 
 const Users = () => {
@@ -21,14 +21,22 @@ const Users = () => {
   }
 
   return (
-    <div className="  ">
-      <Header title="People you may know.." />
-      <ul className=" flex flex-col  ">
-        {users.map((user) => (
-          <User key={user.id} user={user} />
-        ))}
-      </ul>
-    </div>
+    <ul className=" flex flex-col m-3 text-center justify-center">
+      <Heading>People you may know...</Heading>
+      {users.map((user) => (
+        <User key={user.id} user={user} />
+      ))}
+    </ul>
   );
 };
 export default Users;
+
+const Heading = styled.p`
+  text-align: center;
+  width: 100%;
+  padding-bottom: 1rem;
+  color: #008035;
+  line-height: 1rem;
+  font-weight: 600;
+  font-size: medium;
+`;
