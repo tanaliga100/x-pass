@@ -8,7 +8,6 @@ import Users from "../components/views/Users";
 const RootLayout = () => {
   //   const theme = useTheme();
   const isReadyToAddPost = useSelector((state) => state.modal.isAddPost);
-  console.log("isreadtoPost", isReadyToAddPost);
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,7 +27,7 @@ const RootLayout = () => {
 
   return (
     <Main>
-      <nav
+      <NavbarOutlet
         className={`${
           isScrolled
             ? "fixed top-0 border-b-6 border-black/30 "
@@ -36,7 +35,7 @@ const RootLayout = () => {
         }   z-100 max-h-[10%] w-full overflow-auto `}
       >
         <Navbar />
-      </nav>
+      </NavbarOutlet>
       <Layout>
         {isAuth && (
           <SidebarOutlet>
@@ -44,10 +43,9 @@ const RootLayout = () => {
           </SidebarOutlet>
         )}
         <MainOutlet
-          className={`${
-            isAuth ? "mx-auto text-center items-center" : "w-full"
-          } overflow-auto scroll-smooth 
-         bg-slate-50`}
+          className="
+           overflow-auto scroll-smooth 
+         "
         >
           <Outlet />
         </MainOutlet>
@@ -69,36 +67,42 @@ const Main = styled.main`
   height: 100dvh;
   width: 100dvw;
 `;
+const NavbarOutlet = styled.nav`
+  background-color: #00000041;
+  color: black;
+`;
 
 const Layout = styled.section`
   margin: 5px auto;
-  width: 86dvw;
+  height: 80dvh;
+  width: 70dvw;
   display: flex;
   flex-direction: row;
   gap: 2rem;
 `;
 const SidebarOutlet = styled.section`
   flex-grow: 1;
-
-  max-width: 15%;
+  width: ${({ isAuth }) => (isAuth ? "15%" : "0%")};
   max-height: 50vh;
   padding: 2rem;
   background-color: #e9f1f15c;
 `;
 const MainOutlet = styled.section`
-  height: 85dvh;
+  height: 80dvh;
   flex-grow: 3;
-  max-width: 65%;
+  width: ${({ isAuth }) => (isAuth ? "20%" : "100%")};
+  /* min-width: 65%; */
   margin: 0 auto;
   text-align: center;
   padding: 2rem;
   align-items: center;
+  background-color: ${({ isAuth }) => (isAuth ? "#e9f1f15c" : "transparent")};
 `;
-
 const UsersLayout = styled.div`
-  max-width: 20%;
+  /* max-width: 20%; */
+  width: ${({ isAuth }) => (isAuth ? "15%" : "0%")};
   flex-grow: 1;
   background-color: #e9f1f15c;
-  max-height: 30vh;
+  max-height: 40vh;
   border-radius: 10px;
 `;

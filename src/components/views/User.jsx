@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const User = (props) => {
   const email = props.user.email;
   const atIndex = email.indexOf("@");
-
   const name = email.slice(0, atIndex);
 
   return (
@@ -24,9 +23,9 @@ const User = (props) => {
           <div className="text-gray font-bold text-sm p-1 rounded-md ">
             {name}
           </div>
-          <p className="bg-emerald-500 font-extrabold text-white rounded-md text-sm hover:bg-emerald-900 w-auto">
+          {/* <p className="bg-emerald-500 font-extrabold text-white rounded-md text-sm hover:bg-emerald-900 w-auto">
             Add
-          </p>
+          </p> */}
         </section>
       </div>
     </Link>

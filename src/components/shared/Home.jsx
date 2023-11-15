@@ -2,13 +2,13 @@ import imgFront from "../../assets/front.svg";
 
 const Home = () => {
   return (
-    <div className="basis-full flex-grow  ">
+    <div className="">
       <main className="  w-full flex flex-col items-center justify-center text-center pt-3 ">
         <img
           src={imgFront}
           alt="dp"
-          width={300}
-          height={300}
+          width={200}
+          height={100}
           className="items-center text-center"
         />
         <div className="leading-10 uppercase tracking-wide text-3xl  font-extrabold text-emerald-500 p-3 py-10  text-center ">

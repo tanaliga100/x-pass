@@ -15,6 +15,7 @@ export const fetchUsers = createAsyncThunk("user/fetchUsers", async () => {
         ...doc.data(),
       });
     });
+
     return users;
   } catch (error) {
     console.log(error);
@@ -26,7 +27,6 @@ const initialState = {
   users: [],
   loading: false,
   error: null,
-  user: {},
 };
 const userSlice = createSlice({
   name: "user",
