@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import { openModal } from "../../store/features/uiSlice";
 import RightNav from "../shared/RightNav";
 import Logo from "./Logo";
@@ -10,7 +9,7 @@ const Navbar = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   return (
-    <div className="flex flex-row items-center p-3 w-[90%]  mx-auto">
+    <div className=" flex flex-row items-center w-[80%]  mx-auto">
       <div className="basis-3/12">
         <Logo />
       </div>
@@ -93,14 +92,14 @@ export default Navbar;
 //     );
 //   }
 
-const LeftPanel = styled.div`
-  display: flex;
-  min-width: 2rem;
-  gap: 1rem;
-  justify-content: space-between;
-  flex-direction: row;
+// const LeftPanel = styled.div`
+//   display: flex;
+//   min-width: 2rem;
+//   gap: 1rem;
+//   justify-content: space-between;
+//   flex-direction: row;
 
-  a {
-    padding: 0.5rem;
-  }
-`;
+//   a {
+//     padding: 0.5rem;
+//   }
+// `;

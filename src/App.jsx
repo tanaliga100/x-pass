@@ -83,7 +83,9 @@ import { default as AuthLayout } from "./layout/AuthLayout";
 import LoadingLayout from "./layout/LoadingLayout";
 
 function App() {
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
+
+  console.log("theme", theme);
 
   React.useEffect(() => {}, []);
   // Define your routes using createRoutesFromElements
@@ -118,7 +120,7 @@ function App() {
   useAuth(); // MANAGE AUTHENTICATION
   return (
     <>
-      <Main className={`root ${theme}`}>
+      <Main className={` ${theme}`}>
         <Suspense fallback={<LoadingLayout />}>
           <RouterProvider router={routes} />
         </Suspense>
@@ -129,4 +131,8 @@ function App() {
 
 export default App;
 
-const Main = styled.main``;
+const Main = styled.main`
+  width: 100dvw;
+  height: 100dvh;
+  transition: background-color 1s, color 1s;
+`;

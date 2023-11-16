@@ -13,18 +13,15 @@
 }
 
 .light {
-  background-color: white;
+  background-color: #93b1a6;
   color: black;
 }
 
 .dark {
-  background-color: black;
+  background-color: #040d12dc;
   color: white;
 }
 
 #root {
   font-family: Arial, sans-serif;
-  transition: background-color 0.9s, color 0.9s;
-  width: 100dvw;
-  height: 100dvh;
 }

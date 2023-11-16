@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import profile from "../../assets/profile.svg";
 const RightNav = () => {
+  const { toggleTheme } = useTheme();
   const navigate = useNavigate();
   const { logoutUserHandler } = useLogout();
 
@@ -14,7 +15,7 @@ const RightNav = () => {
   return (
     <>
       <main className="flex flex-row flex-grow  items-center w-full gap-x-12 justify-end">
-        <MdOutlineLightMode size={20} />
+        <MdOutlineLightMode size={20} onClick={() => toggleTheme()} />
         <Link
           to="profile"
           className="items-center justify-center bg-white  rounded-full my-auto p-1"
@@ -56,6 +57,7 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
 import { TbBrandFeedly } from "react-icons/tb";
 import styled from "styled-components";
+import { useTheme } from "../../context/themeContext";
 
 const RightPanel = styled.div`
   display: flex;

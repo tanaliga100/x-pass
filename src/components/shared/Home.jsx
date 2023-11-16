@@ -1,16 +1,29 @@
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import imgFront from "../../assets/front.svg";
+import { openModal } from "../../store/features/uiSlice";
 
 const Home = () => {
+  const dispatch = useDispatch();
   return (
     <div className="">
       <main className="  w-full flex flex-col items-center justify-center text-center pt-3 ">
-        <img
-          src={imgFront}
-          alt="dp"
-          width={200}
-          height={100}
-          className="items-center text-center"
-        />
+        <section className="flex flex-row items-center w-[60%] justify-around">
+          <img
+            src={imgFront}
+            alt="dp"
+            width={200}
+            height={100}
+            className="items-center text-center"
+          />
+          <Link
+            className="bg-emerald-300 h-fit text-xl p-5 rounded-sm font-extrabold mt-4 hover:bg-emerald-800 hover:text-white text-slate-900"
+            to="/auth"
+            onClick={() => dispatch(openModal())}
+          >
+            Register/ Login
+          </Link>
+        </section>
         <div className="leading-10 uppercase tracking-wide text-3xl  font-extrabold text-emerald-500 p-3 py-10  text-center ">
           Make a quotable lyrics of your{" "}
           <span className="bg-emerald-400 text-white p-1 px-2 rounded-lg">
