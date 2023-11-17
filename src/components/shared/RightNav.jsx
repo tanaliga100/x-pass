@@ -11,16 +11,19 @@ const RightNav = () => {
     await logoutUserHandler();
     navigate("/");
   };
-
   return (
     <>
       <main className="flex flex-row flex-grow  items-center w-full gap-x-12 justify-end">
         <MdOutlineLightMode size={20} onClick={() => toggleTheme()} />
         <Link
           to="profile"
-          className="items-center justify-center bg-white  rounded-full my-auto p-1"
+          className="items-center justify-center   rounded-full my-auto p-1"
         >
-          {<AiOutlineSetting size={20} className="" />}
+          {theme === "light" ? (
+            <IoSettingsOutline size={20} />
+          ) : (
+            <IoSettings size={20} />
+          )}
         </Link>
         <Link to="timeline" onClick={() => {}}>
           {/* <h1 className="font-bold text-base p-2  border-2 rounded-md border-emerald-500 text-emerald-500"></h1> */}
@@ -50,7 +53,7 @@ const RightNav = () => {
 
 export default RightNav;
 
-import { AiOutlineSetting } from "react-icons/ai";
+import { IoSettings, IoSettingsOutline } from "react-icons/io5";
 import { useLogout } from "../../hooks/useLogout";
 
 const Rightlinks = [

@@ -135,5 +135,4 @@ const Main = styled.main`
   width: 100dvw;
   height: 100dvh;
   transition: background-color 1s, color 1s;
-  color: ${({ theme }) => (theme === "light" ? "black" : "white")};
 `;
