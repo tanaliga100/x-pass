@@ -2,9 +2,11 @@
 import { TfiWrite } from "react-icons/tfi";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { useTheme } from "../../context/themeContext";
 import { openAddPost } from "../../store/features/uiSlice";
 
 const AddPost = () => {
+  const { theme } = useTheme();
   const dispatch = useDispatch();
 
   return (
@@ -12,7 +14,12 @@ const AddPost = () => {
       <Post>
         <button
           type="button"
-          className="p-5 font-bold w-full rounded-lg border-x-2 hover:border-emerald-300 flex flex-row gap-4 items-center z-10 bg-transparent text-emerald-500 inset-1"
+          className={`${
+            theme === "light" ? "text-slate-900" : "text-emerald-400"
+          } 
+          
+          p-5 font-bold w-full rounded-lg border-x-2 hover:border-emerald-300 flex flex-row gap-4 items-center z-10 bg-transparent  inset-1
+          `}
           onClick={() => dispatch(openAddPost())}
         >
           What's on your mind ? <TfiWrite size={25} />

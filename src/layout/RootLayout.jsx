@@ -43,11 +43,12 @@ const RootLayout = () => {
       )}
       <Layout>
         {isAuth && (
-          <SidebarOutlet>
+          <SidebarOutlet theme={theme}>
             <Sidebar />
           </SidebarOutlet>
         )}
         <MainOutlet
+          theme={theme}
           className="
            overflow-auto scroll-smooth 
          "
@@ -55,11 +56,11 @@ const RootLayout = () => {
           <Outlet />
         </MainOutlet>
         {isAuth && (
-          <RightSideContainer>
-            <UsersLayout>
+          <RightSideContainer theme={theme}>
+            <UsersLayout theme={theme}>
               <Users />
             </UsersLayout>
-            <NewBlock>New Block</NewBlock>
+            <NewBlock theme={theme}>New Block</NewBlock>
           </RightSideContainer>
         )}
       </Layout>
@@ -71,13 +72,11 @@ export default RootLayout;
 
 const Main = styled.main`
   background-color: transparent;
-  color: black;
 `;
 const NavbarOutlet = styled.nav`
   display: flex;
-  color: white;
   background-color: ${({ theme }) =>
-    theme === "light" ? "#8ba99e" : "#0103042a"};
+    theme === "light" ? "#7fa396" : "#0103042a"};
   height: 10dvh;
 `;
 
@@ -95,6 +94,7 @@ const SidebarOutlet = styled.section`
   /* width: ${({ isAuth }) => (isAuth ? "40%" : "0")}; */
   max-height: 30vh;
   box-shadow: 1px 1px 10px 0.1px rgba(0, 0, 0, 0.1);
+  color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 `;
 const MainOutlet = styled.section`
   /* height: ${({ isAuth }) => (isAuth ? "20dvh " : "90dvh")}; */
@@ -106,6 +106,7 @@ const MainOutlet = styled.section`
   padding: 2rem;
   align-items: center;
   background-color: ${({ isAuth }) => (isAuth ? "#e9f1f1c0" : "transparent")};
+  color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 `;
 
 const RightSideContainer = styled.div`
@@ -115,6 +116,7 @@ const RightSideContainer = styled.div`
   margin-top: 1rem;
   flex-direction: column;
   max-height: 70vh;
+  color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 `;
 
 const UsersLayout = styled.div`
@@ -122,11 +124,13 @@ const UsersLayout = styled.div`
   /* width: ${({ isAuth }) => (isAuth ? "10dvw" : "0")}; */
   flex: 1;
   box-shadow: 1px 1px 10px 0.1px rgba(0, 0, 0, 0.1);
+  color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 `;
 
 const NewBlock = styled.div`
   flex: 1;
   box-shadow: 1px 1px 10px 0.1px rgba(0, 0, 0, 0.1);
+  color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 
   /* Add your styling for the new block here */
 `;

@@ -8,10 +8,17 @@ const Logo = () => {
       <Link>
         <h1
           className={`${
-            theme === "light" ? "red" : "blue"
+            theme === "light" ? "text-slate-900" : "text-white"
           } font-extrabold text-2xl font-sans text-center `}
         >
-          X-Pass |<span className="text-emerald-400">vate</span>
+          Quoti{" "}
+          <span
+            className={`${
+              theme === "light" ? "text-emerald-400" : "text-emerald-400"
+            }`}
+          >
+            vate
+          </span>
         </h1>
       </Link>
     </div>

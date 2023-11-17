@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import profile from "../../assets/profile.svg";
 const RightNav = () => {
-  const { toggleTheme } = useTheme();
+  const { toggleTheme, theme } = useTheme();
   const navigate = useNavigate();
   const { logoutUserHandler } = useLogout();
 
@@ -33,7 +33,13 @@ const RightNav = () => {
           />
         </Link>
         <button onClick={handleLogout}>
-          <h1 className="hover:bg-emerald-950 font-bold text-base bg-emerald-500 text-white rounded-md border-emerald-950 p-3">
+          <h1
+            className={`${
+              theme === "light"
+                ? "bg-emerald-900 text-white"
+                : "bg-emerald-300 text-slate-900"
+            } hover:bg-emerald-950 font-bold text-base bg-emerald-500 text-white rounded-md border-emerald-950 p-3 `}
+          >
             Logout
           </h1>
         </button>
