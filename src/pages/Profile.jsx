@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Header from "../components/shared/Header";
+import { useTheme } from "../context/themeContext";
 
 const Profile = () => {
   //   const { updateProfile } = useUpdateProfile();
@@ -45,20 +45,22 @@ const Profile = () => {
     //     setPhoto("");
   };
 
+  const { theme } = useTheme();
+
   return (
-    <div className=" p-3 shadow-lg w-full overflow-y-auto  min-h-full  ">
-      <Header title="Edit Profile" />
+    <div
+      className={`${
+        theme === "light" ? "text-emerald-900 " : "text-emerald-100"
+      } p-3 shadow-xl w-full overflow-y-auto  min-h-full  `}
+    >
       <div className="p-10 ">
         {/* Added container */}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label
-              htmlFor="photo"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="photo" className=" text-sm font-medium ">
               Profile Photo
             </label>
-            <div className="w-20 h-20 rounded-full border border-gray-300 overflow-hidden">
+            <div className="w-20 h-20 rounded-full border bo overflow-hidden">
               {photo ? (
                 <img
                   src={URL.createObjectURL(photo)}
@@ -66,7 +68,7 @@ const Profile = () => {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <div className="w-full h-full bg-gray-200"></div>
+                <div className="w-full h-ful"></div>
               )}
             </div>
             <input
@@ -79,10 +81,7 @@ const Profile = () => {
           </div>
           <First>
             <div className="mb-4">
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="name" className="block text-sm font-medium ">
                 Display Name | Nickname
               </label>
               <input
@@ -96,10 +95,7 @@ const Profile = () => {
               />
             </div>
             <div className="mb-4">
-              <label
-                htmlFor="username"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="username" className="block text-sm font-medium ">
                 Full Name
               </label>
               <input
@@ -113,9 +109,7 @@ const Profile = () => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">
-                Gender
-              </label>
+              <label className="block text-sm font-medium ">Gender</label>
               <div className="mt-1 space-x-4">
                 <label className="inline-flex items-center">
                   <input
@@ -144,10 +138,7 @@ const Profile = () => {
           </First>
           <Second>
             <div className="mb-4">
-              <label
-                htmlFor="address"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="address" className="block text-sm font-medium ">
                 Address
               </label>
               <input
@@ -161,10 +152,7 @@ const Profile = () => {
               />
             </div>
             <div className="mb-4">
-              <label
-                htmlFor="label"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="label" className="block text-sm font-medium ">
                 Availability
               </label>
               <input
@@ -180,10 +168,7 @@ const Profile = () => {
           </Second>
           <Second>
             <div className="mb-4">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="email" className="block text-sm font-medium ">
                 Email
               </label>
               <input
@@ -199,7 +184,7 @@ const Profile = () => {
             <div className="mb-4">
               <label
                 htmlFor="occupation"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium "
               >
                 Occupation
               </label>

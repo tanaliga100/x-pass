@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Navbar from "../components/shared/Navbar";
 import Sidebar from "../components/shared/Sidebar";
+import Timeline from "../components/views/Timeline";
 import Users from "../components/views/Users";
 import { useTheme } from "../context/themeContext";
 const RootLayout = () => {
   const { theme } = useTheme();
-  //   const theme = useTheme();
+  const location = useLocation();
+  console.log("location", location);
   const isReadyToAddPost = useSelector((state) => state.modal.isAddPost);
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
@@ -27,6 +29,8 @@ const RootLayout = () => {
   // const location = useLocation();
   // const dontShowNav = location.pathname == "/timeline";
 
+  const isOnTimeLine = Boolean(location.pathname === "/timeline");
+
   return (
     <Main>
       {isAuth && (
@@ -42,26 +46,34 @@ const RootLayout = () => {
         </NavbarOutlet>
       )}
       <Layout>
-        {isAuth && (
-          <SidebarOutlet theme={theme}>
-            <Sidebar />
-          </SidebarOutlet>
-        )}
-        <MainOutlet
-          theme={theme}
-          className="
+        {isOnTimeLine ? (
+          <MainOutlet>
+            <Timeline />
+          </MainOutlet>
+        ) : (
+          <>
+            {isAuth && (
+              <SidebarOutlet theme={theme}>
+                <Sidebar />
+              </SidebarOutlet>
+            )}
+            <MainOutlet
+              theme={theme}
+              className="
            overflow-auto scroll-smooth 
          "
-        >
-          <Outlet />
-        </MainOutlet>
-        {isAuth && (
-          <RightSideContainer theme={theme}>
-            <UsersLayout theme={theme}>
-              <Users />
-            </UsersLayout>
-            <NewBlock theme={theme}>New Block</NewBlock>
-          </RightSideContainer>
+            >
+              <Outlet />
+            </MainOutlet>
+            {isAuth && (
+              <RightSideContainer theme={theme}>
+                <UsersLayout theme={theme}>
+                  <Users />
+                </UsersLayout>
+                <NewBlock theme={theme}>New Block</NewBlock>
+              </RightSideContainer>
+            )}
+          </>
         )}
       </Layout>
     </Main>
