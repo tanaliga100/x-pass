@@ -60,7 +60,7 @@ const RootLayout = () => {
             <MainOutlet
               theme={theme}
               className="
-           overflow-auto scroll-smooth 
+           overflow-y-auto scroll-smooth 
          "
             >
               <Outlet />
@@ -97,14 +97,14 @@ const Layout = styled.section`
   flex-direction: row;
   width: 70dvw;
   margin: 0 auto;
-  height: 90vh;
+  height: 90dvh;
 `;
 
 const SidebarOutlet = styled.section`
   flex: 1;
   margin-top: 1rem;
   /* width: ${({ isAuth }) => (isAuth ? "40%" : "0")}; */
-  max-height: 30vh;
+  max-height: 30dvh;
   box-shadow: 1px 1px 10px 0.1px rgba(0, 0, 0, 0.1);
   color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 `;
@@ -116,6 +116,7 @@ const MainOutlet = styled.section`
   margin: 0 auto;
   text-align: center;
   padding: 2rem;
+  height: 70dvh;
   align-items: center;
   background-color: ${({ isAuth }) => (isAuth ? "#e9f1f1c0" : "transparent")};
   color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
@@ -145,4 +146,16 @@ const NewBlock = styled.div`
   color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 
   /* Add your styling for the new block here */
+`;
+
+const NewAddedDocument = styled.main`
+  height: 90dvh;
+  width: 90dvw;
+  background: #333;
+`;
+
+const AddsBlock = styled.main`
+  height: 90dvh;
+  width: 90dvw;
+  background: #333;
 `;

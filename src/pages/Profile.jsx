@@ -76,7 +76,7 @@ const Profile = () => {
               id="photo"
               accept="image/*"
               onChange={handlePhotoChange}
-              className="mt-2 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+              className="mt-2 p-1 w-full border rounded-md focus:ring focus:ring-blue-200"
             />
           </div>
           <First>

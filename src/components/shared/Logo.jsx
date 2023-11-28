@@ -11,7 +11,7 @@ const Logo = () => {
             theme === "light" ? "text-slate-900" : "text-white"
           } font-extrabold text-2xl font-sans text-center `}
         >
-          Quoti{" "}
+          X-Pass
           <span
             className={`${
               theme === "light" ? "text-emerald-400" : "text-emerald-400"

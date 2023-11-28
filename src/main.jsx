@@ -6,7 +6,6 @@ import App from "./App.jsx";
 import { ThemeProvider } from "./context/themeContext.jsx";
 import "./index.css";
 import store from "./store/store.js";
-// console.log("Hello there firebase firestore");
 
 // writeSpecialDay();
 // addNewDocument();
