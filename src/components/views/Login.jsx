@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useLogin } from "../../hooks/useLogin";
 
@@ -8,6 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -41,7 +43,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-auto bg-gray-100 rounded-3xl ">
+    <div className="flex justify-center items-center h-auto rounded-3xl ">
       <div className=" p-8 rounded shadow-md  w-[500px]">
         <form action="" onSubmit={handleRegister}>
           <h2 className="text-xl  text-emerald-500 mb-4 font-extrabold">
@@ -55,13 +57,21 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           {emailError && <div className=" text-red-500">{emailError}</div>}
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full px-4 py-2 mb-3 border rounded focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              className="w-full px-4 py-2 mb-3 border rounded focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span
+              className="absolute top-3 right-4 cursor-pointer"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FiEyeOff /> : <FiEye />}
+            </span>
+          </div>
           {passwordError && <div className="text-red-500">{passwordError}</div>}
           <button
             type="submit"
@@ -73,13 +83,14 @@ const Login = () => {
         </form>
 
         <div className="pt-5">
-          <h1>Dont have an account ?</h1>
+          <h1 className="text-white text-sm font-serif">
+            Dont have an account ?
+          </h1>
           <button className="py-3">
             <Link
               to="/auth/register"
-              className="text-emerald-500 font-bold hover:underline"
+              className="text-emerald-500 font-thin text-sm hover:bg-black bg-black/80 p-2 shadow-lg rounded-md"
             >
-              {" "}
               Register
             </Link>
           </button>

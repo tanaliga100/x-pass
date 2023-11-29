@@ -20,13 +20,16 @@ const AuthLayout = () => {
           // }}
         >
           <div
-            className="parent fixed inset-0 bg-emerald-800 opacity-50"
+            className="parent fixed inset-0 bg-emerald-900 opacity-50"
             onClick={() => {
               dispatch(closeModal());
               navigate("/");
             }}
           />
-          <div className="children z-50 w-3/12 absolute top-32 left-20 ">
+          <div
+            className="children z-50 w-3/12 absolute top-32 left-20 bg-emerald-900 
+          "
+          >
             {/* Your modal content here */}
             <Outlet />
           </div>
@@ -35,6 +38,7 @@ const AuthLayout = () => {
     </div>
   );
 };
+
 export default AuthLayout;
 
 //     <div>
@@ -66,7 +70,18 @@ export default AuthLayout;
 //     setHasToasted(true);
 //   }
 
-//   const handleCloseModal =
-//     dispatch(closeModal());
-//     console.log("triggered");
+//   const handleCloseModal());
+//     console.log("triggere =
+//     dispatch(closeModald");
 //   };
+// const nums = [1, 2, 3, 4, 5, 10];
+
+// const result = nums.reduce((acc, curr) => {
+//   if (curr % 2 === 0) {
+//     const square = curr * curr;
+//     return acc + square;
+//   }
+//   return acc;
+// }, 0);
+
+// console.log("Sum of squares of even numbers:", result);

@@ -56,11 +56,11 @@ const Sidebar = () => {
     //       )}
     //     </div>
     <div className=" rounder-md  flex flex-col  items-center justify-start min-h-[70dvh]">
-      <h1 className="p-2 text-center font-bold">THE SIDEBAR</h1>
+      <h1 className="p-2 text-center font-thin text-sm">THE SIDEBAR</h1>
       <pre className="font-thin text-sm ">
         <img src={logo} alt="" width={60} height={60} />
       </pre>
-      <p className="text-center pt-3">
+      <p className="text-center pt-3 text-sm">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Non deleniti
         laboriosam tempore vel? Veniam, ratione culpa. Est quod doloribus quidem
       </p>

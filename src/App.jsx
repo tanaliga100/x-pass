@@ -85,8 +85,6 @@ import LoadingLayout from "./layout/LoadingLayout";
 function App() {
   const { theme, toggleTheme } = useTheme();
 
-  console.log("theme", theme);
-
   React.useEffect(() => {}, []);
   // Define your routes using createRoutesFromElements
   //   const isAuth = useSelector((state) => state.auth.isAuthenticated);

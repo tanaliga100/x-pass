@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className="">
       <main className="  w-full flex flex-col items-center justify-center text-center pt-3 ">
-        <section className="flex flex-row items-center w-[60%] justify-around">
+        <section className="flex flex-row items-center w-[60%]  place-content-center gap-6">
           <img
             src={imgFront}
             alt="dp"
@@ -17,7 +17,7 @@ const Home = () => {
             className="items-center text-center"
           />
           <Link
-            className="bg-emerald-300 h-fit text-xl p-5 rounded-sm font-extrabold mt-4 hover:bg-emerald-800 hover:text-white text-slate-900"
+            className="bg-emerald-900 h-fit text-sm p-3 rounded-sm font-bold mt-4 hover:bg-emerald-800 text-white hover:text-slate-100 duration-200 "
             to="/auth"
             onClick={() => dispatch(openModal())}
           >

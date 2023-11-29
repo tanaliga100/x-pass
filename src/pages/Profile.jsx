@@ -50,17 +50,14 @@ const Profile = () => {
   return (
     <div
       className={`${
-        theme === "light" ? "text-emerald-900 " : "text-emerald-100"
-      } p-3 shadow-xl w-full overflow-y-auto  min-h-full  `}
+        theme === "light" ? "red " : "blue"
+      }  shadow-md w-[100%]  min-h-full bg-transparent `}
     >
-      <div className="p-10 ">
+      <div className="p-3  w-[100%] text-xs ">
         {/* Added container */}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="photo" className=" text-sm font-medium ">
-              Profile Photo
-            </label>
-            <div className="w-20 h-20 rounded-full border bo overflow-hidden">
+            <div className="w-20 h-20  rounded-smll margin-auto border-2 overflow-hidden">
               {photo ? (
                 <img
                   src={URL.createObjectURL(photo)}
@@ -76,7 +73,7 @@ const Profile = () => {
               id="photo"
               accept="image/*"
               onChange={handlePhotoChange}
-              className="mt-2 p-1 w-full border rounded-md focus:ring focus:ring-blue-200"
+              className="mt-2  w-full border rounded-sm focus:ring focus:ring-blue-200"
             />
           </div>
           <First>
@@ -91,7 +88,7 @@ const Profile = () => {
                 name="displayName"
                 value={profileData.displayName || ""}
                 onChange={handleInputChange}
-                className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+                className="mt-1 p-1  w-full border rounded-sm focus:ring focus:ring-blue-200"
               />
             </div>
             <div className="mb-4">
@@ -105,68 +102,11 @@ const Profile = () => {
                 name="userName"
                 value={profileData.userName || ""}
                 onChange={handleInputChange}
-                className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+                className="mt-1 p-1  w-full border rounded-sm focus:ring focus:ring-blue-200"
               />
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-medium ">Gender</label>
-              <div className="mt-1 space-x-4">
-                <label className="inline-flex items-center">
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Male"
-                    checked={profileData.gender === "Male"}
-                    onChange={handleInputChange}
-                    className="form-radio text-blue-500 h-4 w-4"
-                  />
-                  <span className="ml-2">Male</span>
-                </label>
-                <label className="inline-flex items-center">
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Female"
-                    checked={profileData.gender === "Female"}
-                    onChange={handleInputChange}
-                    className="form-radio text-blue-500 h-4 w-4"
-                  />
-                  <span className="ml-2">Female</span>
-                </label>
-              </div>
             </div>
           </First>
-          <Second>
-            <div className="mb-4">
-              <label htmlFor="address" className="block text-sm font-medium ">
-                Address
-              </label>
-              <input
-                type="text"
-                placeholder="Manila, Philippines"
-                id="address"
-                name="address"
-                value={profileData.address || ""}
-                onChange={handleInputChange}
-                className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="label" className="block text-sm font-medium ">
-                Availability
-              </label>
-              <input
-                type="text"
-                placeholder="Label"
-                id="label"
-                name="label"
-                value={profileData.label || ""}
-                onChange={handleInputChange}
-                className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
-              />
-            </div>
-          </Second>
-          <Second>
+          <Second theme={theme}>
             <div className="mb-4">
               <label htmlFor="email" className="block text-sm font-medium ">
                 Email
@@ -178,37 +118,64 @@ const Profile = () => {
                 name="email"
                 value={profileData.email || ""}
                 onChange={handleInputChange}
-                className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+                className="mt-1 p-1  w-full border rounded-smfocus:ring focus:ring-blue-200"
               />
             </div>
+
             <div className="mb-4">
-              <label
-                htmlFor="occupation"
-                className="block text-sm font-medium "
-              >
-                Occupation
+              <label htmlFor="address" className="block text-sm font-medium ">
+                Address
               </label>
               <input
                 type="text"
-                placeholder="Developer"
-                id="occupation"
-                name="occupation"
-                value={profileData.occupation || ""}
+                placeholder="Manila, Philippines"
+                id="address"
+                name="address"
+                value={profileData.address || ""}
                 onChange={handleInputChange}
-                className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-200"
+                className="mt-1 p-1  w-full border rounded-sm focus:ring  focus:ring-blue-200"
               />
+            </div>
+          </Second>
+          <Second theme={theme}>
+            <div className="mb-4">
+              <label className="block text-sm font-medium ">Gender</label>
+              <div className="mt-1 py-3 space-x-4">
+                <label className="inline-flex ">
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="Male"
+                    checked={profileData.gender === "Male"}
+                    onChange={handleInputChange}
+                    className="form-radio text-blue-500 h-4 w-4"
+                  />
+                  <span className="m">Male</span>
+                </label>
+                <label className="inline-flex ">
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="Female"
+                    checked={profileData.gender === "Female"}
+                    onChange={handleInputChange}
+                    className="form-radio text-blue-500 h-4 w-4"
+                  />
+                  <span className="m">Female</span>
+                </label>
+              </div>
             </div>
           </Second>
           <Actions>
             <button
               type="submit"
-              className="bg-emerald-900 hover:bg-emerald-500 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+              className="bg-emerald-900 hover:bg-emerald-500 text-white px-4 p rounded-sm focus:outline-none focus:ring focus:ring-blue-200"
             >
               Clear
             </button>
             <button
               type="submit"
-              className="bg-emerald-500 hover:bg-emerald-900 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+              className="bg-emerald-500 hover:bg-emerald-900 text-white px-4 py-2 rounded-sm focus:outline-none focus:ring focus:ring-blue-200"
             >
               Save Changes
             </button>
@@ -218,6 +185,7 @@ const Profile = () => {
     </div>
   );
 };
+
 export default Profile;
 
 //   const [name, setName] = useState("John Doe");
@@ -229,15 +197,18 @@ export default Profile;
 //   const [photo, setPhoto] = useState(null);
 
 const First = styled.div`
-  display: flex;
+  display: grid;
+  text-align: left;
   gap: 1rem;
-  flex-direction: row;
-  width: 100%;
+  grid-template-columns: 40% 40%;
+  width: 80%;
 `;
 const Second = styled.div`
   display: grid;
+  text-align: left;
   gap: 1rem;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 30% 50%;
+  color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 `;
 
 const Actions = styled.div`

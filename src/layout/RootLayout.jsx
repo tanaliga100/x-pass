@@ -22,6 +22,7 @@ const RootLayout = () => {
       setIsScrolled(false);
     }
   };
+
   React.useEffect(() => {
     window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -40,7 +41,7 @@ const RootLayout = () => {
             isScrolled
               ? "fixed top-0 border-b-6 border-black/30 "
               : "sticky top-0"
-          }   overflow-auto `}
+          }    `}
         >
           <Navbar />
         </NavbarOutlet>
@@ -95,7 +96,7 @@ const NavbarOutlet = styled.nav`
 const Layout = styled.section`
   display: flex;
   flex-direction: row;
-  width: 70dvw;
+  width: 90dvw;
   margin: 0 auto;
   height: 90dvh;
 `;
@@ -104,7 +105,7 @@ const SidebarOutlet = styled.section`
   flex: 1;
   margin-top: 1rem;
   /* width: ${({ isAuth }) => (isAuth ? "40%" : "0")}; */
-  max-height: 30dvh;
+  max-height: 60dvh;
   box-shadow: 1px 1px 10px 0.1px rgba(0, 0, 0, 0.1);
   color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 `;
@@ -115,11 +116,25 @@ const MainOutlet = styled.section`
   /* min-width: 65%; */
   margin: 0 auto;
   text-align: center;
-  padding: 2rem;
-  height: 70dvh;
+  padding: 1rem;
+  height: 90dvh;
   align-items: center;
   background-color: ${({ isAuth }) => (isAuth ? "#e9f1f1c0" : "transparent")};
   color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
+  overflow-y: scroll;
+  scrollbar-width: none;
+  scrollbar-color: ${({ theme }) =>
+      theme === "light" ? "#263b4551" : "#7fa396"}
+    transparent;
+
+  &::-webkit-scrollbar {
+    width: 0; /* You can adjust the width as needed */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) =>
+      theme === "light" ? "#263b45" : "#7fa396"};
+  }
 `;
 
 const RightSideContainer = styled.div`
@@ -142,6 +157,8 @@ const UsersLayout = styled.div`
 
 const NewBlock = styled.div`
   flex: 1;
+  text-align: center;
+  padding: 1rem;
   box-shadow: 1px 1px 10px 0.1px rgba(0, 0, 0, 0.1);
   color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 
