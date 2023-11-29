@@ -3,6 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import AddPost from "../components/shared/AddPost";
 import Home from "../components/shared/Home";
+import FeedPost from "../components/views/FeedPost";
 import { fetchPosts } from "../store/features/postSlice";
 const Feed = () => {
   // check ui conditions here...
@@ -26,6 +27,8 @@ const Feed = () => {
           <section className="  rounded-md">
             <AddPost />
           </section>
+          <hr />
+          <FeedPost />
         </div>
       ) : (
         <section>

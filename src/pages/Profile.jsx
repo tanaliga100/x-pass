@@ -57,7 +57,7 @@ const Profile = () => {
         {/* Added container */}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <div className="w-20 h-20  rounded-smll margin-auto border-2 overflow-hidden">
+            <div className="w-20 h-20  rounded-full mb-6 margin-auto border-2 overflow-hidden">
               {photo ? (
                 <img
                   src={URL.createObjectURL(photo)}

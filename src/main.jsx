@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <ThemeProvider>
       <ToastContainer
-        className=" text-black text-center text-xl w-[25%] font-extrabold"
+        className=" text-black text-center text-base w-[25%] font-bold"
         autoClose={300}
         hideProgressBar={true}
         theme="light"

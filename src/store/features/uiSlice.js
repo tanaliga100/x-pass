@@ -20,7 +20,7 @@ const modalSlice = createSlice({
       state.isAddPost = true;
     },
     closeAddPost: (state) => {
-      state.isAddPost = true;
+      state.isAddPost = false;
     },
   },
 });

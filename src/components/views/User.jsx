@@ -10,27 +10,32 @@ const User = (props) => {
     <Link
       // eslint-disable-next-line react/prop-types
       to={props.user.id}
-      className=" flex flex-row gap-10"
+      className=" flex flex-row gap-10 text-xs"
     >
-      <div className=" flex flex-row  items-center text-center ">
+      <Content className=" flex flex-row  items-center text-center text-xs ">
         <img
           src={props.user.profileImage || emptyProfileImage}
           alt={props.user.name}
-          className="w-12 h-12 rounded-full mr-2 object-cover"
+          width={30}
+          height={30}
+          className=" rounded-full mr-2 object-cover z-10"
         />
         <section>
           {/* <div className="text-lg font-medium">{props.user.name}</div> */}
-          <div className="text-gray font-bold text-sm p-1 rounded-md ">
-            {name}
-          </div>
+          <div className="text-gray font-bold  p-1 rounded-md ">{name}</div>
           {/* <p className="bg-emerald-500 font-extrabold text-white rounded-md text-sm hover:bg-emerald-900 w-auto">
             Add
           </p> */}
         </section>
-      </div>
+      </Content>
     </Link>
   );
 };
 export default User;
 
+import styled from "styled-components";
 import emptyProfileImage from "../../assets/empty.svg";
+
+const Content = styled.main`
+  font-size: x-small;
+`;

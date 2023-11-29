@@ -100,15 +100,21 @@ const Layout = styled.section`
   margin: 0 auto;
   height: 90dvh;
 `;
-
 const SidebarOutlet = styled.section`
   flex: 1;
   margin-top: 1rem;
   /* width: ${({ isAuth }) => (isAuth ? "40%" : "0")}; */
   max-height: 60dvh;
-  box-shadow: 1px 1px 10px 0.1px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 1px 10px 2px rgba(7, 32, 2, 0.2); */
+
+  box-shadow: ${({ theme }) =>
+    theme === "light"
+      ? "0px 1px 10px 2px rgba(49, 223, 18, 0.122)"
+      : "0px 1px 10px 2px rgba(22, 111, 4, 0.2)"};
+
   color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 `;
+
 const MainOutlet = styled.section`
   /* height: ${({ isAuth }) => (isAuth ? "20dvh " : "90dvh")}; */
   flex: 2.5;
@@ -151,28 +157,23 @@ const UsersLayout = styled.div`
   /* max-width: 20%; */
   /* width: ${({ isAuth }) => (isAuth ? "10dvw" : "0")}; */
   flex: 1;
-  box-shadow: 1px 1px 10px 0.1px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ theme }) =>
+    theme === "light"
+      ? "0px 1px 10px 2px rgba(49, 223, 18, 0.122)"
+      : "0px 1px 10px 2px rgba(22, 111, 4, 0.2)"};
+
   color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 `;
 
 const NewBlock = styled.div`
   flex: 1;
+  font-size: x-small;
+  box-shadow: ${({ theme }) =>
+    theme === "light"
+      ? "0px 1px 10px 2px rgba(49, 223, 18, 0.122)"
+      : "0px 1px 10px 2px rgba(22, 111, 4, 0.2)"};
+
   text-align: center;
   padding: 1rem;
-  box-shadow: 1px 1px 10px 0.1px rgba(0, 0, 0, 0.1);
   color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
-
-  /* Add your styling for the new block here */
-`;
-
-const NewAddedDocument = styled.main`
-  height: 90dvh;
-  width: 90dvw;
-  background: #333;
-`;
-
-const AddsBlock = styled.main`
-  height: 90dvh;
-  width: 90dvw;
-  background: #333;
 `;

@@ -55,18 +55,23 @@ const Sidebar = () => {
     //         </div>
     //       )}
     //     </div>
-    <div className=" rounder-md  flex flex-col  items-center justify-start min-h-[70dvh]">
-      <h1 className="p-2 text-center font-thin text-sm">THE SIDEBAR</h1>
-      <pre className="font-thin text-sm ">
-        <img src={logo} alt="" width={60} height={60} />
+    <Content className=" rounder-md  flex flex-col  items-center justify-start min-h-[70dvh] text-xs ">
+      <pre className="font-thin pt-6">
+        <img src={logo} alt="" width={100} height={100} />
       </pre>
-      <p className="text-center pt-3 text-sm">
+      <p className="text-center pt-5 mx-3 ">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Non deleniti
         laboriosam tempore vel? Veniam, ratione culpa. Est quod doloribus quidem
       </p>
-    </div>
+    </Content>
   );
 };
 export default Sidebar;
 
 import logo from "../../assets/profile.svg";
+
+import styled from "styled-components";
+
+const Content = styled.main`
+  font-size: x-small;
+`;

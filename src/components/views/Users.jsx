@@ -20,15 +20,21 @@ const Users = () => {
   }
 
   return (
-    <ul className=" flex flex-col m-3 text-center justify-center">
-      <h6 className="text-sm">Registered Accounts</h6>
+    <Content className=" flex flex-col m-3 text-center justify-center">
+      <h6 className="font-extrabold text-sm mb-3">Registered Accounts</h6>
       {users.map((user) => (
         <User key={user.id} user={user} />
       ))}
-    </ul>
+    </Content>
   );
 };
 export default Users;
+
+const Content = styled.main`
+  font-size: x-small;
+`;
+
+import styled from "styled-components";
 
 // const Heading = styled.p`
 //   text-align: center;
