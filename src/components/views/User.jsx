@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { BsPatchCheckFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const User = (props) => {
@@ -10,19 +11,25 @@ const User = (props) => {
     <Link
       // eslint-disable-next-line react/prop-types
       to={props.user.id}
-      className=" flex flex-row gap-10 text-xs"
+      className=" flex flex-row gap-10 hover:shadow-lg duration-300 p-1"
     >
-      <Content className=" flex flex-row  items-center text-center text-xs ">
-        <img
-          src={props.user.profileImage || emptyProfileImage}
-          alt={props.user.name}
-          width={30}
-          height={30}
-          className=" rounded-full mr-2 object-cover z-10"
-        />
-        <section>
+      <Content className=" flex flex-row  items-center text-center  ">
+        <section className="flex flex-column items-center gap-3 justify-center">
+          <img
+            src={props.user.profileImage || emptyProfileImage}
+            alt={props.user.name}
+            width={30}
+            height={30}
+            className=" rounded-full mr-2 object-cover z-10"
+          />
           {/* <div className="text-lg font-medium">{props.user.name}</div> */}
-          <div className="text-gray font-bold  p-1 rounded-md ">{name}</div>
+          <div className="text-gray   p-1 rounded-md font-sans ">
+            {name.toUpperCase()}
+          </div>{" "}
+          <div className="text-gray   p-1 rounded-md text-xs font-bold font-sans">
+            {email}
+          </div>{" "}
+          <BsPatchCheckFill size={20} />
           {/* <p className="bg-emerald-500 font-extrabold text-white rounded-md text-sm hover:bg-emerald-900 w-auto">
             Add
           </p> */}
@@ -31,6 +38,7 @@ const User = (props) => {
     </Link>
   );
 };
+
 export default User;
 
 import styled from "styled-components";

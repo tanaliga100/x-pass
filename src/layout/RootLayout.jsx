@@ -11,7 +11,6 @@ const RootLayout = () => {
   const { theme } = useTheme();
   const location = useLocation();
   console.log("location", location);
-  const isReadyToAddPost = useSelector((state) => state.modal.isAddPost);
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -71,7 +70,7 @@ const RootLayout = () => {
                 <UsersLayout theme={theme}>
                   <Users />
                 </UsersLayout>
-                <NewBlock theme={theme}>New Block</NewBlock>
+                <NewBlock theme={theme}>Adds Block</NewBlock>
               </RightSideContainer>
             )}
           </>
@@ -82,7 +81,6 @@ const RootLayout = () => {
 };
 
 export default RootLayout;
-
 const Main = styled.main`
   background-color: transparent;
 `;
@@ -142,20 +140,22 @@ const MainOutlet = styled.section`
       theme === "light" ? "#263b45" : "#7fa396"};
   }
 `;
-
 const RightSideContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-rows: 70% 20%;
   flex: 1;
   gap: 3rem;
   margin-top: 1rem;
   flex-direction: column;
-  max-height: 70vh;
+  max-height: 80dvh;
   color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 `;
 
 const UsersLayout = styled.div`
   /* max-width: 20%; */
   /* width: ${({ isAuth }) => (isAuth ? "10dvw" : "0")}; */
+  font-size: 80%;
+  font-weight: 900;
   flex: 1;
   box-shadow: ${({ theme }) =>
     theme === "light"

@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useTheme } from "../../context/themeContext";
-import Quotes from "../../pages/Quotes";
 import { closeAddPost, openAddPost } from "../../store/features/uiSlice";
+import Form from "../views/Form";
 
 const AddPost = () => {
   const { theme } = useTheme();
@@ -47,7 +47,7 @@ const AddPost = () => {
             //   navigate("/");
             // }}
           >
-            <Quotes />
+            <Form />
           </div>
         </div>
       )}

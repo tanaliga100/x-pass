@@ -91,7 +91,7 @@ function App() {
   // IMPORTS OF LAZY LOADING
   const RootLayout = lazy(() => import("./layout/RootLayout"));
   const Feed = lazy(() => import("./pages/Feed"));
-  const Quotes = lazy(() => import("./pages/Quotes"));
+  // const Quotes = lazy(() => import("./pages/Quotes"));
   const Profile = lazy(() => import("./pages/Profile"));
   const Login = lazy(() => import("./components/views/Login"));
   const Register = lazy(() => import("./components/views/Register"));
@@ -107,7 +107,7 @@ function App() {
           <Route path="register" element={<Register />} />
         </Route>
         <Route index element={<Feed />} />
-        <Route path="add" element={<Quotes />} />
+        {/* <Route path="add" element={<Quotes />} /> */}
         {/* <Route path="users" element={<Users />} />
         <Route path="users/:id" element={<UserDetails />} /> */}
         <Route path="timeline" element={<Timeline />} />

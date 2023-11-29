@@ -2,7 +2,6 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import imgFront from "../../assets/front.svg";
 import { openModal } from "../../store/features/uiSlice";
-
 const Home = () => {
   const dispatch = useDispatch();
   return (

@@ -21,7 +21,7 @@ const Users = () => {
 
   return (
     <Content className=" flex flex-col m-3 text-center justify-center">
-      <h6 className="font-extrabold text-sm mb-3">Registered Accounts</h6>
+      <h6 className=" mb-3">Registered Accounts</h6>
       {users.map((user) => (
         <User key={user.id} user={user} />
       ))}
@@ -30,9 +30,7 @@ const Users = () => {
 };
 export default Users;
 
-const Content = styled.main`
-  font-size: x-small;
-`;
+const Content = styled.main``;
 
 import styled from "styled-components";
 
