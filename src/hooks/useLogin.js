@@ -15,7 +15,6 @@ export const useLogin = () => {
         email,
         password
       );
-      console.log("CREDS", userCredential.user);
 
       const atIndex = userCredential.user.email.indexOf("@");
       const userName = userCredential.user.email.slice(0, atIndex);

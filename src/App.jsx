@@ -83,7 +83,7 @@ import { default as AuthLayout } from "./layout/AuthLayout";
 import LoadingLayout from "./layout/LoadingLayout";
 
 function App() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   React.useEffect(() => {}, []);
   // Define your routes using createRoutesFromElements

@@ -3,8 +3,10 @@ import { BsPatchCheckFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { default as emptyProfileImage } from "../../assets/empty.svg";
+import { useTheme } from "../../context/themeContext";
 
 const User = (props) => {
+  const { theme } = useTheme();
   const email = props.user.email;
   const atIndex = email.indexOf("@");
   const name = email.slice(0, atIndex);
@@ -15,7 +17,7 @@ const User = (props) => {
       to={`users/${props.user.id}`}
       className=" hover:shadow-lg duration-300 p-1"
     >
-      <Content className="">
+      <Content className="" theme={theme}>
         <section className="flex flex-column items-center gap-3 ">
           <img
             src={props.user.profileImage || emptyProfileImage}
@@ -45,4 +47,5 @@ export default User;
 
 const Content = styled.main`
   font-size: x-small;
+  color: ${({ theme }) => (theme === "light" ? "#2f3d36" : "#d5ede1")};
 `;

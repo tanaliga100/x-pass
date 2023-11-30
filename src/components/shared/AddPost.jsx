@@ -15,7 +15,6 @@ const AddPost = () => {
 
   const handleAddPost = () => {
     dispatch(openAddPost());
-    console.log("to add a post", isAddPost);
   };
   return (
     <Content className="">

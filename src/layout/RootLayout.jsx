@@ -7,21 +7,27 @@ import Sidebar from "../components/shared/Sidebar";
 import UsersWallSidebar from "../components/shared/UsersWallSidebar";
 import Timeline from "../components/views/Timeline";
 import Users from "../components/views/Users";
+import Widgets from "../components/views/Widgets";
 import { useTheme } from "../context/themeContext";
 import Profile from "../pages/Profile";
-import { LoadingWrapper } from "./LoadingLayout";
+
 const RootLayout = () => {
+  // STATE
   const { theme } = useTheme();
   const location = useLocation();
-  console.log("location", location.pathname);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  React.useEffect(() => {
+    window.removeEventListener("scroll", handleScroll);
+  }, []);
 
+  // LOCATION PARAMS
   const inUsersPage = location.pathname.startsWith("/users/");
   const inUsersProfile = location.pathname.startsWith("/profile");
+  const isOnTimeLine = Boolean(location.pathname === "/timeline");
 
-  console.log("in users page ?", inUsersPage);
-  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  // FUNCTIONS
 
-  const [isScrolled, setIsScrolled] = useState(false);
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setIsScrolled(true);
@@ -29,15 +35,6 @@ const RootLayout = () => {
       setIsScrolled(false);
     }
   };
-
-  React.useEffect(() => {
-    window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // const location = useLocation();
-  // const dontShowNav = location.pathname == "/timeline";
-
-  const isOnTimeLine = Boolean(location.pathname === "/timeline");
 
   return (
     <Main>
@@ -53,6 +50,7 @@ const RootLayout = () => {
           <Navbar />
         </NavbarOutlet>
       )}
+
       <Layout>
         {isOnTimeLine || inUsersProfile ? (
           <MainOutlet>
@@ -80,7 +78,7 @@ const RootLayout = () => {
                   <Users />
                 </UsersLayout>
                 <NewBlock theme={theme}>
-                  <LoadingWrapper />
+                  <Widgets />
                 </NewBlock>
               </RightSideContainer>
             )}
@@ -153,7 +151,7 @@ const MainOutlet = styled.section`
 `;
 const RightSideContainer = styled.div`
   display: grid;
-  grid-template-rows: 70% 20%;
+  grid-template-rows: 65% 25%;
   flex: 1;
   gap: 3rem;
   margin-top: 1rem;
@@ -193,6 +191,8 @@ const UsersLayout = styled.div`
 const NewBlock = styled.div`
   flex: 1;
   font-size: x-small;
+  padding: 1rem;
+  display: flex;
   box-shadow: ${({ theme }) =>
     theme === "light"
       ? "0px 1px 10px 2px rgba(49, 223, 18, 0.122)"

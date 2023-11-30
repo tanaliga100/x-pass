@@ -1,47 +1,44 @@
 /* eslint-disable react/prop-types */
-const username = "JohnDoe";
-const bio =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-import { useDispatch, useSelector } from "react-redux";
-
+// const username = "JohnDoe";
+// const bio =
+//   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import logo from "../../assets/profile.svg";
+import { useTheme } from "../../context/themeContext";
 const Sidebar = () => {
-  const { toggleTheme, theme } = useTheme();
-  const profileModal = useSelector((state) => state.modal.isProfileModalOpen);
-  const dispatch = useDispatch();
+  const { theme } = useTheme();
 
-  const handleProfileModal = () => {
-    dispatch(openProfileModal());
-    console.log("opening a profile modal", profileModal);
-  };
+  const currentUser = useSelector((state) => state.auth.user);
 
+  const email = currentUser.email;
+  const atIndex = email.indexOf("@");
+  const name = email.slice(0, atIndex);
+
+  console.log("current sidebar", currentUser);
   return (
     <Content className=" rounder-md  flex flex-col  items-center justify-start min-h-[70dvh] text-xs ">
       <pre className="font-thin pt-6">
         <img src={logo} alt="" width={100} height={100} />
       </pre>
-      <p className="text-center pt-5 mx-3 ">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non deleniti
-        laboriosam tempore vel? Veniam, ratione culpa. Est quod doloribus quidem
+      <p
+        className={`${
+          theme === "light" ? "text-black" : "text-white"
+        } text-center  text-sm font-extrabold m-3 px-2 py-1 mx-3 rounded-md `}
+      >
+        @{name.toString()}
       </p>
       <Link
         to="profile"
-        className="items-center justify-center bg-emerald-900  rounded-sm text-white px-3 py-2 mt-5 "
-        onClick={handleProfileModal}
+        className="items-center justify-center  bg-emerald-600 rounded-sm text-white px-3 py-2 hover:bg-emerald-950 duration-300"
       >
         Edit Profile
       </Link>
     </Content>
   );
 };
-
 export default Sidebar;
-
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import logo from "../../assets/profile.svg";
-import { useTheme } from "../../context/themeContext";
-import { openProfileModal } from "../../store/features/uiSlice";
 
 const Content = styled.main`
   font-size: x-small;

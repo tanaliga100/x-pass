@@ -6,7 +6,6 @@ import User from "./User";
 const Users = () => {
   const { loading, users, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
   React.useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);

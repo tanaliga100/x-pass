@@ -1,13 +1,11 @@
 import { MdOutlineLightMode } from "react-icons/md";
 import { VscFeedback } from "react-icons/vsc";
-import { useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import profile from "../../assets/profile.svg";
 const RightNav = () => {
   const location = useLocation();
   const inUsersProfile = location.pathname.startsWith("/profile");
 
-  const dispatch = useDispatch();
   const { toggleTheme, theme } = useTheme();
   const navigate = useNavigate();
   const { logoutUserHandler } = useLogout();
@@ -66,26 +64,27 @@ export default RightNav;
 
 import { useLogout } from "../../hooks/useLogout";
 
-const Rightlinks = [
-  { id: 1, text: "Dashboard", path: "/", icon: <TbBrandFeedly /> },
-  { id: 2, text: "Prescription", path: "add", icon: <BiMessageSquareAdd /> },
-  { id: 3, text: "Treatment", path: "users", icon: <FiUsers /> },
-];
+// const Rightlinks = [
+//   { id: 1, text: "Dashboard", path: "/", icon: <TbBrandFeedly /> },
+//   { id: 2, text: "Prescription", path: "add", icon: <BiMessageSquareAdd /> },
+//   { id: 3, text: "Treatment", path: "users", icon: <FiUsers /> },
+// ];
 
-import { BiMessageSquareAdd } from "react-icons/bi";
-import { FiUsers } from "react-icons/fi";
-import { TbBrandFeedly } from "react-icons/tb";
-import styled from "styled-components";
-import { useTheme } from "../../context/themeContext";
+// import { BiMessageSquareAdd } from "react-icons/bi";
+// import { FiUsers } from "react-icons/fi";
+// import { TbBrandFeedly } from "react-icons/tb";
+// import styled from "styled-components";
+// import { useTheme } from "../../context/themeContext";
 
-const RightPanel = styled.div`
-  display: flex;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: space-around;
-  min-width: 2rem;
-  gap: 1rem;
-  flex-direction: row;
-`;
+// const RightPanel = styled.div`
+//   display: flex;
+//   margin: 0 auto;
+//   align-items: center;
+//   justify-content: space-around;
+//   min-width: 2rem;
+//   gap: 1rem;
+//   flex-direction: row;
+// `;
 
 import { FaUserEdit } from "react-icons/fa";
+import { useTheme } from "../../context/themeContext";

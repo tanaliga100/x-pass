@@ -3,7 +3,10 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { auth } from "../config/firebase.config";
-import { setIsAuthenticated } from "../store/features/authSlice";
+import {
+  setCurrentUser,
+  setIsAuthenticated,
+} from "../store/features/authSlice";
 
 export const useAuth = () => {
   const dispatch = useDispatch();
@@ -11,10 +14,23 @@ export const useAuth = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        //    console.log("FROM USE AUTH", user);
-        //  const { } = user;
-        //    dispatch(setCurrentUser(user));
+        // console.log("USE AUTH", user);
         dispatch(setIsAuthenticated(true));
+        // SANITIZE OBJECTS...
+        const { lastSignInTime, creationTime } = user.metadata;
+        const { displayName, email, emailVerified, photoURL, phoneNumber } =
+          user;
+        dispatch(
+          setCurrentUser({
+            email,
+            emailVerified,
+            phoneNumber,
+            photoURL,
+            displayName,
+            lastSignInTime,
+            creationTime,
+          })
+        );
       } else {
         toast.info("Please Login or Create an Account", {
           position: "top-center",

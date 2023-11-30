@@ -29,9 +29,13 @@ const initialState = {
   isAuthenticated: localStorage.getItem("isAuth") || false,
   //   isAuthenticated: true,
   user: {
-    displayName: localStorage.getItem("displayName") || "",
-    email: localStorage.getItem("email") || "",
-    userId: localStorage.getItem("userID") || "",
+    // displayName: localStorage.getItem("displayName") || "anonymous",
+    // email: localStorage.getItem("email") || "",
+    // userId: localStorage.getItem("userID") || "",
+    // emailVerified: localStorage.getItem("verified") || false,
+    // // lastSignInTime: localStorage.getItem("lastSignInTime") || "",
+    // phoneNumber: localStorage.getItem("phone") || "09690243354",
+    // photoURL: localStorage.getItem("photo") || "",
   },
   isLoading: true,
   message: "",
@@ -62,8 +66,26 @@ const authSlice = createSlice({
     //  state.currentUser.isAnonymous = isAnonymous;
     //     },
     setCurrentUser: (state, action) => {
-      console.log("SET_CURRENT USER PAYLOAD", action.payload);
       // PAYLOAD
+      const {
+        displayName,
+        email,
+        emailVerified,
+        lastSignInTime,
+        phoneNumber,
+        photoURL,
+        creationTime,
+      } = action.payload;
+
+      state.user.displayName = displayName;
+      state.user.creationTime = creationTime;
+      state.user.lastSignInTime = lastSignInTime;
+      state.user.email = email;
+      state.user.emailVerified = emailVerified;
+      state.user.photoURL = photoURL;
+      state.user.phoneNumber = phoneNumber;
+      // JSON.stringify(localStorage.setItem("displayName", displayName));
+
       //  state.user.userId = action.payload.userId;
       //  state.user.email = action.payload.email;
       //  // STATES
@@ -81,10 +103,10 @@ const authSlice = createSlice({
       //  localStorage.removeItem("accessToken");
       //  localStorage.removeItem("currUserId");
     },
-    //     provideMessage: (state, action) => {
-    //       console.log("PROVIDE MESSAGE", action.payload);
-    //       //  state.message = action.payload;
-    //     },
+    provideMessage: (state, action) => {
+      console.log("PROVIDE MESSAGE", action.payload);
+      //  state.message = action.payload;
+    },
   },
 });
 export const {
