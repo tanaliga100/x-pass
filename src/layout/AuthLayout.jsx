@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
 import Home from "../components/shared/Home";
-import { closeModal } from "../store/features/uiSlice";
+import { closeAuthModal } from "../store/features/uiSlice";
 
 const AuthLayout = () => {
   //   const isAuth = useAuth();
@@ -22,7 +22,7 @@ const AuthLayout = () => {
           <div
             className="parent fixed inset-0 bg-emerald-900 opacity-50"
             onClick={() => {
-              dispatch(closeModal());
+              dispatch(closeAuthModal());
               navigate("/");
             }}
           />

@@ -2,6 +2,8 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../../config/firebase.config";
+import { LoadingWrapper } from "../../layout/LoadingLayout";
+
 const UserDetails = () => {
   const params = useParams();
   const [userData, setUserData] = useState(null);
@@ -37,7 +39,7 @@ const UserDetails = () => {
           {/* Add more user details here */}
         </div>
       ) : (
-        <p>Loading...</p>
+        <LoadingWrapper />
       )}
     </div>
   );

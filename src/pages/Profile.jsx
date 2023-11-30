@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Header from "../components/shared/Header";
 import { useTheme } from "../context/themeContext";
 
 const Profile = () => {
@@ -46,13 +47,16 @@ const Profile = () => {
   };
 
   const { theme } = useTheme();
-
   return (
     <div
-      className={`${
-        theme === "light" ? "red " : "blue"
-      }  shadow-md w-[100%]  min-h-full bg-transparent `}
+      className="
+        shadow-sm  w-[62%] m-auto  min-h-full bg-emerald-900 py-7"
     >
+      <Header
+        title="Edit Profile"
+        subtitle="you can add a photo and extra details"
+        className={`${theme === "light" ? "text-black" : "text-emerald-800"} `}
+      />
       <div className="p-3  w-[100%] text-xs ">
         {/* Added container */}
         <form onSubmit={handleSubmit}>

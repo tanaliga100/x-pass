@@ -1,7 +1,11 @@
 import React from "react";
 
 const FeedPost = () => {
-  return <Content></Content>;
+  return (
+    <>
+      <LoadingWrapper />
+    </>
+  );
 };
 
 export default FeedPost;
@@ -14,3 +18,4 @@ const Content = styled.main`
 `;
 
 import styled from "styled-components";
+import { LoadingWrapper } from "../../layout/LoadingLayout";

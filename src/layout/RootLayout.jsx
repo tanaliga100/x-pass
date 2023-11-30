@@ -4,13 +4,21 @@ import { Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Navbar from "../components/shared/Navbar";
 import Sidebar from "../components/shared/Sidebar";
+import UsersWallSidebar from "../components/shared/UsersWallSidebar";
 import Timeline from "../components/views/Timeline";
 import Users from "../components/views/Users";
 import { useTheme } from "../context/themeContext";
+import Profile from "../pages/Profile";
+import { LoadingWrapper } from "./LoadingLayout";
 const RootLayout = () => {
   const { theme } = useTheme();
   const location = useLocation();
-  console.log("location", location);
+  console.log("location", location.pathname);
+
+  const inUsersPage = location.pathname.startsWith("/users/");
+  const inUsersProfile = location.pathname.startsWith("/profile");
+
+  console.log("in users page ?", inUsersPage);
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,15 +54,16 @@ const RootLayout = () => {
         </NavbarOutlet>
       )}
       <Layout>
-        {isOnTimeLine ? (
+        {isOnTimeLine || inUsersProfile ? (
           <MainOutlet>
-            <Timeline />
+            {isOnTimeLine && <Timeline />}
+            {inUsersProfile && <Profile />}
           </MainOutlet>
         ) : (
           <>
             {isAuth && (
               <SidebarOutlet theme={theme}>
-                <Sidebar />
+                {inUsersPage ? <UsersWallSidebar /> : <Sidebar />}
               </SidebarOutlet>
             )}
             <MainOutlet
@@ -70,7 +79,9 @@ const RootLayout = () => {
                 <UsersLayout theme={theme}>
                   <Users />
                 </UsersLayout>
-                <NewBlock theme={theme}>Adds Block</NewBlock>
+                <NewBlock theme={theme}>
+                  <LoadingWrapper />
+                </NewBlock>
               </RightSideContainer>
             )}
           </>
@@ -157,6 +168,20 @@ const UsersLayout = styled.div`
   font-size: 80%;
   font-weight: 900;
   flex: 1;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  scrollbar-color: ${({ theme }) =>
+      theme === "light" ? "#263b4551" : "#7fa396"}
+    transparent;
+
+  &::-webkit-scrollbar {
+    width: 5px; /* You can adjust the width as needed */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) =>
+      theme === "light" ? "#263b45" : "#7fa396"};
+  }
   box-shadow: ${({ theme }) =>
     theme === "light"
       ? "0px 1px 10px 2px rgba(49, 223, 18, 0.122)"
@@ -172,8 +197,6 @@ const NewBlock = styled.div`
     theme === "light"
       ? "0px 1px 10px 2px rgba(49, 223, 18, 0.122)"
       : "0px 1px 10px 2px rgba(22, 111, 4, 0.2)"};
-
   text-align: center;
-  padding: 1rem;
   color: ${({ theme }) => (theme === "light" ? "#263b45" : "#7fa396")};
 `;

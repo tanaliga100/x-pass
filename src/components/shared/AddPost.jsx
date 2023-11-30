@@ -32,7 +32,7 @@ const AddPost = () => {
       </div>
       {/* children */}
       {isAddPost && (
-        <div className="fixed top-0 left-0 h-screen w-screen flex items-center justify-center z-100">
+        <div className="fixed top-0 left-0 h-screen w-screen flex items-center justify-center z-50">
           <div
             className="absolute top-0 left-0 w-full h-full bg-emerald-950 opacity-50"
             onClick={() => {
@@ -41,7 +41,7 @@ const AddPost = () => {
             }}
           ></div>
           <div
-            className="z-10 p-4 bg-white rounded-lg shadow-md"
+            className={`z-10  rounded-md shadow-md `}
             // onClick={() => {
             //   dispatch(closeAddPost());
             //   navigate("/");

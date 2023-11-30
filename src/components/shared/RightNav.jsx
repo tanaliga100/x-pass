@@ -1,8 +1,13 @@
 import { MdOutlineLightMode } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
-
+import { VscFeedback } from "react-icons/vsc";
+import { useDispatch } from "react-redux";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import profile from "../../assets/profile.svg";
 const RightNav = () => {
+  const location = useLocation();
+  const inUsersProfile = location.pathname.startsWith("/profile");
+
+  const dispatch = useDispatch();
   const { toggleTheme, theme } = useTheme();
   const navigate = useNavigate();
   const { logoutUserHandler } = useLogout();
@@ -11,20 +16,26 @@ const RightNav = () => {
     await logoutUserHandler();
     navigate("/");
   };
+
   return (
     <>
       <main className="flex flex-row flex-grow  items-center w-full gap-x-12 justify-end">
         <MdOutlineLightMode size={20} onClick={() => toggleTheme()} />
-        <Link
-          to="profile"
-          className="items-center justify-center   rounded-full my-auto p-1"
-        >
-          {theme === "light" ? (
-            <IoSettingsOutline size={20} />
-          ) : (
-            <IoSettings size={20} />
-          )}
-        </Link>
+        {!inUsersProfile ? (
+          <Link
+            to="profile"
+            className="items-center justify-center   rounded-full my-auto p-1"
+          >
+            <FaUserEdit size={25} className="pt-1" />
+          </Link>
+        ) : (
+          <Link
+            to="/"
+            className="items-center justify-center   rounded-full my-auto p-1"
+          >
+            <VscFeedback size={25} className="pt-1" />
+          </Link>
+        )}
         <Link to="timeline" onClick={() => {}}>
           {/* <h1 className="font-bold text-base p-2  border-2 rounded-md border-emerald-500 text-emerald-500"></h1> */}
           <img
@@ -53,7 +64,6 @@ const RightNav = () => {
 
 export default RightNav;
 
-import { IoSettings, IoSettingsOutline } from "react-icons/io5";
 import { useLogout } from "../../hooks/useLogout";
 
 const Rightlinks = [
@@ -77,3 +87,5 @@ const RightPanel = styled.div`
   gap: 1rem;
   flex-direction: row;
 `;
+
+import { FaUserEdit } from "react-icons/fa";

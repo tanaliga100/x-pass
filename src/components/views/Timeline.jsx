@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import ProfileImage from "../../assets/profile.svg";
+// import ProfileImage from "../../assets/profile.svg";
 import { useTheme } from "../../context/themeContext";
 
 const Timeline = () => {
@@ -40,27 +40,31 @@ const Timeline = () => {
       : posts.filter((post) => post.date.startsWith(selectedYear));
 
   return (
-    <TimelineWrapper theme={theme}>
-      <img src={ProfileImage} width={100} height={100} />
-      <h1>@jordantanaliga100</h1>
-    </TimelineWrapper>
+    <>
+      <TimelineWrapper theme={theme}>
+        {/* <img src={ProfileImage} width={100} height={100} /> */}
+        <h1 className="font-sans text-xl font-bold text-center mx-auto pt-10">
+          @jordantanaliga100
+        </h1>
+      </TimelineWrapper>
+    </>
   );
 };
 
 export default Timeline;
 const TimelineWrapper = styled.main`
-  width: 40dvw;
+  width: 50dvw;
   margin: 0 auto;
   line-height: 1rem;
-  height: 30dvh;
-  display: grid;
-  place-items: center;
-  border-radius: 20px;
-  box-shadow: 1px 1px 10px 1px rgb(0, 0, 0, 0.1);
-  font-size: larger;
-  font-weight: 900;
+  height: 100dvh;
+  display: flex;
+  /* grid-template-columns: repeat(1fr, 1fr); */
+  /* place-items: center; */
+  /* border-radius: 20px; */
+  /* box-shadow: 1px 1px 10px 1px rgb(0, 0, 0, 0.1);s */
+  /* font-weight: 900; */
   background-color: ${({ theme }) =>
-    theme === "light" ? "#1c35353e" : "#97c7c746"};
+    theme === "light" ? "#eff3f33c" : "#252f2f46"};
   color: ${({ theme }) => (theme === "light" ? "#263b45" : "#dfeee7")};
 `;
 

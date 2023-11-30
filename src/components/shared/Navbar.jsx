@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { openModal } from "../../store/features/uiSlice";
+import { openAuthModal } from "../../store/features/uiSlice";
 import RightNav from "../shared/RightNav";
 import Logo from "./Logo";
 import Search from "./Search";
@@ -30,7 +30,7 @@ const Navbar = () => {
                 <Link
                   to="auth"
                   onClick={() => {
-                    dispatch(openModal());
+                    dispatch(openAuthModal());
                   }}
                 >
                   <h1

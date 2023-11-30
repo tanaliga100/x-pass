@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { auth, db } from "../config/firebase.config";
 import { setCurrentUser } from "../store/features/authSlice";
-import { closeModal } from "../store/features/uiSlice";
+import { closeAuthModal } from "../store/features/uiSlice";
 import { emailExists } from "../utils/checkEmail";
 
 export const useRegister = () => {
@@ -43,7 +43,7 @@ export const useRegister = () => {
         );
 
         navigate("/");
-        dispatch(closeModal());
+        dispatch(closeAuthModal());
 
         const atIndex = newUser.user.email.indexOf("@");
         const userName = newUser.user.email.slice(0, atIndex);

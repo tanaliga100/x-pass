@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { auth } from "../config/firebase.config";
-import { closeModal } from "../store/features/uiSlice";
+import { closeAuthModal } from "../store/features/uiSlice";
 
 export const useLogin = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export const useLogin = () => {
       const atIndex = userCredential.user.email.indexOf("@");
       const userName = userCredential.user.email.slice(0, atIndex);
       navigate("/");
-      dispatch(closeModal());
+      dispatch(closeAuthModal());
       toast.success(`Welcome back,  ${userName.toUpperCase(0)}`);
     } catch (error) {
       if (error.code === "auth/user-not-found") {

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import imgFront from "../../assets/front.svg";
-import { openModal } from "../../store/features/uiSlice";
+import { openAuthModal } from "../../store/features/uiSlice";
 const Home = () => {
   const dispatch = useDispatch();
   return (
@@ -18,7 +18,7 @@ const Home = () => {
           <Link
             className="bg-emerald-900 h-fit text-sm p-3 rounded-sm font-bold mt-4 hover:bg-emerald-800 text-white hover:text-slate-100 duration-200 "
             to="/auth"
-            onClick={() => dispatch(openModal())}
+            onClick={() => dispatch(openAuthModal())}
           >
             Register/ Login
           </Link>
