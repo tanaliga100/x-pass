@@ -5,13 +5,12 @@ import initialPhoto from "../assets/profile.svg";
 import Header from "../components/shared/Header";
 import { useTheme } from "../context/themeContext";
 const Profile = () => {
+  // const { id } = useParams();
   React.useEffect(() => {}, []);
   const [photo, setPhoto] = useState(null);
   const [profileData, setProfileData] = useState({
     uid: "",
     photo: null,
-    address: "",
-    occupation: "",
     gender: "",
     displayName: "",
     email: "",
@@ -129,24 +128,6 @@ const Profile = () => {
                 value={profileData.email || ""}
                 onChange={handleInputChange}
                 className="mt-1 p-1  w-full border rounded-smfocus:ring focus:ring-blue-200"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="address"
-                className="block text-sm font-semibold  "
-              >
-                Address
-              </label>
-              <input
-                type="text"
-                placeholder="Manila, Philippines"
-                id="address"
-                name="address"
-                value={profileData.address || ""}
-                onChange={handleInputChange}
-                className="mt-1 p-1  w-full border rounded-sm focus:ring  focus:ring-blue-200"
               />
             </div>
           </Second>

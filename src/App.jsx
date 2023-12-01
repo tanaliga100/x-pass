@@ -111,7 +111,7 @@ function App() {
         <Route path="users" element={<Users />} />
         <Route path="users/:id" element={<UserDetails />} />
         <Route path="timeline" element={<Timeline />} />
-        <Route path="profile" element={<Profile />} />
+        <Route path="profile/:id" element={<Profile />} />
       </Route>
     )
   );
