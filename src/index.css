@@ -7,6 +7,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.prompt {
+  color: white;
+  background: #000;
+  padding: -3px;
+}
+
 * {
   font-family: "Poppins" sans-serif;
   box-sizing: border-box;

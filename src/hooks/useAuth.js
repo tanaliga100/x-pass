@@ -10,11 +10,12 @@ import {
 
 export const useAuth = () => {
   const dispatch = useDispatch();
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // console.log("USE AUTH", user);
+        const uid = user.uid;
+        console.log("uid", uid);
         dispatch(setIsAuthenticated(true));
         // SANITIZE OBJECTS...
         const { lastSignInTime, creationTime } = user.metadata;

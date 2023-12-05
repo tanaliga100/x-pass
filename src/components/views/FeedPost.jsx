@@ -5,7 +5,6 @@ const FeedPost = () => {
     onSnapshot(q, (snap) => {
       const postsData = [];
       snap.forEach((doc) => {
-        console.log("posts", doc);
         postsData.push({
           id: doc.id,
           ...doc.data(),
@@ -14,8 +13,6 @@ const FeedPost = () => {
       });
     });
   }, []);
-
-  console.log("posts", posts);
 
   if (posts.length === 0) {
     return <LoadingWrapper />;

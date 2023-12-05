@@ -8,10 +8,13 @@ import UsersWallSidebar from "../components/shared/UsersWallSidebar";
 import Timeline from "../components/views/Timeline";
 import Users from "../components/views/Users";
 import Widgets from "../components/views/Widgets";
+import { monitorAuthState } from "../config/firebase.config";
 import { useTheme } from "../context/themeContext";
 import Profile from "../pages/Profile";
 
 const RootLayout = () => {
+  monitorAuthState();
+
   // STATE
   const { theme } = useTheme();
   const location = useLocation();
