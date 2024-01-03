@@ -34,6 +34,7 @@ export const storage = getStorage(app);
 
 // AUTH EMULATOR SUITE
 connectAuthEmulator(auth, "http://localhost:9099");
+
 export const signInEmailAndPassowrd = async (authEmail, authPassword) => {
   try {
     const usersCredentials = await signInWithEmailAndPassword(
@@ -41,9 +42,10 @@ export const signInEmailAndPassowrd = async (authEmail, authPassword) => {
       authEmail,
       authPassword
     );
-    console.log("user credentials", usersCredentials);
+    console.log("user credentials", usersCredentials.user);
   } catch (error) {
     console.log("SIGN_IN_ERROR", error);
+    return error;
   }
 };
 
@@ -59,6 +61,17 @@ export const signUpEmailAndPassowrd = async (authEmail, authPassword) => {
   } catch (error) {
     console.log("SIGNUP_ERROR", error);
   }
+};
+
+export const logoutHandler = async () => {
+  auth
+    .signOut()
+    .then(() => {
+      console.log(`User's Logout`);
+    })
+    .catch((error) => {
+      console.log("error", error.message);
+    });
 };
 
 let label = "";
@@ -77,6 +90,3 @@ const header = document.createElement("header");
 header.textContent = label;
 header.classList.add("prompt");
 root.appendChild(header);
-
-const all = document.querySelectorAll("*");
-console.log("dom", all[13]);

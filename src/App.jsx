@@ -69,7 +69,7 @@
 
 // export default App;
 
-import React, { Suspense, lazy } from "react";
+import React, { Suspense } from "react";
 import {
   Route,
   RouterProvider,
@@ -89,7 +89,7 @@ function App() {
   // Define your routes using createRoutesFromElements
   //   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   // IMPORTS OF LAZY LOADING
-  const RootLayout = lazy(() => import("./layout/RootLayout"));
+  // const RootLayout = lazy(() => import("./layout/RootLayout"));
   // const Feed = lazy(() => import("./pages/Feed"));
   // // const Quotes = lazy(() => import("./pages/Quotes"));
   // const Profile = lazy(() => import("./pages/Profile"));

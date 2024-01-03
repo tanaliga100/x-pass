@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import {
+  logoutHandler,
   monitorAuthState,
   signInEmailAndPassowrd,
   signUpEmailAndPassowrd,
 } from "../config/firebase.config";
 
 const TestAuth = () => {
+  // const [error, setError] = useState("");
   React.useEffect(() => {
     monitorAuthState();
     return () => monitorAuthState();
@@ -19,9 +21,9 @@ const TestAuth = () => {
 
   const signInHandler = async (e) => {
     e.preventDefault();
+    await signInEmailAndPassowrd(email, password);
     // console.log("email", email);
     // console.log("password", password);
-    await signInEmailAndPassowrd(email, password);
   };
 
   const signUpHandler = async (e) => {
@@ -96,6 +98,9 @@ const TestAuth = () => {
           </button>
         </div>
       </form>
+      <button className="btn" onClick={() => logoutHandler()}>
+        Logout
+      </button>
     </main>
   );
 };
