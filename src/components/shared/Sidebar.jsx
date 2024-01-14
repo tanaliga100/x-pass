@@ -12,11 +12,12 @@ const Sidebar = () => {
 
   const currentUser = useSelector((state) => state.auth.user);
 
+  // console.log("current user", currentUser);
+
   const email = currentUser.email;
   const atIndex = email.indexOf("@");
   const name = email.slice(0, atIndex);
 
-  console.log("current sidebar", currentUser);
   return (
     <Content className=" rounder-md  flex flex-col  items-center justify-start min-h-[70dvh] text-xs ">
       <pre className="font-thin pt-6">
